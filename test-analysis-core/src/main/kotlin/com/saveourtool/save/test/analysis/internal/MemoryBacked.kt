@@ -1,6 +1,6 @@
 package com.saveourtool.save.test.analysis.internal
 
-import com.saveourtool.save.domain.TestResultStatus
+import com.saveourtool.common.domain.TestResultStatus
 import com.saveourtool.save.test.analysis.api.TestId
 import com.saveourtool.save.test.analysis.api.TestRuns
 import com.saveourtool.save.test.analysis.api.TestStatisticsStorage

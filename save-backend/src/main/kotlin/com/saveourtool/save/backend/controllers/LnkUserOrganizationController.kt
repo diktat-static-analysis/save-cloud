@@ -7,24 +7,24 @@
 
 package com.saveourtool.save.backend.controllers
 
+import com.saveourtool.common.configs.ApiSwaggerSupport
+import com.saveourtool.common.configs.RequiresAuthorizationSourceHeader
+import com.saveourtool.common.domain.Role
+import com.saveourtool.common.entities.Organization
+import com.saveourtool.common.entities.OrganizationWithUsers
+import com.saveourtool.common.filters.OrganizationFilter
+import com.saveourtool.common.info.UserInfo
+import com.saveourtool.common.permission.Permission
+import com.saveourtool.common.permission.SetRoleRequest
+import com.saveourtool.common.security.OrganizationPermissionEvaluator
+import com.saveourtool.common.service.LnkUserOrganizationService
+import com.saveourtool.common.service.OrganizationService
+import com.saveourtool.common.utils.StringResponse
+import com.saveourtool.common.utils.switchIfEmptyToNotFound
+import com.saveourtool.common.utils.switchIfEmptyToResponseException
+import com.saveourtool.common.v1
 import com.saveourtool.save.authservice.utils.userId
 import com.saveourtool.save.authservice.utils.username
-import com.saveourtool.save.backend.security.OrganizationPermissionEvaluator
-import com.saveourtool.save.backend.service.LnkUserOrganizationService
-import com.saveourtool.save.backend.service.OrganizationService
-import com.saveourtool.save.configs.ApiSwaggerSupport
-import com.saveourtool.save.configs.RequiresAuthorizationSourceHeader
-import com.saveourtool.save.domain.Role
-import com.saveourtool.save.entities.Organization
-import com.saveourtool.save.entities.OrganizationWithUsers
-import com.saveourtool.save.filters.OrganizationFilter
-import com.saveourtool.save.info.UserInfo
-import com.saveourtool.save.permission.Permission
-import com.saveourtool.save.permission.SetRoleRequest
-import com.saveourtool.save.utils.StringResponse
-import com.saveourtool.save.utils.switchIfEmptyToNotFound
-import com.saveourtool.save.utils.switchIfEmptyToResponseException
-import com.saveourtool.save.v1
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter

@@ -6,12 +6,12 @@
 
 package com.saveourtool.save.frontend.components.basic
 
-import com.saveourtool.save.frontend.common.components.modal.largeTransparentModalStyle
-import com.saveourtool.save.frontend.common.components.modal.modal
-import com.saveourtool.save.frontend.common.externals.fontawesome.faTimesCircle
-import com.saveourtool.save.frontend.common.externals.fontawesome.fontAwesomeIcon
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.utils.URL_PATH_DELIMITER
+import com.saveourtool.common.utils.URL_PATH_DELIMITER
+import com.saveourtool.frontend.common.components.modal.largeTransparentModalStyle
+import com.saveourtool.frontend.common.components.modal.modal
+import com.saveourtool.frontend.common.externals.fontawesome.faTimesCircle
+import com.saveourtool.frontend.common.externals.fontawesome.fontAwesomeIcon
+import com.saveourtool.frontend.common.utils.*
 
 import org.w3c.fetch.Headers
 import react.*

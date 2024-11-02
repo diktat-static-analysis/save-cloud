@@ -1,16 +1,16 @@
 package com.saveourtool.save.test.analysis.api
 
-import com.saveourtool.save.domain.TestResultStatus.FAILED
-import com.saveourtool.save.domain.TestResultStatus.IGNORED
-import com.saveourtool.save.domain.TestResultStatus.PASSED
+import com.saveourtool.common.domain.TestResultStatus.FAILED
+import com.saveourtool.common.domain.TestResultStatus.IGNORED
+import com.saveourtool.common.domain.TestResultStatus.PASSED
 import com.saveourtool.save.test.analysis.api.TestAnalysisService.Factory.MINIMUM_RUN_COUNT
 import com.saveourtool.save.test.analysis.internal.ExtendedTestRun
 import com.saveourtool.save.test.analysis.internal.MemoryBacked
 import com.saveourtool.save.test.analysis.internal.MutableTestStatisticsStorage
-import com.saveourtool.save.test.analysis.results.FlakyTest
-import com.saveourtool.save.test.analysis.results.PermanentFailure
-import com.saveourtool.save.test.analysis.results.Regression
-import com.saveourtool.save.test.analysis.results.RegularTest
+import com.saveourtool.common.test.analysis.results.FlakyTest
+import com.saveourtool.common.test.analysis.results.PermanentFailure
+import com.saveourtool.common.test.analysis.results.Regression
+import com.saveourtool.common.test.analysis.results.RegularTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach

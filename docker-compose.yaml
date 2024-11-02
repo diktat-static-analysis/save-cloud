@@ -33,26 +33,6 @@ services:
       labels:
         - "prometheus-job=save-orchestrator"
     logging: *loki-logging-jvm
-  sandbox:
-    image: ghcr.io/saveourtool/save-sandbox:${SANDBOX_TAG}
-    user: root  # to access host's docker socket
-    environment:
-      - "SPRING_PROFILES_ACTIVE=${PROFILE},secure,docker-secrets"
-    secrets:
-      - db_username
-      - db_password
-    ports:
-      - "5400:5400"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - /home/saveu/configs/sandbox:/home/cnb/config
-      - save-tmp-resources:/tmp
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    deploy:
-      labels:
-        - "prometheus-job=save-sandbox"
-    logging: *loki-logging-jvm
   backend:
     image: ghcr.io/saveourtool/save-backend:${BACKEND_TAG}
     environment:

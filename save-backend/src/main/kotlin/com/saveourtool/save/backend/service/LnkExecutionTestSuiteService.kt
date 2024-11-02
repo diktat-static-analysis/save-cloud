@@ -1,9 +1,10 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.entities.Execution
+import com.saveourtool.common.entities.LnkExecutionTestSuite
+import com.saveourtool.common.entities.TestSuite
 import com.saveourtool.save.backend.repository.LnkExecutionTestSuiteRepository
-import com.saveourtool.save.entities.Execution
-import com.saveourtool.save.entities.LnkExecutionTestSuite
-import com.saveourtool.save.entities.TestSuite
+
 import org.springframework.stereotype.Service
 
 /**

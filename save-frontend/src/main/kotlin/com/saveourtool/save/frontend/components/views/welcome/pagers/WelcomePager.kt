@@ -1,6 +1,6 @@
 package com.saveourtool.save.frontend.components.views.welcome.pagers
 
-import com.saveourtool.save.frontend.common.externals.animations.Animation
+import com.saveourtool.frontend.common.externals.animations.Animation
 import com.saveourtool.save.frontend.components.views.welcome.pagers.save.*
 
 import react.ChildrenBuilder

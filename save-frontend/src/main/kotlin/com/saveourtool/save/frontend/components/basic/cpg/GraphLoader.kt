@@ -6,7 +6,7 @@
 
 package com.saveourtool.save.frontend.components.basic.cpg
 
-import com.saveourtool.save.demo.cpg.CpgGraph
+import com.saveourtool.common.demo.cpg.CpgGraph
 import com.saveourtool.save.frontend.externals.graph.paintNodes
 import com.saveourtool.save.frontend.externals.graph.sigma.layouts.LayoutInstance
 import com.saveourtool.save.frontend.externals.graph.sigma.layouts.useLayoutCircular

@@ -7,27 +7,27 @@
 
 package com.saveourtool.save.backend.controllers
 
-import com.saveourtool.save.backend.security.OrganizationPermissionEvaluator
+import com.saveourtool.common.configs.ApiSwaggerSupport
+import com.saveourtool.common.configs.RequiresAuthorizationSourceHeader
+import com.saveourtool.common.domain.Role
+import com.saveourtool.common.domain.isAllowedForContests
+import com.saveourtool.common.entities.LnkOrganizationTestSuiteDto
+import com.saveourtool.common.entities.TestSuite
+import com.saveourtool.common.filters.TestSuiteFilter
+import com.saveourtool.common.permission.Permission
+import com.saveourtool.common.permission.Rights
+import com.saveourtool.common.permission.SetRightsRequest
+import com.saveourtool.common.security.OrganizationPermissionEvaluator
+import com.saveourtool.common.service.OrganizationService
+import com.saveourtool.common.testsuite.TestSuiteVersioned
+import com.saveourtool.common.utils.StringResponse
+import com.saveourtool.common.utils.switchIfEmptyToNotFound
+import com.saveourtool.common.utils.switchIfEmptyToResponseException
+import com.saveourtool.common.v1
 import com.saveourtool.save.backend.security.TestSuitePermissionEvaluator
 import com.saveourtool.save.backend.service.LnkOrganizationTestSuiteService
-import com.saveourtool.save.backend.service.OrganizationService
 import com.saveourtool.save.backend.service.TestSuitesService
 import com.saveourtool.save.backend.service.TestsSourceVersionService
-import com.saveourtool.save.configs.ApiSwaggerSupport
-import com.saveourtool.save.configs.RequiresAuthorizationSourceHeader
-import com.saveourtool.save.domain.Role
-import com.saveourtool.save.domain.isAllowedForContests
-import com.saveourtool.save.entities.LnkOrganizationTestSuiteDto
-import com.saveourtool.save.entities.TestSuite
-import com.saveourtool.save.filters.TestSuiteFilter
-import com.saveourtool.save.permission.Permission
-import com.saveourtool.save.permission.Rights
-import com.saveourtool.save.permission.SetRightsRequest
-import com.saveourtool.save.testsuite.TestSuiteVersioned
-import com.saveourtool.save.utils.StringResponse
-import com.saveourtool.save.utils.switchIfEmptyToNotFound
-import com.saveourtool.save.utils.switchIfEmptyToResponseException
-import com.saveourtool.save.v1
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
@@ -50,7 +50,7 @@ import reactor.kotlin.core.util.function.component2
 /**
  * Controller for processing links between organizations and their rights over test suites
  */
-@ApiSwaggerSupport
+@com.saveourtool.common.configs.ApiSwaggerSupport
 @Tags(
     Tag(name = "rights"),
     Tag(name = "organizations"),

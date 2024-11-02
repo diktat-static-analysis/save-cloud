@@ -1,9 +1,9 @@
 package com.saveourtool.save.orchestrator.controller.agents
 
-import com.saveourtool.save.entities.Execution
-import com.saveourtool.save.entities.Project
-import com.saveourtool.save.execution.ExecutionStatus
-import com.saveourtool.save.execution.TestingType
+import com.saveourtool.common.entities.Execution
+import com.saveourtool.common.entities.Project
+import com.saveourtool.common.execution.ExecutionStatus
+import com.saveourtool.common.execution.TestingType
 import com.saveourtool.save.orchestrator.controller.AgentsController
 import com.saveourtool.save.orchestrator.runner.ContainerRunner
 import com.saveourtool.save.orchestrator.runner.EXECUTION_DIR

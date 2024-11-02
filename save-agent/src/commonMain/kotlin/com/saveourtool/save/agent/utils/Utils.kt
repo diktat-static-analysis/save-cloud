@@ -4,10 +4,10 @@
 
 package com.saveourtool.save.agent.utils
 
+import com.saveourtool.common.agent.AgentEnvName
+import com.saveourtool.common.utils.optionalEnv
 import com.saveourtool.save.agent.AgentConfiguration
-import com.saveourtool.save.agent.AgentEnvName
 import com.saveourtool.save.core.logging.logTrace
-import com.saveourtool.save.utils.optionalEnv
 
 internal const val SAVE_CLI_EXECUTABLE_NAME = "save-linuxX64.kexe"
 internal const val TEST_SUITES_DIR_NAME = "test-suites"

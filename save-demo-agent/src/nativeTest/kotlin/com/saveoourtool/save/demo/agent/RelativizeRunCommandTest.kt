@@ -1,7 +1,7 @@
 package com.saveoourtool.save.demo.agent
 
-import com.saveourtool.save.demo.DemoRunRequest
-import com.saveourtool.save.demo.RunConfiguration
+import com.saveourtool.common.demo.DemoRunRequest
+import com.saveourtool.common.demo.RunConfiguration
 import com.saveourtool.save.demo.agent.getRelativeRunCommand
 import okio.Path.Companion.toPath
 import kotlin.test.Test

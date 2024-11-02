@@ -7,7 +7,7 @@ package com.saveourtool.save.orchestrator.utils
 import com.github.dockerjava.api.DockerClient
 import com.github.dockerjava.api.command.SyncDockerCmd
 import com.github.dockerjava.api.exception.DockerException
-import com.saveourtool.save.utils.EmptyResponse
+import com.saveourtool.common.utils.EmptyResponse
 import org.springframework.http.ResponseEntity
 import reactor.core.publisher.Mono
 

@@ -1,9 +1,9 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.entities.Contest
+import com.saveourtool.common.entities.Organization
+import com.saveourtool.common.entities.contest.ContestStatus
 import com.saveourtool.save.backend.repository.contest.ContestRepository
-import com.saveourtool.save.entities.Contest
-import com.saveourtool.save.entities.Organization
-import com.saveourtool.save.entities.contest.ContestStatus
 
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable

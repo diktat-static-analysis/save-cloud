@@ -1,9 +1,9 @@
 package com.saveourtool.save.preprocessor.test.suite
 
-import com.saveourtool.save.test.TestSuiteValidationProgress
-import com.saveourtool.save.test.TestSuiteValidationResult
-import com.saveourtool.save.testsuite.TestSuiteDto
-import com.saveourtool.save.utils.getLogger
+import com.saveourtool.common.test.TestSuiteValidationProgress
+import com.saveourtool.common.test.TestSuiteValidationResult
+import com.saveourtool.common.testsuite.TestSuiteDto
+import com.saveourtool.common.utils.getLogger
 
 /**
  * Test suites with wildcard mode.

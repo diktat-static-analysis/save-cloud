@@ -6,15 +6,15 @@
 
 package com.saveourtool.save.frontend.components.views
 
-import com.saveourtool.save.entities.benchmarks.BenchmarkCategoryEnum
-import com.saveourtool.save.frontend.common.components.RequestStatusContext
-import com.saveourtool.save.frontend.common.components.requestStatusContext
-import com.saveourtool.save.frontend.common.components.views.AbstractView
-import com.saveourtool.save.frontend.common.externals.fontawesome.*
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.utils.AwesomeBenchmarks
-import com.saveourtool.save.utils.DATABASE_DELIMITER
-import com.saveourtool.save.validation.FrontendRoutes
+import com.saveourtool.common.entities.benchmarks.BenchmarkCategoryEnum
+import com.saveourtool.common.utils.AwesomeBenchmarks
+import com.saveourtool.common.utils.DATABASE_DELIMITER
+import com.saveourtool.common.validation.FrontendRoutes
+import com.saveourtool.frontend.common.components.RequestStatusContext
+import com.saveourtool.frontend.common.components.requestStatusContext
+import com.saveourtool.frontend.common.components.views.AbstractView
+import com.saveourtool.frontend.common.externals.fontawesome.*
+import com.saveourtool.frontend.common.utils.*
 
 import js.core.jso
 import org.w3c.fetch.Headers

@@ -13,23 +13,27 @@ Our key focus is to make life of developers who analyze code easier.
     - Use SAVE to create an **online demo for your analyzer** and set it up for your community's use;
     - Benchmarks Archive with the **list of popular benchmarks** (with a reference to [awesome-benchmarks](https://github.com/saveourtool/awesome-benchmarks)).
 
-2. **VULN** - A platform designed for the **reporting**, aggregation, and deduplication of one-day **vulnerabilities**.
+2. **COSV** - A platform designed for the **reporting**, aggregation, and deduplication of one-day **vulnerabilities**.
 
-Additionally, on our platform we host **contests** in the field of code analysis. 
+Additionally, on our platform we host **contests** in the field of code analysis.
 This provides an opportunity for you to submit your automated solutions for bug detection, and compete with other innovative projects.
 
 ## Links
 - Collection of Code Analyzers Demo: [Demo](https://saveourtool.com/demo)
 - Benchmarks Archive: [Benchmarks](https://saveourtool.com/awesome-benchmarks)
 - CI projects: [CI Projects](https://saveourtool.com/projects)
-- Vulnerabilities Collection: [1-day Vulnerabilities](https://saveourtool.com/vuln/list)
+- Vulnerabilities Collection: [1-day Vulnerabilities](https://cosv.gitlink.org.cn)
 
 ## Motivation
 - [Motivation of **SAVE** and more details](info/SaveMotivation.md)
 - Motivation of **VULN** and more details: TBD
 
 ## High-level perspective
+#### SAVE
 ![SAVE processing](https://user-images.githubusercontent.com/58667063/146387903-24ba9c91-a2a3-45e7-a07a-cb7bc388e4aa.jpg)
+
+#### COSV
+<img width="1306" alt="image" src="https://github.com/saveourtool/save-cloud/assets/58667063/008b0976-98c2-4195-bdf5-570a70b07827">
 
 ## Build and deploy
 To build the project and run all tests, execute `./gradlew build`. 
@@ -44,4 +48,10 @@ For more detailed instructions, including **deployment instructions**, see [save
   proxied as configured in [dev-server.js](../save-frontend/webpack.config.d/dev-server.js). User will be hardcoded with `admin` user. 
 
 ## Architecture and design
-<img src="/info/img/save-diagram.png" width="512px"/>
+Save:
+
+<img src="/info/img/save-diagram.png" width="768px"/>
+
+COSV:
+
+<img src="/info/img/cosv-diagram.PNG" width="768px"/>

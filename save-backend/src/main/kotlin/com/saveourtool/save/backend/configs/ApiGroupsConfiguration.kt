@@ -1,7 +1,7 @@
 package com.saveourtool.save.backend.configs
 
-import com.saveourtool.save.latestVersion
-import com.saveourtool.save.v1
+import com.saveourtool.common.latestVersion
+import com.saveourtool.common.v1
 
 import io.swagger.v3.oas.models.Components
 import io.swagger.v3.oas.models.OpenAPI

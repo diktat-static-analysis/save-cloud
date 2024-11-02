@@ -4,8 +4,8 @@
 
 package com.saveourtool.save.backend.utils
 
-import com.saveourtool.save.domain.EntitySaveStatus
-import com.saveourtool.save.domain.Role
+import com.saveourtool.common.domain.EntitySaveStatus
+import com.saveourtool.common.domain.Role
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.Authentication

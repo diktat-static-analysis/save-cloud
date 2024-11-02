@@ -1,10 +1,11 @@
 package com.saveourtool.save.backend.security
 
+import com.saveourtool.common.entities.Organization
+import com.saveourtool.common.entities.TestSuite
+import com.saveourtool.common.permission.Permission
+import com.saveourtool.common.permission.Rights
 import com.saveourtool.save.backend.service.LnkOrganizationTestSuiteService
-import com.saveourtool.save.entities.Organization
-import com.saveourtool.save.entities.TestSuite
-import com.saveourtool.save.permission.Permission
-import com.saveourtool.save.permission.Rights
+
 import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Component
 

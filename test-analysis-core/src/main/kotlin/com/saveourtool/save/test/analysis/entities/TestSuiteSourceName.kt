@@ -1,6 +1,6 @@
 package com.saveourtool.save.test.analysis.entities
 
-import com.saveourtool.save.entities.Execution
+import com.saveourtool.common.entities.Execution
 
 /**
  * Test suite source name, intended to be assignment-incompatible with the

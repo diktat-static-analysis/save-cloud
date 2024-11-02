@@ -4,12 +4,12 @@
 
 package com.saveourtool.save.frontend.externals.graph
 
-import com.saveourtool.save.demo.cpg.CpgEdge
-import com.saveourtool.save.demo.cpg.CpgGraph
-import com.saveourtool.save.demo.cpg.CpgNode
-import com.saveourtool.save.demo.cpg.cytoscape.CytoscapeEdge
-import com.saveourtool.save.demo.cpg.cytoscape.CytoscapeGraph
-import com.saveourtool.save.demo.cpg.cytoscape.CytoscapeNode
+import com.saveourtool.common.demo.cpg.CpgEdge
+import com.saveourtool.common.demo.cpg.CpgGraph
+import com.saveourtool.common.demo.cpg.CpgNode
+import com.saveourtool.common.demo.cpg.cytoscape.CytoscapeEdge
+import com.saveourtool.common.demo.cpg.cytoscape.CytoscapeGraph
+import com.saveourtool.common.demo.cpg.cytoscape.CytoscapeNode
 
 import js.core.jso
 

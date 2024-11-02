@@ -1,14 +1,14 @@
 package com.saveourtool.save.demo.service
 
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.entities.FileDto
+import com.saveourtool.common.utils.*
+import com.saveourtool.common.utils.github.GitHubHelper.downloadAsset
+import com.saveourtool.common.utils.github.GitHubHelper.queryMetadata
+import com.saveourtool.common.utils.github.ReleaseAsset
 import com.saveourtool.save.demo.config.ConfigProperties
 import com.saveourtool.save.demo.entity.*
 import com.saveourtool.save.demo.storage.DependencyStorage
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.entities.FileDto
-import com.saveourtool.save.utils.*
-import com.saveourtool.save.utils.github.GitHubHelper.downloadAsset
-import com.saveourtool.save.utils.github.GitHubHelper.queryMetadata
-import com.saveourtool.save.utils.github.ReleaseAsset
 
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*

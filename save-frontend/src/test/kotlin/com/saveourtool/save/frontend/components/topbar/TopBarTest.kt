@@ -1,7 +1,7 @@
 package com.saveourtool.save.frontend.components.topbar
 
 import com.saveourtool.save.frontend.externals.*
-import com.saveourtool.save.info.UserInfo
+import com.saveourtool.common.info.UserInfo
 
 import web.html.HTMLDivElement
 import web.html.HTMLSpanElement

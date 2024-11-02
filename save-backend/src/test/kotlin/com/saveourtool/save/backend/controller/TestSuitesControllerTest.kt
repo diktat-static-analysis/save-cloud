@@ -4,8 +4,8 @@ import com.saveourtool.save.backend.SaveApplication
 import com.saveourtool.save.backend.controllers.ProjectController
 import com.saveourtool.save.backend.repository.*
 import com.saveourtool.save.backend.utils.InfraExtension
-import com.saveourtool.save.entities.TestSuite
-import com.saveourtool.save.testsuite.TestSuiteDto
+import com.saveourtool.common.entities.TestSuite
+import com.saveourtool.common.testsuite.TestSuiteDto
 import com.saveourtool.save.testutils.checkQueues
 import com.saveourtool.save.testutils.cleanup
 import com.saveourtool.save.testutils.createMockWebServer

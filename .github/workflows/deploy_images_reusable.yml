@@ -29,7 +29,7 @@ jobs:
 
     steps:
       - name: checkout save-cloud
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ inputs.branch }}
@@ -41,7 +41,7 @@ jobs:
           echo SAVE_DEMO_AGENT_GRADLE_OPTS = >> $GITHUB_ENV
           echo GRADLE_TASKS=:${{ inputs.module}}:bootBuildImage >> $GITHUB_ENV
       - name: Override gradle command for frontend
-        if: inputs.module == 'save-frontend' || inputs.module == 'save-cosv-frontend'
+        if: inputs.module == 'save-frontend' || inputs.module == 'cosv-frontend'
         run: |
           echo GRADLE_TASKS=:${{ inputs.module}}:buildImage >> $GITHUB_ENV
       - name: Override dockerTag
@@ -53,19 +53,19 @@ jobs:
           kv=$(cat gradle/libs.versions.toml | grep -m1 '^kotlin =' | awk -F'[=]' '{print $2}' | tr -d '" ')
           echo KOTLIN_VERSION=$kv >> $GITHUB_ENV
       - name: Cache konan
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.konan
           key: ${{ runner.os }}-gradle-konan-${{ env.KOTLIN_VERSION }}
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: 17
           distribution: temurin
 
       - name: Download save-cli
         if: ${{ endsWith(inputs.save-cli-version, '-SNAPSHOT') }}
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: save-cli
           path: ${{ github.workspace }}/save-cli
@@ -75,19 +75,19 @@ jobs:
           echo SAVE_CLI_GRADLE_OPTS=-PsaveCliVersion=${{ inputs.save-cli-version }} -PsaveCliPath=${{ github.workspace }}/save-cli >> $GITHUB_ENV
 
       - name: Download save-agent
-        if: inputs.module == 'save-backend' || inputs.module == 'save-sandbox'
-        uses: actions/download-artifact@v3
+        if: inputs.module == 'save-backend'
+        uses: actions/download-artifact@v4
         with:
           name: save-agent
           path: ${{ github.workspace }}/save-agent
       - name: Set saveAgentPath in Gradle
-        if: inputs.module == 'save-backend' || inputs.module == 'save-sandbox'
+        if: inputs.module == 'save-backend'
         run: |
           echo SAVE_AGENT_GRADLE_OPTS=-PsaveAgentPath=${{ github.workspace }}/save-agent >> $GITHUB_ENV
 
       - name: Download save-demo-agent
         if: inputs.module == 'save-demo'
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: save-demo-agent
           path: ${{ github.workspace }}/save-demo-agent
@@ -97,7 +97,7 @@ jobs:
           echo SAVE_DEMO_AGENT_GRADLE_OPTS=-PsaveDemoAgentPath=${{ github.workspace }}/save-demo-agent >> $GITHUB_ENV
 
       - name: Build image for ${{ inputs.module }}
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: wrapper
           arguments: |
@@ -113,7 +113,7 @@ jobs:
             ${{ env.ADDITIONAL_GRADLE_OPTS }}
       - name: Upload gradle reports
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gradle-reports
           path: '**/build/reports/'

@@ -1,6 +1,6 @@
 package com.saveourtool.save.test.analysis.entities
 
-import com.saveourtool.save.entities.TestSuite
+import com.saveourtool.common.entities.TestSuite
 
 /**
  * Test suite name, intended to be assignment-incompatible with the regular

@@ -1,16 +1,17 @@
 package com.saveourtool.save.backend.controllers
 
-import com.saveourtool.save.backend.security.CommentPermissionEvaluator
-import com.saveourtool.save.backend.service.CommentService
-import com.saveourtool.save.configs.ApiSwaggerSupport
-import com.saveourtool.save.entities.Comment
-import com.saveourtool.save.entities.CommentDto
-import com.saveourtool.save.permission.Permission
-import com.saveourtool.save.utils.StringResponse
-import com.saveourtool.save.utils.blockingToMono
-import com.saveourtool.save.utils.switchIfEmptyToNotFound
-import com.saveourtool.save.utils.switchIfEmptyToResponseException
-import com.saveourtool.save.v1
+import com.saveourtool.common.configs.ApiSwaggerSupport
+import com.saveourtool.common.entities.Comment
+import com.saveourtool.common.entities.CommentDto
+import com.saveourtool.common.permission.Permission
+import com.saveourtool.common.security.CommentPermissionEvaluator
+import com.saveourtool.common.service.CommentService
+import com.saveourtool.common.utils.StringResponse
+import com.saveourtool.common.utils.blockingToMono
+import com.saveourtool.common.utils.switchIfEmptyToNotFound
+import com.saveourtool.common.utils.switchIfEmptyToResponseException
+import com.saveourtool.common.v1
+
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag

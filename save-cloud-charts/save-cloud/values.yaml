@@ -2,6 +2,9 @@ imageRegistry: ghcr.io/saveourtool
 # dockerTag: <TDB>  # this should be set explicitly during chart installation
 
 env: staging
+# Additional certs installation for internal CA case
+initCerts:
+  enabled: false
 # Unless overridden, this will be set as Spring profile of a component.
 profile: dev
 pullPolicy: IfNotPresent
@@ -18,10 +21,25 @@ backend:
   # Fixed ClusterIP can be assigned to make it easier to query backend from services outside Kubernetes.
   # Should be chosen depending on cluster's network configuration: https://kubernetes.io/docs/concepts/services-networking/service/#choosing-your-own-ip-address.
   clusterIP: null
+  # Additional properties for `application.properties` file that will be mounted as an optional property source.
+  applicationProperties:
+backend_cosv:
+  name: backend-cosv
+  profile: dev,secure,kubernetes
+  imageName: cosv-backend
+  containerPort: 5700
+  managementPort: 5701
+  clusterIP: null
+  # Additional properties for `application.properties` file that will be mounted as an optional property source.
+  applicationProperties:
 frontend:
   name: frontend
   imageName: save-frontend
   containerPort: 5810
+frontend_cosv:
+  name: frontend-cosv
+  imageName: cosv-frontend
+  containerPort: 5820
 orchestrator:
   name: orchestrator
   imageName: save-orchestrator
@@ -30,15 +48,8 @@ orchestrator:
   # Fixed ClusterIP can be assigned to make it easier to query orchestrator from services outside Kubernetes
   clusterIP: null
   dockerHost: tcp://${HOST_IP}:2375
-sandbox:
-  name: sandbox
-  profile: dev,secure
-  imageName: save-sandbox
-  containerPort: 5400
-  managementPort: 5401
-  # Fixed ClusterIP can be assigned to make it easier to query orchestrator from services outside Kubernetes
-  clusterIP: null
-  dockerHost: tcp://${HOST_IP}:2375
+  # Additional properties for `application.properties` file that will be mounted as an optional property source.
+  applicationProperties:
 preprocessor:
   name: preprocessor
   imageName: save-preprocessor
@@ -46,6 +57,8 @@ preprocessor:
   managementPort: 5201
   # Fixed ClusterIP can be assigned to make it easier to query preprocessor from services outside Kubernetes
   clusterIP: null
+  # Additional properties for `application.properties` file that will be mounted as an optional property source.
+  applicationProperties:
 gateway:
   name: gateway
   profile: dev,kubernetes
@@ -58,31 +71,18 @@ gateway:
     annotations: {}
     # Any additional options for Service `spec` block
     spec: {}
-s3:
-  external: true
-  secretFile: /home/cnb/secrets/s3_secrets
 storage:
-  size: 10Gi
-reposStorage:
-  size: 2Gi
-logsStorage:
-  size: 2Gi
+  size: 24Gi
+  annotations: {}
+s3:
+  secretFile: /home/cnb/secrets/s3_secrets
 mysql:
-  # If true, a Service will be created to enable communication with an external DB by its IP.
-  # If false, a Deployment will be created for a MySQL pod.
-  external: true
-  # IP address of an external MySQL database.
-  # As an example, this is what may be a resolved IP of `host.minikube.internal`.
-  ip: 192.168.65.2
   # Name of the database schema that will be used by save-cloud deployment
   backend_schema: save_cloud
-  sandbox_schema: save_sandbox
   demo_schema: save_demo
   cosv_schema: cosv
-  root_password: '123'
   migrations:
-    # Whether database migrations should be executed while deploying the application
-    enabled: false
+    branch: {}
   dbPasswordFile: /home/cnb/secrets/db_secrets
 
 # Values for dependencies
@@ -211,6 +211,8 @@ demo_cpg:
   containerPort: 5500
   managementPort: 5501
   clusterIP: null
+  applicationProperties: |
+    spring.neo4j.authentication.password={{ .Values.neo4j.neo4j.password }}
 demo:
   name: demo
   profile: dev
@@ -220,6 +222,20 @@ demo:
   clusterIP: null
   agentSubdomainName: demo-agent-service
   agentPort: 23456
+  # Additional properties for `application.properties` file that will be mounted as an optional property source.
+  applicationProperties:
 
 namespace: save-cloud
 agentNamespace: save-agent
+
+# optional proxy params
+proxy:
+  enabled: false
+  extraEnv:
+    - name: http_proxy
+      value: {}
+    - name: HTTPS_PROXY
+      value: {}
+    - name: NO_PROXY
+      value: {}
+  extraArgs: {}

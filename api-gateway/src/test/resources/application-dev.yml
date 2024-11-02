@@ -4,8 +4,6 @@ gateway:
   frontend:
     # In the "dev" environment, the front-end uses TCP port 8080 when run using `webpack-dev-server` (i.e. `browserDevelopmentRun` or `run` Gradle task).
     url: http://localhost:8080
-  sandbox:
-    url: http://localhost:5400
   demo:
     url: http://localhost:5421
   demo-cpg:

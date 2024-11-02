@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout save-cloud
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ inputs.branch }}
@@ -43,7 +43,7 @@ jobs:
           kv=$(cat gradle/libs.versions.toml | grep -m1 '^kotlin =' | awk -F'[=]' '{print $2}' | tr -d '" ')
           echo KOTLIN_VERSION=$kv >> $GITHUB_ENV
       - name: Cache konan
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.konan
           key: ${{ runner.os }}-gradle-konan-${{ env.KOTLIN_VERSION }}
@@ -57,7 +57,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev
 
       - name: Build save-agent and save-demo-agent
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: wrapper
           arguments: |
@@ -73,20 +73,20 @@ jobs:
 
       - name: Upload save-agent
         if: inputs.build-save-agent
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: save-agent
           path: 'save-agent/build/libs/save-agent-*-distribution.jar'
       - name: Upload save-demo-agent
         if: inputs.build-save-demo-agent
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: save-demo-agent
           path: 'save-demo-agent/build/libs/save-demo-agent-*-distribution.jar'
 
       - name: Upload gradle reports
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gradle-reports
           path: '**/build/reports/'

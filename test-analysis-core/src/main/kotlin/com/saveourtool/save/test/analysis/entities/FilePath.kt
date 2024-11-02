@@ -1,6 +1,6 @@
 package com.saveourtool.save.test.analysis.entities
 
-import com.saveourtool.save.entities.Test
+import com.saveourtool.common.entities.Test
 
 /**
  * File path, intended to be assignment-incompatible with the regular string.

@@ -4,8 +4,8 @@
 
 package com.saveourtool.save.preprocessor.utils
 
-import com.saveourtool.save.entities.GitDto
-import com.saveourtool.save.utils.debug
+import com.saveourtool.common.entities.GitDto
+import com.saveourtool.common.utils.debug
 import org.eclipse.jgit.api.*
 import org.eclipse.jgit.api.errors.GitAPIException
 import org.eclipse.jgit.lib.Constants

@@ -4,10 +4,10 @@
 
 package com.saveourtool.save.frontend.components.views.index
 
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.noopResponseHandler
+import com.saveourtool.common.info.OauthProviderInfo
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.noopResponseHandler
 import com.saveourtool.save.frontend.externals.i18next.useTranslation
-import com.saveourtool.save.info.OauthProviderInfo
 
 import org.w3c.fetch.Headers
 import react.FC

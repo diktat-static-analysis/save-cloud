@@ -2,12 +2,12 @@
 
 package com.saveourtool.save.frontend.components.basic.codeeditor
 
-import com.saveourtool.save.frontend.common.components.basic.cardComponent
-import com.saveourtool.save.frontend.common.externals.fontawesome.*
-import com.saveourtool.save.frontend.common.utils.buttonBuilder
-import com.saveourtool.save.frontend.common.utils.selectorBuilder
+import com.saveourtool.common.utils.Languages
+import com.saveourtool.frontend.common.components.basic.cardComponent
+import com.saveourtool.frontend.common.externals.fontawesome.*
+import com.saveourtool.frontend.common.utils.buttonBuilder
+import com.saveourtool.frontend.common.utils.selectorBuilder
 import com.saveourtool.save.frontend.externals.reactace.AceThemes
-import com.saveourtool.save.utils.Languages
 
 import react.ChildrenBuilder
 import react.dom.html.ReactHTML.div

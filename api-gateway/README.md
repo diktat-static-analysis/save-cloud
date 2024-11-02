@@ -25,7 +25,6 @@ and performs some necessary filtering and header manipulation to ensure proper c
 The routes are defined based on specific URI paths:
  - `/sec/**` is not forwarded anywhere but `api-gateway`'s `SecurityInfoController`,
     which is responsible for `/sec/oauth-providers` endpoint
- - `/api/sandbox` is forwarded to `save-sandbox`
  - `/api/demo` is forwarded to `save-demo`
  - `/api/cpg` is forwarded to `save-cpg-demo`
  - `/api/**` is forwarded to `save-backend`

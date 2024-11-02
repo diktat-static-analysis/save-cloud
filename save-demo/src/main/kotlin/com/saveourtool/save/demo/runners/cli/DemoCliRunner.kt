@@ -1,14 +1,17 @@
 package com.saveourtool.save.demo.runners.cli
 
-import com.saveourtool.save.demo.DemoRunRequest
+import com.saveourtool.common.demo.DemoRunRequest
+import com.saveourtool.common.utils.getLogger
 import com.saveourtool.save.demo.entity.Demo
 import com.saveourtool.save.demo.runners.command.CommandBuilder
 import com.saveourtool.save.demo.runners.command.CommandContext
 import com.saveourtool.save.demo.storage.DependencyStorage
 import com.saveourtool.save.demo.storage.toToolKey
-import com.saveourtool.save.utils.getLogger
+
 import org.slf4j.Logger
+
 import java.nio.file.Path
+
 import kotlin.io.path.createTempDirectory
 
 /**

@@ -4,9 +4,9 @@
 
 package com.saveourtool.save.frontend.components.views.contests
 
-import com.saveourtool.save.entities.ProjectDto
-import com.saveourtool.save.frontend.common.externals.fontawesome.faUser
-import com.saveourtool.save.frontend.common.utils.*
+import com.saveourtool.common.entities.ProjectDto
+import com.saveourtool.frontend.common.externals.fontawesome.faUser
+import com.saveourtool.frontend.common.utils.*
 
 import js.core.jso
 import react.*

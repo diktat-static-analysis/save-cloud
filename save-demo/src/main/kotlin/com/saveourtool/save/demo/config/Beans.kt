@@ -1,6 +1,6 @@
 package com.saveourtool.save.demo.config
 
-import com.saveourtool.save.utils.BlockingBridge
+import com.saveourtool.common.utils.BlockingBridge
 import io.fabric8.kubernetes.client.ConfigBuilder
 import io.fabric8.kubernetes.client.KubernetesClient
 import io.fabric8.kubernetes.client.KubernetesClientBuilder

@@ -1,8 +1,9 @@
 package com.saveourtool.save.orchestrator.controller
 
-import com.saveourtool.save.kafka.TestExecutionTaskDto
+import com.saveourtool.common.kafka.TestExecutionTaskDto
+import com.saveourtool.common.v1
 import com.saveourtool.save.orchestrator.kafka.KafkaSender
-import com.saveourtool.save.v1
+
 import org.springframework.context.annotation.Profile
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody

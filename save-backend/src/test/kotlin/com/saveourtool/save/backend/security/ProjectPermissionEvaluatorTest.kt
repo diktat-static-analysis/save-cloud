@@ -1,17 +1,18 @@
 package com.saveourtool.save.backend.security
 
-import com.saveourtool.save.backend.repository.LnkUserProjectRepository
-import com.saveourtool.save.backend.repository.UserRepository
-import com.saveourtool.save.backend.service.LnkUserProjectService
-import com.saveourtool.save.backend.service.UserDetailsService
 import com.saveourtool.save.authservice.utils.SaveUserDetails
-import com.saveourtool.save.backend.service.LnkUserOrganizationService
-import com.saveourtool.save.domain.Role
-import com.saveourtool.save.entities.LnkUserProject
-import com.saveourtool.save.entities.Project
-import com.saveourtool.save.entities.User
-import com.saveourtool.save.info.UserStatus
-import com.saveourtool.save.permission.Permission
+import com.saveourtool.common.domain.Role
+import com.saveourtool.common.entities.LnkUserProject
+import com.saveourtool.common.entities.Project
+import com.saveourtool.common.entities.User
+import com.saveourtool.common.info.UserStatus
+import com.saveourtool.common.permission.Permission
+import com.saveourtool.common.repository.LnkUserProjectRepository
+import com.saveourtool.common.repository.UserRepository
+import com.saveourtool.common.security.ProjectPermissionEvaluator
+import com.saveourtool.common.service.LnkUserOrganizationService
+import com.saveourtool.common.service.LnkUserProjectService
+import com.saveourtool.common.service.UserService
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
@@ -36,7 +37,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 class ProjectPermissionEvaluatorTest {
     @Autowired private lateinit var projectPermissionEvaluator: ProjectPermissionEvaluator
     @MockBean private lateinit var lnkUserProjectRepository: LnkUserProjectRepository
-    @MockBean private lateinit var userDetailsService: UserDetailsService
+    @MockBean private lateinit var userDetailsService: UserService
     private lateinit var mockProject: Project
 
     private val ownerPermissions = Permission.values().filterNot { it == Permission.BAN }.toTypedArray()
@@ -136,6 +137,7 @@ class ProjectPermissionEvaluatorTest {
     ) {
         val authentication = mockAuth(username, role.asSpringSecurityRole(), id = userId)
         given(userDetailsService.getGlobalRole(any())).willReturn(Role.VIEWER)
+        given(userDetailsService.getUserByName(any())).willReturn(mockUser(userId))
         whenever(lnkUserProjectRepository.findByUserIdAndProject(any(), any())).thenAnswer { invocation ->
             LnkUserProject(
                 invocation.arguments[1] as Project,

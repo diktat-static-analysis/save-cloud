@@ -11,16 +11,16 @@
 
 package com.saveourtool.save.frontend.components.views.welcome
 
-import com.saveourtool.save.frontend.common.components.views.welcome.pagers.allSaveWelcomePagers
-import com.saveourtool.save.frontend.common.components.views.welcome.pagers.save.renderGeneralInfoPage
-import com.saveourtool.save.frontend.common.components.views.welcome.pagers.save.renderReadMorePage
-import com.saveourtool.save.frontend.common.externals.animations.*
-import com.saveourtool.save.frontend.common.externals.fontawesome.*
-import com.saveourtool.save.frontend.common.externals.i18next.useTranslation
-import com.saveourtool.save.frontend.common.themes.Colors
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.info.OauthProviderInfo
-import com.saveourtool.save.validation.FrontendRoutes
+import com.saveourtool.common.info.OauthProviderInfo
+import com.saveourtool.common.validation.FrontendRoutes
+import com.saveourtool.frontend.common.components.views.welcome.pagers.allSaveWelcomePagers
+import com.saveourtool.frontend.common.components.views.welcome.pagers.save.renderGeneralInfoPage
+import com.saveourtool.frontend.common.components.views.welcome.pagers.save.renderReadMorePage
+import com.saveourtool.frontend.common.externals.animations.*
+import com.saveourtool.frontend.common.externals.fontawesome.*
+import com.saveourtool.frontend.common.externals.i18next.useTranslation
+import com.saveourtool.frontend.common.themes.Colors
+import com.saveourtool.frontend.common.utils.*
 
 import js.core.jso
 import org.w3c.fetch.Headers

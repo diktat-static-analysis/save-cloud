@@ -1,9 +1,9 @@
 package com.saveourtool.save.frontend.externals.i18next
 
-import com.saveourtool.save.frontend.PlatformLanguages
-import com.saveourtool.save.frontend.common.externals.cookie.cookie
-import com.saveourtool.save.frontend.common.externals.cookie.isAccepted
-import com.saveourtool.save.frontend.common.externals.cookie.saveLanguageCode
+import com.saveourtool.common.frontend.PlatformLanguages
+import com.saveourtool.frontend.common.externals.cookie.cookie
+import com.saveourtool.frontend.common.externals.cookie.isAccepted
+import com.saveourtool.frontend.common.externals.cookie.saveLanguageCode
 
 typealias TranslationFunction = String.() -> String
 

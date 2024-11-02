@@ -1,6 +1,10 @@
 package com.saveourtool.save.backend.controllers.internal
 
-import com.saveourtool.save.agent.*
+import com.saveourtool.common.agent.*
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.storage.impl.InternalFileKey
+import com.saveourtool.common.test.TestDto
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.backend.configs.ConfigProperties
 import com.saveourtool.save.backend.repository.AgentStatusRepository
 import com.saveourtool.save.backend.service.AgentService
@@ -10,10 +14,6 @@ import com.saveourtool.save.backend.service.TestService
 import com.saveourtool.save.backend.storage.BackendInternalFileStorage
 import com.saveourtool.save.backend.storage.FileStorage
 import com.saveourtool.save.backend.storage.TestsSourceSnapshotStorage
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.storage.impl.InternalFileKey
-import com.saveourtool.save.test.TestDto
-import com.saveourtool.save.utils.*
 
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
@@ -57,7 +57,7 @@ class AgentsController(
     @GetMapping("/agents/get-init-config")
     fun getInitConfig(
         @RequestParam containerId: String,
-    ): Mono<AgentInitConfig> = getAgentByContainerIdAsMono(containerId)
+    ): Mono<com.saveourtool.common.agent.AgentInitConfig> = getAgentByContainerIdAsMono(containerId)
         .map {
             agentService.getExecution(it)
         }
@@ -90,7 +90,7 @@ class AgentsController(
     @Transactional
     fun getNextRunConfig(
         @RequestParam containerId: String,
-    ): Mono<AgentRunConfig> = getAgentByContainerIdAsMono(containerId)
+    ): Mono<com.saveourtool.common.agent.AgentRunConfig> = getAgentByContainerIdAsMono(containerId)
         .map {
             agentService.getExecution(it)
         }
@@ -101,7 +101,7 @@ class AgentsController(
         .map { (execution, testBatch) ->
             val backendUrl = configProperties.agentSettings.backendUrl
 
-            testBatch to AgentRunConfig(
+            testBatch to com.saveourtool.common.agent.AgentRunConfig(
                 cliArgs = testBatch.constructCliCommand(),
                 executionDataUploadUrl = "$backendUrl/internal/saveTestResult",
                 debugInfoUploadUrl = "$backendUrl/internal/files/debug-info?executionId=${execution.requiredId()}"
@@ -139,7 +139,7 @@ class AgentsController(
     fun updateAgentStatus(@RequestBody agentStatus: AgentStatusDto) {
         val latestAgentStatus = agentStatusRepository.findTopByAgentContainerIdOrderByEndTimeDescIdDesc(agentStatus.containerId)
         when (val latestState = latestAgentStatus?.state) {
-            AgentState.TERMINATED ->
+            com.saveourtool.common.agent.AgentState.TERMINATED ->
                 throw ResponseStatusException(HttpStatus.CONFLICT, "Agent ${agentStatus.containerId} has state $latestState and shouldn't be updated")
             agentStatus.state -> {
                 // updating time

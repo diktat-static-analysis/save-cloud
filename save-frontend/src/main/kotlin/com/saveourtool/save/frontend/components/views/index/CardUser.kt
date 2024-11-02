@@ -4,13 +4,14 @@
 
 package com.saveourtool.save.frontend.components.views.index
 
-import com.saveourtool.save.entities.OrganizationDto
-import com.saveourtool.save.entities.OrganizationStatus
-import com.saveourtool.save.frontend.common.components.basic.renderAvatar
-import com.saveourtool.save.frontend.common.utils.*
+import com.saveourtool.common.entities.OrganizationDto
+import com.saveourtool.common.entities.OrganizationStatus
+import com.saveourtool.common.validation.FrontendCosvRoutes
+import com.saveourtool.common.validation.FrontendRoutes
+import com.saveourtool.frontend.common.components.basic.renderAvatar
+import com.saveourtool.frontend.common.components.basic.renderOrganizationAvatar
+import com.saveourtool.frontend.common.utils.*
 import com.saveourtool.save.frontend.externals.i18next.useTranslation
-import com.saveourtool.save.validation.FrontendCosvRoutes
-import com.saveourtool.save.validation.FrontendRoutes
 
 import io.ktor.util.*
 import js.core.jso
@@ -42,7 +43,7 @@ import kotlinx.datetime.toLocalDateTime
 val cardUser: FC<UserInfoAwareProps> = FC { props ->
     val (t) = useTranslation("index")
     val (organizations, setOrganizations) = useState(emptyList<OrganizationDto>())
-    val (countVulnerability, setCountVulnerability) = useState(0)
+    val (errorAvatars, setErrorAvatars) = useState(emptySet<String>())
     val navigate = useNavigate()
 
     @Suppress("TOO_MANY_LINES_IN_LAMBDA")
@@ -56,15 +57,6 @@ val cardUser: FC<UserInfoAwareProps> = FC { props ->
                 .decodeFromJsonString()
 
             setOrganizations(organizationsNew)
-
-            val countVuln: Int = get(
-                "$apiUrl/vulnerabilities/count-by-user?userName=$it",
-                jsonHeaders,
-                loadingHandler = ::loadingHandler,
-            )
-                .decodeFromJsonString()
-
-            setCountVulnerability(countVuln)
         }
     }
 
@@ -195,7 +187,11 @@ val cardUser: FC<UserInfoAwareProps> = FC { props ->
                             div {
                                 className = ClassName("col-12 mt-2 pl-4")
                                 val renderImg: ChildrenBuilder.() -> Unit = {
-                                    renderAvatar(organization) {
+                                    renderOrganizationAvatar(
+                                        organization,
+                                        errorAvatars = errorAvatars,
+                                        setErrorAvatars = { name -> setErrorAvatars(errorAvatars.plus(name)) }
+                                    ) {
                                         height = 2.rem
                                         width = 2.rem
                                     }
@@ -228,25 +224,6 @@ val cardUser: FC<UserInfoAwareProps> = FC { props ->
                             textAlign = TextAlign.center
                         }
                         +"${"Your statistics".t()}:"
-                    }
-                }
-                div {
-                    className = ClassName("row text-muted border-bottom border-gray mx-3")
-                    div {
-                        className = ClassName("col-9")
-                        p {
-                            +"${"Vulnerabilities".t()}: "
-                        }
-                    }
-
-                    div {
-                        className = ClassName("col-3")
-                        p {
-                            Link {
-                                to = "/${FrontendRoutes.PROFILE}/${props.userInfo?.name}"
-                                +countVulnerability.toString()
-                            }
-                        }
                     }
                 }
 

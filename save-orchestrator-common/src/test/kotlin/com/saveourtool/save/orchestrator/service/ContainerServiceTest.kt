@@ -3,9 +3,9 @@ package com.saveourtool.save.orchestrator.service
 import com.github.dockerjava.api.DockerClient
 import com.github.dockerjava.api.async.ResultCallback
 import com.github.dockerjava.api.model.*
-import com.saveourtool.save.entities.Execution
-import com.saveourtool.save.entities.Project
-import com.saveourtool.save.execution.ExecutionStatus
+import com.saveourtool.common.entities.Execution
+import com.saveourtool.common.entities.Project
+import com.saveourtool.common.execution.ExecutionStatus
 import com.saveourtool.save.orchestrator.docker.DockerContainerRunner
 import com.saveourtool.save.orchestrator.runner.ContainerRunnerException
 import com.saveourtool.save.orchestrator.utils.DockerClientTestConfiguration
@@ -13,7 +13,7 @@ import com.saveourtool.save.orchestrator.utils.MockserverExtension
 import com.saveourtool.save.orchestrator.utils.MockserverExtension.Companion.MOCKSERVER_MOCK_URL
 
 import com.saveourtool.save.orchestrator.utils.silentlyCleanupContainer
-import com.saveourtool.save.utils.error
+import com.saveourtool.common.utils.error
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.extension.ExtendWith
 import org.junit.jupiter.api.io.TempDir

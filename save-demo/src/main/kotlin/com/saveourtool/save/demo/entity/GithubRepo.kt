@@ -1,8 +1,8 @@
 package com.saveourtool.save.demo.entity
 
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.spring.entity.BaseEntity
-import com.saveourtool.save.utils.github.GitHubRepoInfo
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.spring.entity.BaseEntity
+import com.saveourtool.common.utils.github.GitHubRepoInfo
 import javax.persistence.Entity
 import javax.persistence.Table
 

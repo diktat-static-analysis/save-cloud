@@ -6,8 +6,9 @@
 
 package com.saveourtool.save.frontend.components.basic.fileuploader
 
-import com.saveourtool.save.frontend.common.components.basic.fileuploader.defaultProgressBarComponent
-import com.saveourtool.save.utils.toKilobytes
+import com.saveourtool.common.utils.toKilobytes
+import com.saveourtool.frontend.common.components.basic.fileuploader.defaultProgressBarComponent
+
 import react.FC
 import react.Props
 

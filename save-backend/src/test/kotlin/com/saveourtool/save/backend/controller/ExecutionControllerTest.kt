@@ -6,13 +6,14 @@ import com.saveourtool.save.backend.repository.*
 import com.saveourtool.save.backend.service.LnkContestExecutionService
 import com.saveourtool.save.backend.utils.InfraExtension
 import com.saveourtool.save.backend.utils.mutateMockedUser
-import com.saveourtool.save.execution.ExecutionDto
-import com.saveourtool.save.execution.ExecutionStatus
-import com.saveourtool.save.execution.ExecutionUpdateDto
-import com.saveourtool.save.execution.TestingType
-import com.saveourtool.save.utils.debug
-import com.saveourtool.save.utils.getLogger
-import com.saveourtool.save.v1
+import com.saveourtool.common.execution.ExecutionDto
+import com.saveourtool.common.execution.ExecutionStatus
+import com.saveourtool.common.execution.ExecutionUpdateDto
+import com.saveourtool.common.execution.TestingType
+import com.saveourtool.common.repository.ProjectRepository
+import com.saveourtool.common.utils.debug
+import com.saveourtool.common.utils.getLogger
+import com.saveourtool.common.v1
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
@@ -89,7 +90,7 @@ class ExecutionControllerTest {
         mutateMockedUser(id = 99)
 
         webClient.get()
-            .uri("/api/$v1/executionDto?executionId=1")
+            .uri("/api/${v1}/executionDto?executionId=1")
             .exchange()
             .expectStatus()
             .isOk
@@ -108,7 +109,7 @@ class ExecutionControllerTest {
         val project = projectRepository.findById(1).get()
         val executionCounts = executionRepository.findAll().count { it.project.id == project.id }
         webClient.post()
-            .uri("/api/$v1/executionDtoList?projectName=${project.name}&organizationName=${project.organization.name}")
+            .uri("/api/${v1}/executionDtoList?projectName=${project.name}&organizationName=${project.organization.name}")
             .exchange()
             .expectStatus()
             .isOk

@@ -14,7 +14,7 @@ java {
 }
 
 dependencies {
-    api(projects.saveCloudCommon)
+    api(projects.common)
     implementation(libs.save.common.jvm)
     implementation(libs.log4j)
     implementation(libs.log4j.slf4j.impl)

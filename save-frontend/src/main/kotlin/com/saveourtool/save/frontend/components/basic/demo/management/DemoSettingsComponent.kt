@@ -4,7 +4,7 @@
 
 package com.saveourtool.save.frontend.components.basic.demo.management
 
-import com.saveourtool.save.demo.DemoDto
+import com.saveourtool.common.demo.DemoDto
 
 import react.*
 import react.dom.html.AutoComplete

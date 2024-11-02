@@ -1,9 +1,9 @@
 package com.saveourtool.save.test.analysis.internal
 
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.domain.TestResultStatus.FAILED
-import com.saveourtool.save.domain.TestResultStatus.IGNORED
-import com.saveourtool.save.domain.TestResultStatus.PASSED
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.domain.TestResultStatus.FAILED
+import com.saveourtool.common.domain.TestResultStatus.IGNORED
+import com.saveourtool.common.domain.TestResultStatus.PASSED
 import com.saveourtool.save.test.analysis.api.TestRun
 import com.saveourtool.save.test.analysis.api.TestStatusProvider
 

@@ -4,7 +4,7 @@
 
 package com.saveourtool.save.frontend.components.views.index
 
-import com.saveourtool.save.frontend.common.components.basic.markdown
+import com.saveourtool.frontend.common.components.basic.markdown
 import com.saveourtool.save.frontend.externals.i18next.useTranslation
 import js.core.jso
 import react.FC

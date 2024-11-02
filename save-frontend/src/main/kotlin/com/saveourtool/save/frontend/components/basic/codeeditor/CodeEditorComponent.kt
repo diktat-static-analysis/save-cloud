@@ -2,8 +2,8 @@
 
 package com.saveourtool.save.frontend.components.basic.codeeditor
 
+import com.saveourtool.common.utils.Languages
 import com.saveourtool.save.frontend.externals.reactace.*
-import com.saveourtool.save.utils.Languages
 
 import react.*
 import react.dom.html.ReactHTML.div

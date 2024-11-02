@@ -4,7 +4,7 @@
 
 package com.saveourtool.save.frontend.components.views.projectcollection
 
-import com.saveourtool.save.validation.FrontendRoutes
+import com.saveourtool.common.validation.FrontendRoutes
 
 import js.core.jso
 import react.ChildrenBuilder

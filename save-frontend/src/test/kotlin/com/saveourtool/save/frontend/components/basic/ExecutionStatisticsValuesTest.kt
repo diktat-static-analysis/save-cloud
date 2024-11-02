@@ -1,8 +1,8 @@
 package com.saveourtool.save.frontend.components.basic
 
-import com.saveourtool.save.execution.ExecutionDto
-import com.saveourtool.save.execution.ExecutionStatus
-import com.saveourtool.save.execution.TestingType
+import com.saveourtool.common.execution.ExecutionDto
+import com.saveourtool.common.execution.ExecutionStatus
+import com.saveourtool.common.execution.TestingType
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

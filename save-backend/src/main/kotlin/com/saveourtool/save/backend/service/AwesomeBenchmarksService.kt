@@ -1,9 +1,10 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.entities.benchmarks.AwesomeBenchmarks
+import com.saveourtool.common.entities.benchmarks.BenchmarkEntity
+import com.saveourtool.common.entities.benchmarks.toEntity
 import com.saveourtool.save.backend.repository.AwesomeBenchmarksRepository
-import com.saveourtool.save.entities.benchmarks.AwesomeBenchmarks
-import com.saveourtool.save.entities.benchmarks.BenchmarkEntity
-import com.saveourtool.save.entities.benchmarks.toEntity
+
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

@@ -15,7 +15,7 @@ jobs:
       version: ${{ steps.save-cli-version.outputs.version }}
     steps:
       - name: checkout save-cloud
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           sparse-checkout: |
             gradle/libs.versions.toml
@@ -34,12 +34,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout save-cli
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: saveourtool/save-cli
           fetch-depth: 0
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: 17
           distribution: temurin
@@ -49,12 +49,12 @@ jobs:
           kv=$(cat gradle/libs.versions.toml | grep '^kotlin =' | awk -F'[=]' '{print $2}' | tr -d '" ')
           echo SAVE_CLI_KOTLIN_VERSION=$kv >> $GITHUB_ENV
       - name: Cache konan
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.konan
           key: ${{ runner.os }}-gradle-konan-${{ env.SAVE_CLI_KOTLIN_VERSION }}
       - name: Build save-cli
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: wrapper
           arguments: |
@@ -67,14 +67,14 @@ jobs:
         run: |
           find save-cli/build/bin/linuxX64/releaseExecutable -name "save-*.kexe" -exec sh -c 'printf "$1" | sed -r "s/.*save-(.*)-linuxX64.kexe/\1/" | echo "SAVE_CLI_VERSION=$(cat)" >> $GITHUB_ENV' _ {} \;
       - name: Upload save-cli
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: save-cli
           path: 'save-cli/build/bin/linuxX64/releaseExecutable/save-*.kexe'
           retention-days: 1
       - name: Upload gradle reports
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gradle-reports
           path: '**/build/reports/'

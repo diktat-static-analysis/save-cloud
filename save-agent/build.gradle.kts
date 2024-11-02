@@ -47,7 +47,7 @@ kotlin {
             }
             dependencies {
                 implementation(libs.save.common)
-                implementation(projects.saveCloudCommon)
+                implementation(projects.common)
                 implementation(libs.save.core)
                 implementation(libs.save.plugins.fix)
                 implementation(libs.save.reporters)

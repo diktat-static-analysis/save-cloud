@@ -1,19 +1,20 @@
 package com.saveourtool.save.backend.controllers
 
-import com.saveourtool.save.backend.security.OrganizationPermissionEvaluator
+import com.saveourtool.common.configs.ApiSwaggerSupport
+import com.saveourtool.common.configs.RequiresAuthorizationSourceHeader
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.entities.Contest.Companion.toContest
+import com.saveourtool.common.entities.contest.ContestDto
+import com.saveourtool.common.entities.contest.ContestStatus
+import com.saveourtool.common.permission.Permission
+import com.saveourtool.common.request.TestFilesRequest
+import com.saveourtool.common.security.OrganizationPermissionEvaluator
+import com.saveourtool.common.service.OrganizationService
+import com.saveourtool.common.test.TestFilesContent
+import com.saveourtool.common.utils.*
+import com.saveourtool.common.v1
 import com.saveourtool.save.backend.service.*
 import com.saveourtool.save.backend.storage.TestsSourceSnapshotStorage
-import com.saveourtool.save.configs.ApiSwaggerSupport
-import com.saveourtool.save.configs.RequiresAuthorizationSourceHeader
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.entities.Contest.Companion.toContest
-import com.saveourtool.save.entities.contest.ContestDto
-import com.saveourtool.save.entities.contest.ContestStatus
-import com.saveourtool.save.permission.Permission
-import com.saveourtool.save.request.TestFilesRequest
-import com.saveourtool.save.test.TestFilesContent
-import com.saveourtool.save.utils.*
-import com.saveourtool.save.v1
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
@@ -248,7 +249,7 @@ internal class ContestController(
         }
 
     @PostMapping("/create")
-    @RequiresAuthorizationSourceHeader
+    @com.saveourtool.common.configs.RequiresAuthorizationSourceHeader
     @PreAuthorize("isAuthenticated()")
     @Operation(
         method = "POST",

@@ -4,8 +4,8 @@
 
 package com.saveourtool.save.frontend.components
 
-import com.saveourtool.save.frontend.common.components.footer
-import com.saveourtool.save.frontend.common.components.views.FallbackView
+import com.saveourtool.frontend.common.components.footer
+import com.saveourtool.frontend.common.components.views.FallbackView
 import com.saveourtool.save.frontend.components.topbar.topBarComponent
 
 import js.core.jso

@@ -1,7 +1,7 @@
 - name: DIKTAT_COMMON
   enabled: true
   configuration:
-    domainName: com.saveourtool.save
+    domainName: com.saveourtool
     kotlinVersion: 1.7
     srcDirectories: "main,nativeMain,linuxX64Main"
     testDirs: "test,nativeTest,linuxX64Test,jvmTest"

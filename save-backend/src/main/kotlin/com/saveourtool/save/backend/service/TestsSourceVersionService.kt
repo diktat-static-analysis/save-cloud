@@ -1,18 +1,18 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.entities.TestsSourceSnapshot
+import com.saveourtool.common.entities.TestsSourceVersion
+import com.saveourtool.common.entities.TestsSourceVersion.Companion.toEntity
+import com.saveourtool.common.repository.UserRepository
+import com.saveourtool.common.test.*
+import com.saveourtool.common.test.TestsSourceVersionInfo
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.backend.repository.TestSuitesSourceRepository
 import com.saveourtool.save.backend.repository.TestsSourceSnapshotRepository
 import com.saveourtool.save.backend.repository.TestsSourceVersionRepository
-import com.saveourtool.save.backend.repository.UserRepository
 import com.saveourtool.save.backend.storage.TestsSourceSnapshotStorage
-import com.saveourtool.save.entities.TestsSourceSnapshot
-import com.saveourtool.save.entities.TestsSourceVersion
-import com.saveourtool.save.entities.TestsSourceVersion.Companion.toEntity
-import com.saveourtool.save.test.*
-import com.saveourtool.save.test.TestsSourceVersionInfo
-import com.saveourtool.save.utils.*
-import org.slf4j.Logger
 
+import org.slf4j.Logger
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

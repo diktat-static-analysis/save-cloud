@@ -1,11 +1,11 @@
 package com.saveourtool.save.preprocessor.controllers
 
-import com.saveourtool.save.entities.GitDto
-import com.saveourtool.save.entities.benchmarks.BenchmarkEntity
+import com.saveourtool.common.entities.GitDto
+import com.saveourtool.common.entities.benchmarks.BenchmarkEntity
+import com.saveourtool.common.spring.utils.applyAll
 import com.saveourtool.save.preprocessor.config.ConfigProperties
 import com.saveourtool.save.preprocessor.service.GitPreprocessorService
 import com.saveourtool.save.preprocessor.utils.*
-import com.saveourtool.save.spring.utils.applyAll
 
 import com.akuleshov7.ktoml.file.TomlFileReader
 import org.slf4j.LoggerFactory

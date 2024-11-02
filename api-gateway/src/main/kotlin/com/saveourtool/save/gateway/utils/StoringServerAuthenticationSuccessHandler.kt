@@ -1,7 +1,7 @@
 package com.saveourtool.save.gateway.utils
 
+import com.saveourtool.common.utils.SAVE_USER_ID_ATTRIBUTE
 import com.saveourtool.save.gateway.service.BackendService
-import com.saveourtool.save.utils.SAVE_USER_ID_ATTRIBUTE
 
 import org.slf4j.LoggerFactory
 import org.springframework.security.authentication.BadCredentialsException

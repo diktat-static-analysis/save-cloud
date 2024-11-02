@@ -28,38 +28,42 @@ fun Project.registerLiquibaseTask(profile: String) {
     val registerLiquibaseTaskBackend = registerLiquibaseTask(
         projectName = "save-backend",
         relativeChangeLogFile = "db/db.changelog-master.xml",
-        profile = profile
+        profile = profile,
+        mustRunAfterTask = null,
     )
-    val registerLiquibaseTaskSandbox = registerLiquibaseTask(
-        projectName = "save-sandbox",
-        relativeChangeLogFile = "save-sandbox/db/db.changelog-sandbox.xml",
-        profile = profile
-    )
+
     val registerLiquibaseTaskDemo = registerLiquibaseTask(
         projectName = "save-demo",
         relativeChangeLogFile = "save-demo/db/db.changelog-demo.xml",
-        profile = profile
+        profile = profile,
+        mustRunAfterTask = "save-backend",
     )
+
     val registerLiquibaseTaskCosv = registerLiquibaseTask(
-        projectName = "save-cosv",
-        relativeChangeLogFile = "save-cosv/db/db.changelog-cosv.xml",
-        profile = profile
+        projectName = "cosv-backend",
+        relativeChangeLogFile = "cosv-backend/db/db.changelog-cosv.xml",
+        profile = profile,
+        mustRunAfterTask = "save-backend",
     )
     tasks.register("liquibaseUpdate") {
         dependsOn(
             registerLiquibaseTaskBackend,
-            registerLiquibaseTaskSandbox,
             registerLiquibaseTaskDemo,
             registerLiquibaseTaskCosv,
         )
     }
 }
 
-private fun Project.registerLiquibaseTask(projectName: String, relativeChangeLogFile: String, profile: String): TaskProvider<Exec> {
-    val taskName = "liquibaseUpdate" + projectName.split("-").map { it.capitalized() }.joinToString("")
+private fun Project.registerLiquibaseTask(projectName: String, relativeChangeLogFile: String, profile: String, mustRunAfterTask: String?): TaskProvider<Exec> {
+    val taskName = getTaskName(projectName)
     val credentials = getDatabaseCredentials(projectName, profile)
 
     return tasks.register<Exec>(taskName) {
+
+        mustRunAfterTask?.let {
+            mustRunAfter(getTaskName(it))
+        }
+
         val contexts = when (profile) {
             "prod" -> "prod"
             "dev" -> "dev"
@@ -86,6 +90,8 @@ private fun Project.registerLiquibaseTask(projectName: String, relativeChangeLog
         )
     }
 }
+
+private fun getTaskName(projectName: String) = "liquibaseUpdate" + projectName.split("-").map { it.capitalized() }.joinToString("")
 
 /**
  * @param profile deployment profile, used, for example, to start SQL database in dev profile only
@@ -211,7 +217,6 @@ fun Project.createStackDeployTask(profile: String) {
                     FRONTEND_TAG=${defaultVersionOrProperty("frontend.dockerTag")}
                     GATEWAY_TAG=${defaultVersionOrProperty("gateway.dockerTag")}
                     ORCHESTRATOR_TAG=${defaultVersionOrProperty("orchestrator.dockerTag")}
-                    SANDBOX_TAG=${defaultVersionOrProperty("sandbox.dockerTag")}
                     PREPROCESSOR_TAG=${defaultVersionOrProperty("preprocessor.dockerTag")}
                     DEMO_TAG=${defaultVersionOrProperty("demo.dockerTag")}
                     PROFILE=$profile
@@ -248,7 +253,6 @@ fun Project.createStackDeployTask(profile: String) {
             Files.createDirectories(configsDir.resolve("backend"))
             Files.createDirectories(configsDir.resolve("gateway"))
             Files.createDirectories(configsDir.resolve("orchestrator"))
-            Files.createDirectories(configsDir.resolve("sandbox"))
             Files.createDirectories(configsDir.resolve("preprocessor"))
             Files.createDirectories(configsDir.resolve("demo"))
         }
@@ -331,7 +335,6 @@ fun Project.createStackDeployTask(profile: String) {
             "up",
             "-d",
             "orchestrator",
-            "sandbox",
             "backend",
             "frontend",
             "preprocessor",
@@ -351,7 +354,7 @@ fun Project.createStackDeployTask(profile: String) {
                     project(componentName).tasks.named<BootBuildImage>("bootBuildImage")
             dependsOn(buildTask)
             val serviceName = when (componentName) {
-                "save-backend", "save-frontend", "save-orchestrator", "save-sandbox", "save-preprocessor" -> "save_${componentName.substringAfter("save-")}"
+                "save-backend", "save-frontend", "save-orchestrator", "save-preprocessor" -> "save_${componentName.substringAfter("save-")}"
                 "api-gateway" -> "save_gateway"
                 else -> error("Wrong component name $componentName")
             }

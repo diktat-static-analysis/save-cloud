@@ -1,8 +1,9 @@
 package com.saveourtool.save.demo.repository
 
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import com.saveourtool.save.demo.entity.Demo
 import com.saveourtool.save.demo.entity.Dependency
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+
 import org.springframework.stereotype.Repository
 
 /**

@@ -24,12 +24,12 @@ config.set({
         }
     },
     proxies: {
-        // serving mockServiceWorker.js.js from location relative to base url
+        // serving mockServiceWorker.js from location relative to base url
         // the file should be included into Karma's `files` to be served by server at all
-        '/mockServiceWorker.js': '/base/mockServiceWorker.js',
+        '/mockServiceWorker.js': '/base/node_modules/mockServiceWorker.js',
     },
 })
 
 // http://karma-runner.github.io/6.3/config/files.html
-// 'All of the relative patterns will get resolved using the basePath first.', where basePath is set by KGP to `node_modules`
-config.files.push('./mockServiceWorker.js')
+// 'All of the relative patterns will get resolved using the basePath first.', where basePath is NOT set by KGP to `node_modules` after migration to 1.9
+config.files.push('./node_modules/mockServiceWorker.js')

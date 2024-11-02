@@ -1,10 +1,12 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.service.ProjectService
+import com.saveourtool.common.utils.debug
+import com.saveourtool.common.utils.getLogger
 import com.saveourtool.save.backend.repository.LnkContestProjectRepository
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.utils.debug
-import com.saveourtool.save.utils.getLogger
+
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

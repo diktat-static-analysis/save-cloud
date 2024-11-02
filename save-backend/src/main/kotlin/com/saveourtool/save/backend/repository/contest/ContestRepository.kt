@@ -1,8 +1,8 @@
 package com.saveourtool.save.backend.repository.contest
 
-import com.saveourtool.save.entities.Contest
-import com.saveourtool.save.entities.contest.ContestStatus
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.Contest
+import com.saveourtool.common.entities.contest.ContestStatus
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.Modifying

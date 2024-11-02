@@ -1,0 +1,163 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-cosv
+  labels:
+    {{- include "common.labels" (merge (dict "service" .Values.backend_cosv) .) | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: backend-cosv
+  strategy:
+    # Because of shared volume with multi-attach problem
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        {{- include "pod.common.labels" (merge (dict "service" .Values.backend_cosv ) .) | nindent 8 }}
+      annotations:
+        {{- include "pod.common.annotations" (dict "service" .Values.backend_cosv ) | nindent 8 }}
+    spec:
+      restartPolicy: Always
+      {{- include "cnb.securityContext" . | nindent 6 }}
+      containers:
+        - name: backend-cosv
+          {{- include "spring-boot.common" (merge (dict "service" .Values.backend_cosv) .) | nindent 10 }}
+          env:
+            {{- include "spring-boot.common.env" (merge (dict "service" .Values.backend_cosv) .) | nindent 12 }}
+            - name: DATABASE_SECRETS_PATH
+              value: {{ .Values.mysql.dbPasswordFile }}
+            - name: S3_SECRETS_PATH
+              value: {{ .Values.s3.secretFile }}
+            - name: JAVA_TOOL_OPTIONS
+              value: -XX:ReservedCodeCacheSize=48M
+          volumeMounts:
+            - {{ include "spring-boot.config-volume-mount" . | indent 14 | trim }}
+            - name: database-secret
+              mountPath: {{ .Values.mysql.dbPasswordFile }}
+            - name: s3-secrets
+              mountPath: {{ .Values.s3.secretFile }}
+          {{- include "spring-boot.management" .Values.backend_cosv | nindent 10 }}
+          resources:
+            limits:
+              memory: 2G
+            requests:
+              memory: 1G
+      initContainers:
+        - name: git-cloner
+          image: alpine/git
+          env:
+            {{ if .Values.proxy.enabled | default false }}
+            {{- with .Values.proxy.extraEnv }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{ end }}
+          args:
+            - clone
+            - --progress
+            - --verbose
+            {{ if .Values.proxy.enabled | default false }}
+            {{- with .Values.proxy.extraArgs }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{ end }}
+            - --single-branch
+            - --branch
+            - {{ .Values.mysql.migrations.branch | default "master" }}
+            - --
+            - https://github.com/saveourtool/save-cloud.git
+            - /data
+          volumeMounts:
+            - mountPath: /data
+              name: migrations-data
+        - name: liquibase-runner
+          image: liquibase/liquibase:4.20
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
+          args:
+            - --url=$(DB_URL)?createDatabaseIfNotExist=true
+            - --changeLogFile=cosv-backend/db/db.changelog-cosv.xml
+            - --username=$(DB_USERNAME)
+            - --password=$(DB_PASSWORD)
+            - --log-level=info
+            - --contexts={{ .Values.profile }}
+            - update
+          resources:
+            requests:
+              memory: 100M
+            limits:
+              memory: 300M
+          env:
+            # See https://hub.docker.com/r/liquibase/liquibase, section 'Notice for MySQL Users'
+            - name: INSTALL_MYSQL
+              value: 'true'
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: spring.datasource.backend-cosv-url
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: spring.datasource.username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: spring.datasource.password
+            {{ if .Values.proxy.enabled | default false }}
+            {{- with .Values.proxy.extraEnv }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{ end }}
+          volumeMounts:
+            - mountPath: /liquibase/changelog
+              name: migrations-data
+            - mountPath: {{ .Values.mysql.dbPasswordFile }}
+              name: database-secret
+            {{ if .Values.initCerts.enabled }}
+            - name: ca-pemstore
+              mountPath: /etc/ssl/certs/ca-certificates.crt
+              subPath: ca-certificates.crt
+              readOnly: false
+            {{ end }}
+      volumes:
+        - {{ include "spring-boot.config-volume" (dict "service" .Values.backend_cosv) | indent 10 | trim }}
+        - name: database-secret
+          secret:
+            secretName: db-secrets
+        - name: s3-secrets
+          secret:
+            secretName: s3-secrets
+        - name: migrations-data
+          emptyDir: {}
+        {{ if .Values.initCerts.enabled }}
+        - name: ca-pemstore
+          configMap:
+            name: ca-pemstore
+        {{ end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.backend_cosv.name }}-config
+data:
+  application.properties: |
+    {{ if .Values.backend_cosv.applicationProperties }}
+    {{- .Values.backend_cosv.applicationProperties | nindent 4 }}
+    {{ end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+{{- include "service.common.metadata" (dict "service" .Values.backend_cosv) | nindent 2 }}
+spec:
+  {{ if .Values.backend_cosv.clusterIP }}
+  clusterIP: {{ .Values.backend_cosv.clusterIP }}
+  {{ end }}
+  ports:
+    {{- include "service.common.ports" (dict "service" .Values.backend_cosv) | nindent 4 }}
+  selector:
+    {{- include "service.common.selectors" (dict "service" .Values.backend_cosv) | nindent 4 }}

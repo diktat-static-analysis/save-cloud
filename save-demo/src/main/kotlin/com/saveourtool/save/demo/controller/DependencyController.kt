@@ -1,15 +1,15 @@
 package com.saveourtool.save.demo.controller
 
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.entities.FileDto
+import com.saveourtool.common.utils.StringResponse
+import com.saveourtool.common.utils.asyncEffect
+import com.saveourtool.common.utils.getLogger
+import com.saveourtool.common.utils.info
 import com.saveourtool.save.demo.entity.Dependency
 import com.saveourtool.save.demo.service.DemoService
 import com.saveourtool.save.demo.service.DownloadToolService
 import com.saveourtool.save.demo.storage.DependencyStorage
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.entities.FileDto
-import com.saveourtool.save.utils.StringResponse
-import com.saveourtool.save.utils.asyncEffect
-import com.saveourtool.save.utils.getLogger
-import com.saveourtool.save.utils.info
 
 import org.slf4j.Logger
 import org.springframework.http.MediaType

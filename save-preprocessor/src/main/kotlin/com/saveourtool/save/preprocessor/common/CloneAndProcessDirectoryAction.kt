@@ -1,6 +1,6 @@
 package com.saveourtool.save.preprocessor.common
 
-import com.saveourtool.save.entities.GitDto
+import com.saveourtool.common.entities.GitDto
 import com.saveourtool.save.preprocessor.service.GitPreprocessorService
 import org.reactivestreams.Publisher
 

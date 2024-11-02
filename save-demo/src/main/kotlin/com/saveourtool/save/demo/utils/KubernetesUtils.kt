@@ -4,14 +4,15 @@
 
 package com.saveourtool.save.demo.utils
 
-import com.saveourtool.save.demo.DemoAgentConfig
+import com.saveourtool.common.demo.DemoAgentConfig
+import com.saveourtool.common.domain.toSdk
+import com.saveourtool.common.utils.debug
+import com.saveourtool.common.utils.downloadAndRunAgentCommand
 import com.saveourtool.save.demo.config.ConfigProperties
 import com.saveourtool.save.demo.config.KubernetesConfig
 import com.saveourtool.save.demo.entity.Demo
 import com.saveourtool.save.demo.storage.DemoInternalFileStorage
-import com.saveourtool.save.domain.toSdk
-import com.saveourtool.save.utils.debug
-import com.saveourtool.save.utils.downloadAndRunAgentCommand
+
 import io.fabric8.kubernetes.api.model.*
 import io.fabric8.kubernetes.api.model.batch.v1.Job
 import io.fabric8.kubernetes.api.model.batch.v1.JobSpec

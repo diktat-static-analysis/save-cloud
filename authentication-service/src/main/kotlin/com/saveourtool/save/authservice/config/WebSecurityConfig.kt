@@ -4,9 +4,9 @@
 
 package com.saveourtool.save.authservice.config
 
+import com.saveourtool.common.v1
 import com.saveourtool.save.authservice.utils.SaveUserDetails.Companion.toSaveUserDetails
 import com.saveourtool.save.authservice.utils.roleHierarchy
-import com.saveourtool.save.v1
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Profile
@@ -97,7 +97,7 @@ class WebSecurityConfig(
             // they are not proxied from gateway.
             "/actuator/**",
             "/internal/**",
-            // Agents should communicate with sandbox without authorization
+            // Agents should communicate without authorization
             "/heartbeat",
             // `CollectionView` is a public page
             "/api/$v1/projects/by-filters",

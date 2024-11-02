@@ -1,7 +1,10 @@
 package com.saveourtool.save.backend.repository
 
-import com.saveourtool.save.entities.ProjectProblem
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.ProjectProblem
+import com.saveourtool.common.entitiescosv.VulnerabilityMetadata
+import com.saveourtool.common.spring.repository.BaseEntityRepository
+import org.springframework.data.jpa.repository.Query
+import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 /**
@@ -23,4 +26,14 @@ interface ProjectProblemRepository : BaseEntityRepository<ProjectProblem> {
      * @return list of project problems
      */
     fun getAllProblemsByProjectNameAndProjectOrganizationNameAndIsClosed(projectName: String, organizationName: String, isClosed: Boolean): List<ProjectProblem>
+
+    /**
+     * @param identifier [VulnerabilityMetadata.identifier]
+     * @return found [VulnerabilityMetadata] or null
+     */
+    @Query(
+        value = "select * from cosv.vulnerability_metadata vm where vm.identifier = :identifier",
+        nativeQuery = true,
+    )
+    fun findVulnerabilityByIdentifier(@Param("identifier") identifier: String): VulnerabilityMetadata?
 }

@@ -10,7 +10,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="save-cosv-frontend:run" />
+          <option value="cosv-frontend:run" />
         </list>
       </option>
       <option name="vmOptions" />

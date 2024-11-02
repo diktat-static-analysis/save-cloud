@@ -1,6 +1,6 @@
 package com.saveourtool.save.test.analysis.entities
 
-import com.saveourtool.save.entities.Project
+import com.saveourtool.common.entities.Project
 
 /**
  * Project name, intended to be assignment-incompatible with the regular string.

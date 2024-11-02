@@ -6,25 +6,25 @@
 
 package com.saveourtool.save.frontend.components.views
 
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.frontend.common.components.basic.SelectFormRequiredProps
-import com.saveourtool.save.frontend.common.components.basic.selectFormRequired
-import com.saveourtool.save.frontend.common.components.inputform.InputTypes
-import com.saveourtool.save.frontend.common.components.inputform.inputTextFormOptional
-import com.saveourtool.save.frontend.common.components.inputform.inputTextFormRequired
-import com.saveourtool.save.frontend.common.components.modal.displayModal
-import com.saveourtool.save.frontend.common.components.modal.mediumTransparentModalStyle
-import com.saveourtool.save.frontend.common.externals.fontawesome.faQuestionCircle
-import com.saveourtool.save.frontend.common.externals.fontawesome.fontAwesomeIcon
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.Style
-import com.saveourtool.save.frontend.common.utils.buttonBuilder
-import com.saveourtool.save.frontend.common.utils.particles
-import com.saveourtool.save.frontend.common.utils.useBackground
-import com.saveourtool.save.frontend.common.utils.useDeferredRequest
-import com.saveourtool.save.validation.FrontendRoutes
-import com.saveourtool.save.validation.isValidLengthName
-import com.saveourtool.save.validation.isValidName
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.validation.FrontendRoutes
+import com.saveourtool.common.validation.isValidLengthName
+import com.saveourtool.common.validation.isValidName
+import com.saveourtool.frontend.common.components.basic.SelectFormRequiredProps
+import com.saveourtool.frontend.common.components.basic.selectFormRequired
+import com.saveourtool.frontend.common.components.inputform.InputTypes
+import com.saveourtool.frontend.common.components.inputform.inputTextFormOptional
+import com.saveourtool.frontend.common.components.inputform.inputTextFormRequired
+import com.saveourtool.frontend.common.components.modal.displayModal
+import com.saveourtool.frontend.common.components.modal.mediumTransparentModalStyle
+import com.saveourtool.frontend.common.externals.fontawesome.faQuestionCircle
+import com.saveourtool.frontend.common.externals.fontawesome.fontAwesomeIcon
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.Style
+import com.saveourtool.frontend.common.utils.buttonBuilder
+import com.saveourtool.frontend.common.utils.particles
+import com.saveourtool.frontend.common.utils.useBackground
+import com.saveourtool.frontend.common.utils.useDeferredRequest
 
 import react.*
 import react.dom.*

@@ -1,9 +1,9 @@
 package com.saveourtool.save.demo.runners.pod
 
-import com.saveourtool.save.demo.DemoResult
-import com.saveourtool.save.demo.DemoRunRequest
+import com.saveourtool.common.demo.DemoResult
+import com.saveourtool.common.demo.DemoRunRequest
+import com.saveourtool.common.utils.switchIfEmptyToResponseException
 import com.saveourtool.save.demo.runners.Runner
-import com.saveourtool.save.utils.switchIfEmptyToResponseException
 
 import io.ktor.client.*
 import io.ktor.client.call.*

@@ -18,12 +18,12 @@ Deployment is performed on server via docker swarm or locally via `docker compos
 The `libs.version.toml` contains `save-cli` version.
 The `save-agent` uses this version as a compile dependency to read execution's reports.
 
-The `save-backend` and `save-sandbox` download newer versions of `save-cli` from _GitHub_ on startup.
+The `save-backend` downloads newer versions of `save-cli` from _GitHub_ on startup.
 
 #### Using a `SNAPSHOT` version of `save-cli`
 
 If `save-cli` is set to snapshot version in `lib.version.toml`, we download `save-cli`'s sources and build them in _GitHub_ action: [Build and push Docker images](../.github/workflows/deploy_images.yml).
-Then _Gradle_ adds the result (_.kexe_) to `save-backend` and `save-sandbox` as a runtime dependency
+Then _Gradle_ adds the result (_.kexe_) to `save-backend` as a runtime dependency
 
 **Under the hood:** _Gradle_ supports two variables `saveCliVersion` and `saveCliPath`.
 The `saveCliVersion` overrides version of `save-cli` from `lib.version.toml`.
@@ -75,6 +75,13 @@ preprocessor:
 
 ## Database
 The service is designed to work with MySQL database. Migrations are applied with liquibase. They expect event scheduler to be enabled on the DB.
+
+## Provide Hostname (Domain name)
+In the file `/home/saveu/configs/gateway/application.properties` the following properties should be provided:
+* `hosts.save`
+* `hosts.cosv`
+
+It is needed because the 'save' and 'cosv' services have been divided, and now all the routing determines whether you are trying to visit the 'save' app (i.e., save.example.com) or the 'cosv' app (i.e., cosv.example.com) 
 
 ## Enabling api-gateway with external OAuth providers
 In the file `/home/saveu/configs/gateway/application.properties` the following properties should be provided:
@@ -283,7 +290,6 @@ Do not forget to use `mac` profile.
 | 5100 | save-orchestrator      |
 | 5200 | save-test-preprocessor |
 | 5300 | api-gateway            |
-| 5400 | save-sandbox           |
 | 9090 | prometheus             |
 | 9091 | node_exporter          |
 | 9100 | grafana                |

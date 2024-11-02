@@ -4,11 +4,11 @@
 
 package com.saveourtool.save.frontend.components.basic.demo.welcome
 
-import com.saveourtool.save.demo.DemoDto
-import com.saveourtool.save.frontend.common.components.basic.AVATAR_BASE_URL
-import com.saveourtool.save.frontend.common.components.basic.carousel
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.noopResponseHandler
+import com.saveourtool.common.demo.DemoDto
+import com.saveourtool.frontend.common.components.basic.AVATAR_BASE_URL
+import com.saveourtool.frontend.common.components.basic.carousel
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.noopResponseHandler
 
 import react.FC
 import react.Props

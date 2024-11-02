@@ -1,19 +1,19 @@
 package com.saveourtool.save.demo.service
 
-import com.saveourtool.save.demo.DemoAgentConfig
-import com.saveourtool.save.demo.DemoStatus
-import com.saveourtool.save.demo.RunCommandMap
+import com.saveourtool.common.demo.DemoAgentConfig
+import com.saveourtool.common.demo.DemoStatus
+import com.saveourtool.common.demo.RunCommandMap
+import com.saveourtool.common.filters.DemoFilter
+import com.saveourtool.common.utils.StringResponse
+import com.saveourtool.common.utils.blockingToMono
+import com.saveourtool.common.utils.kFindAll
+import com.saveourtool.common.utils.switchIfEmptyToNotFound
 import com.saveourtool.save.demo.entity.Demo
 import com.saveourtool.save.demo.entity.RunCommand
 import com.saveourtool.save.demo.repository.DemoRepository
 import com.saveourtool.save.demo.repository.RunCommandRepository
 import com.saveourtool.save.demo.runners.RunnerFactory
 import com.saveourtool.save.demo.storage.DependencyStorage
-import com.saveourtool.save.filters.DemoFilter
-import com.saveourtool.save.utils.StringResponse
-import com.saveourtool.save.utils.blockingToMono
-import com.saveourtool.save.utils.kFindAll
-import com.saveourtool.save.utils.switchIfEmptyToNotFound
 
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service

@@ -6,21 +6,21 @@
 
 package com.saveourtool.save.frontend.components.views
 
-import com.saveourtool.save.domain.*
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.execution.ExecutionDto
-import com.saveourtool.save.frontend.common.components.RequestStatusContext
-import com.saveourtool.save.frontend.common.components.modal.displayModal
-import com.saveourtool.save.frontend.common.components.modal.mediumTransparentModalStyle
-import com.saveourtool.save.frontend.common.components.requestStatusContext
-import com.saveourtool.save.frontend.common.components.views.AbstractView
-import com.saveourtool.save.frontend.common.http.getProject
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.noopResponseHandler
+import com.saveourtool.common.domain.*
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.execution.ExecutionDto
+import com.saveourtool.common.info.UserInfo
+import com.saveourtool.common.utils.getHighestRole
+import com.saveourtool.frontend.common.components.RequestStatusContext
+import com.saveourtool.frontend.common.components.modal.displayModal
+import com.saveourtool.frontend.common.components.modal.mediumTransparentModalStyle
+import com.saveourtool.frontend.common.components.requestStatusContext
+import com.saveourtool.frontend.common.components.views.AbstractView
+import com.saveourtool.frontend.common.http.getProject
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.noopResponseHandler
 import com.saveourtool.save.frontend.components.basic.projects.*
 import com.saveourtool.save.frontend.utils.ProjectMenuBar
-import com.saveourtool.save.info.UserInfo
-import com.saveourtool.save.utils.getHighestRole
 
 import js.core.jso
 import org.w3c.fetch.Headers

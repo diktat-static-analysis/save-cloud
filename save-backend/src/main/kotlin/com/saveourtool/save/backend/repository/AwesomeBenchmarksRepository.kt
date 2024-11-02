@@ -1,7 +1,7 @@
 package com.saveourtool.save.backend.repository
 
-import com.saveourtool.save.entities.benchmarks.AwesomeBenchmarks
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.benchmarks.AwesomeBenchmarks
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository

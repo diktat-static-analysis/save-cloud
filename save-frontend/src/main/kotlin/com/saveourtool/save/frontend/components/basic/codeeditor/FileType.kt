@@ -1,6 +1,6 @@
 package com.saveourtool.save.frontend.components.basic.codeeditor
 
-import com.saveourtool.save.utils.Languages
+import com.saveourtool.common.utils.Languages
 
 /**
  * @property fileName displayed name

@@ -6,9 +6,10 @@
 
 package com.saveourtool.save.backend.controllers
 
+import com.saveourtool.common.entities.benchmarks.BenchmarkEntity
+import com.saveourtool.common.v1
 import com.saveourtool.save.backend.service.AwesomeBenchmarksService
-import com.saveourtool.save.entities.benchmarks.BenchmarkEntity
-import com.saveourtool.save.v1
+
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.*
 

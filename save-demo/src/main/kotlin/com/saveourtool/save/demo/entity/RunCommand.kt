@@ -1,7 +1,7 @@
 package com.saveourtool.save.demo.entity
 
-import com.saveourtool.save.demo.RunCommandMap
-import com.saveourtool.save.spring.entity.BaseEntity
+import com.saveourtool.common.demo.RunCommandMap
+import com.saveourtool.common.spring.entity.BaseEntity
 import javax.persistence.Entity
 import javax.persistence.FetchType
 import javax.persistence.JoinColumn

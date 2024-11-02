@@ -1,12 +1,12 @@
 package com.saveourtool.save.preprocessor.service
 
 import com.saveourtool.save.core.config.TestConfig
-import com.saveourtool.save.entities.*
+import com.saveourtool.common.entities.*
 import com.saveourtool.save.preprocessor.config.ConfigProperties
-import com.saveourtool.save.test.TestsSourceSnapshotDto
-import com.saveourtool.save.testsuite.TestSuiteDto
-import com.saveourtool.save.testsuite.TestSuitesSourceDto
-import com.saveourtool.save.utils.getCurrentLocalDateTime
+import com.saveourtool.common.test.TestsSourceSnapshotDto
+import com.saveourtool.common.testsuite.TestSuiteDto
+import com.saveourtool.common.testsuite.TestSuitesSourceDto
+import com.saveourtool.common.utils.getCurrentLocalDateTime
 import org.eclipse.jgit.api.Git
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll

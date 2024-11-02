@@ -2,22 +2,12 @@ config.devServer = Object.assign(
     {},
     config.devServer || {},
     {
+        port: 8080,
         setupMiddlewares: (middlewares, devServer) => {
             devServer.app.get("/sec/oauth-providers", (req, res) => { return res.send([]); });
             return middlewares;
         },
         proxy: [
-            {
-                context: ["/api/sandbox/**"],
-                target: 'http://localhost:5400',
-                logLevel: 'debug',
-                onProxyReq: function (proxyReq, req, res) {
-                    proxyReq.setHeader("X-Authorization-Id", "1");
-                    proxyReq.setHeader("X-Authorization-Name", "admin");
-                    proxyReq.setHeader("X-Authorization-Roles", "ROLE_SUPER_ADMIN");
-                    proxyReq.setHeader("X-Authorization-Status", "ACTIVE");
-                }
-            },
             {
                 context: ["/api/demo/**"],
                 target: 'http://localhost:5421',

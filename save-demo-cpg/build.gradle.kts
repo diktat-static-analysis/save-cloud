@@ -46,7 +46,7 @@ val resolveJep: TaskProvider<Copy> = tasks.register<Copy>("resolveJep") {
 }
 
 dependencies {
-    implementation(projects.saveCloudCommon)
+    implementation(projects.common)
     api(libs.arrow.kt.core)
 
     val excludeLogging: Action<ExternalModuleDependency> = Action {

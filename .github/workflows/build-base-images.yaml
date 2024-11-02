@@ -43,13 +43,13 @@ jobs:
           - base_image_name: ubuntu
             base_image_tag: '20.04'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - if: github.event_name == 'workflow_dispatch'
         name: Prepare to build from branch
         run: |
           git fetch
           git checkout origin/${{ inputs.branch }}
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: saveourtool
@@ -57,7 +57,7 @@ jobs:
       - name: Prepare formatted tags
         run: |
           echo FORMATTED_TAG=${{ matrix.base_image_tag }} | sed -e "s/-focal$//" | sed -e "s/20.04$/latest/" >> $GITHUB_ENV
-      - uses: docker/build-push-action@v4
+      - uses: docker/build-push-action@v5
         with:
           context: save-deploy/base-images
           push: true
@@ -72,18 +72,18 @@ jobs:
     name: Build custom Paketo builder for CPG-demo
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - if: github.event_name == 'workflow_dispatch'
         name: Prepare to build from branch
         run: |
           git fetch
           git checkout origin/${{ inputs.branch }}
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: saveourtool
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/build-push-action@v4
+      - uses: docker/build-push-action@v5
         with:
           context: save-demo-cpg/builder
           push: true

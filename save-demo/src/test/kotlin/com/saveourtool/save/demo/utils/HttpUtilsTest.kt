@@ -2,7 +2,7 @@ package com.saveourtool.save.demo.utils
 
 import com.saveourtool.save.demo.config.KubernetesConfig
 import com.saveourtool.save.demo.entity.Demo
-import com.saveourtool.save.domain.Sdk
+import com.saveourtool.common.domain.Sdk
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.jvm.javaio.toByteReadChannel
 import org.assertj.core.api.Assertions.assertThat

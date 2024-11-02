@@ -2,13 +2,13 @@
 
 package com.saveourtool.save.frontend.components.views.agreements
 
-import com.saveourtool.save.frontend.common.components.basic.markdown
-import com.saveourtool.save.frontend.common.externals.cookie.acceptCookies
-import com.saveourtool.save.frontend.common.externals.cookie.cookie
-import com.saveourtool.save.frontend.common.externals.cookie.declineCookies
-import com.saveourtool.save.frontend.common.utils.Style
-import com.saveourtool.save.frontend.common.utils.buttonBuilder
-import com.saveourtool.save.frontend.common.utils.useBackground
+import com.saveourtool.frontend.common.components.basic.markdown
+import com.saveourtool.frontend.common.externals.cookie.acceptCookies
+import com.saveourtool.frontend.common.externals.cookie.cookie
+import com.saveourtool.frontend.common.externals.cookie.declineCookies
+import com.saveourtool.frontend.common.utils.Style
+import com.saveourtool.frontend.common.utils.buttonBuilder
+import com.saveourtool.frontend.common.utils.useBackground
 import com.saveourtool.save.frontend.externals.i18next.useTranslation
 
 import react.FC

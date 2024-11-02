@@ -1,15 +1,15 @@
 package com.saveourtool.save.backend.controller
 
-import com.saveourtool.save.agent.AgentState
+import com.saveourtool.common.agent.AgentState
 import com.saveourtool.save.backend.SaveApplication
 import com.saveourtool.save.backend.controllers.ProjectController
 import com.saveourtool.save.backend.repository.AgentRepository
 import com.saveourtool.save.backend.repository.AgentStatusRepository
-import com.saveourtool.save.backend.security.ProjectPermissionEvaluator
 import com.saveourtool.save.backend.utils.InfraExtension
-import com.saveourtool.save.entities.AgentStatus
-import com.saveourtool.save.entities.AgentStatusDto
-import com.saveourtool.save.entities.AgentStatusDtoList
+import com.saveourtool.common.entities.AgentStatus
+import com.saveourtool.common.entities.AgentStatusDto
+import com.saveourtool.common.entities.AgentStatusDtoList
+import com.saveourtool.common.security.ProjectPermissionEvaluator
 import kotlinx.datetime.LocalDateTime
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertTrue

@@ -1,12 +1,12 @@
 package com.saveourtool.save.test.analysis.algorithms
 
-import com.saveourtool.save.domain.TestResultStatus
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.test.analysis.metrics.RegularTestMetrics
+import com.saveourtool.common.test.analysis.results.IrregularTest
+import com.saveourtool.common.test.analysis.results.Regression
 import com.saveourtool.save.test.analysis.api.TestRuns
 import com.saveourtool.save.test.analysis.api.TestStatusProvider
 import com.saveourtool.save.test.analysis.api.TestStatusProviderScope
-import com.saveourtool.save.test.analysis.metrics.RegularTestMetrics
-import com.saveourtool.save.test.analysis.results.IrregularTest
-import com.saveourtool.save.test.analysis.results.Regression
 
 /**
  * Regression detection algorithm.

@@ -2,15 +2,15 @@
 
 package com.saveourtool.save.frontend.components.basic.projects
 
-import com.saveourtool.save.domain.Role
-import com.saveourtool.save.entities.ProjectDto
-import com.saveourtool.save.entities.ProjectStatus
-import com.saveourtool.save.frontend.common.components.basic.manageUserRoleCardComponent
-import com.saveourtool.save.frontend.common.components.inputform.InputTypes
-import com.saveourtool.save.frontend.common.components.inputform.inputTextFormOptional
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.noopLoadingHandler
-import com.saveourtool.save.info.UserInfo
+import com.saveourtool.common.domain.Role
+import com.saveourtool.common.entities.ProjectDto
+import com.saveourtool.common.entities.ProjectStatus
+import com.saveourtool.common.info.UserInfo
+import com.saveourtool.frontend.common.components.basic.manageUserRoleCardComponent
+import com.saveourtool.frontend.common.components.inputform.InputTypes
+import com.saveourtool.frontend.common.components.inputform.inputTextFormOptional
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.noopLoadingHandler
 
 import org.w3c.fetch.Response
 import react.*

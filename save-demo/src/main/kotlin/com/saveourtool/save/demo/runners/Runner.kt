@@ -1,7 +1,7 @@
 package com.saveourtool.save.demo.runners
 
-import com.saveourtool.save.demo.DemoResult
-import com.saveourtool.save.demo.DemoRunRequest
+import com.saveourtool.common.demo.DemoResult
+import com.saveourtool.common.demo.DemoRunRequest
 import reactor.core.publisher.Mono
 
 /**

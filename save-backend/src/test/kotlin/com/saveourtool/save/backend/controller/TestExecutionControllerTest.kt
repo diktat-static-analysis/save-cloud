@@ -1,9 +1,9 @@
 package com.saveourtool.save.backend.controller
 
-import com.saveourtool.save.agent.TestExecutionDto
-import com.saveourtool.save.agent.TestExecutionExtDto
-import com.saveourtool.save.agent.TestExecutionResult
-import com.saveourtool.save.agent.TestSuiteExecutionStatisticDto
+import com.saveourtool.common.agent.TestExecutionDto
+import com.saveourtool.common.agent.TestExecutionExtDto
+import com.saveourtool.common.agent.TestExecutionResult
+import com.saveourtool.common.agent.TestSuiteExecutionStatisticDto
 import com.saveourtool.save.backend.SaveApplication
 import com.saveourtool.save.backend.controllers.ProjectController
 import com.saveourtool.save.backend.repository.AgentRepository
@@ -13,9 +13,9 @@ import com.saveourtool.save.backend.storage.DebugInfoStorage
 import com.saveourtool.save.backend.storage.ExecutionInfoStorage
 import com.saveourtool.save.backend.utils.InfraExtension
 import com.saveourtool.save.backend.utils.mutateMockedUser
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.utils.secondsToJLocalDateTime
-import com.saveourtool.save.v1
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.utils.secondsToJLocalDateTime
+import com.saveourtool.common.v1
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -81,7 +81,7 @@ class TestExecutionControllerTest {
         mutateMockedUser(id = 99)
 
         webClient.get()
-            .uri("/api/$v1/testExecution/count?executionId=1")
+            .uri("/api/${v1}/testExecution/count?executionId=1")
             .exchange()
             .expectBody<Int>()
             .isEqualTo(28)
@@ -94,9 +94,9 @@ class TestExecutionControllerTest {
 
         val expectedExecutionCount = 20
         webClient.post()
-            .uri("/api/$v1/test-executions?executionId=1&page=0&size=$expectedExecutionCount")
+            .uri("/api/${v1}/test-executions?executionId=1&page=0&size=$expectedExecutionCount")
             .exchange()
-            .expectBody<List<TestExecutionExtDto>>()
+            .expectBody<List<com.saveourtool.common.agent.TestExecutionExtDto>>()
             .consumeWith {
                 assertEquals(expectedExecutionCount, it.responseBody!!.size)
             }
@@ -108,9 +108,9 @@ class TestExecutionControllerTest {
         mutateMockedUser(id = 99)
 
         webClient.get()
-            .uri("/api/$v1/testLatestExecutions?executionId=3&status=${TestResultStatus.PASSED}&page=0&size=10")
+            .uri("/api/${v1}/testLatestExecutions?executionId=3&status=${TestResultStatus.PASSED}&page=0&size=10")
             .exchange()
-            .expectBody<List<TestSuiteExecutionStatisticDto>>()
+            .expectBody<List<com.saveourtool.common.agent.TestSuiteExecutionStatisticDto>>()
             .consumeWith {
                 assertEquals(1, it.responseBody!!.size)
             }

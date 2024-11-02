@@ -1,6 +1,6 @@
 package com.saveourtool.save.preprocessor.utils
 
-import com.saveourtool.save.entities.GitDto
+import com.saveourtool.common.entities.GitDto
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.nio.file.Path

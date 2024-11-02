@@ -1,9 +1,10 @@
 package com.saveourtool.save.demo.storage
 
+import com.saveourtool.common.s3.S3Operations
+import com.saveourtool.common.storage.impl.AbstractInternalFileStorage
+import com.saveourtool.common.storage.impl.InternalFileKey
 import com.saveourtool.save.demo.config.ConfigProperties
-import com.saveourtool.save.s3.S3Operations
-import com.saveourtool.save.storage.impl.AbstractInternalFileStorage
-import com.saveourtool.save.storage.impl.InternalFileKey
+
 import org.springframework.stereotype.Component
 
 /**

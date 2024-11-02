@@ -1,10 +1,10 @@
 package com.saveourtool.save.demo.controller
 
-import com.saveourtool.save.demo.DemoAgentConfig
-import com.saveourtool.save.demo.DemoDto
+import com.saveourtool.common.demo.DemoAgentConfig
+import com.saveourtool.common.demo.DemoDto
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.demo.entity.*
 import com.saveourtool.save.demo.service.*
-import com.saveourtool.save.utils.*
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*

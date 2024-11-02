@@ -1,9 +1,9 @@
 package com.saveourtool.save.test.analysis.api
 
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.test.analysis.metrics.NoDataAvailable
-import com.saveourtool.save.test.analysis.metrics.RegularTestMetrics
-import com.saveourtool.save.test.analysis.metrics.TestMetrics
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.test.analysis.metrics.NoDataAvailable
+import com.saveourtool.common.test.analysis.metrics.RegularTestMetrics
+import com.saveourtool.common.test.analysis.metrics.TestMetrics
 import kotlin.time.Duration
 import kotlin.time.DurationUnit.MILLISECONDS
 import kotlin.time.toDuration

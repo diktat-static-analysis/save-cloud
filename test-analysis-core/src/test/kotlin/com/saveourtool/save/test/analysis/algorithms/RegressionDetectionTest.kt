@@ -1,6 +1,6 @@
 package com.saveourtool.save.test.analysis.algorithms
 
-import com.saveourtool.save.domain.TestResultStatus
+import com.saveourtool.common.domain.TestResultStatus
 import com.saveourtool.save.test.analysis.api.TestStatusProvider
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test

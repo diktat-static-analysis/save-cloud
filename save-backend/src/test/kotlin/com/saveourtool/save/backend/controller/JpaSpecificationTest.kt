@@ -1,12 +1,10 @@
 package com.saveourtool.save.backend.controller
 
-import com.saveourtool.save.agent.AgentState
+import com.saveourtool.common.agent.AgentState
 import com.saveourtool.save.backend.configs.ApplicationConfiguration
 import com.saveourtool.save.backend.repository.AgentStatusRepository
-import com.saveourtool.save.backend.service.IBackendService
 import com.saveourtool.save.backend.utils.InfraExtension
-import com.saveourtool.save.cosv.repository.*
-import com.saveourtool.save.utils.BlockingBridge
+import com.saveourtool.common.utils.BlockingBridge
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -22,15 +20,7 @@ import org.springframework.context.annotation.Import
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ExtendWith(InfraExtension::class)
 @MockBeans(
-    MockBean(IBackendService::class),
-    MockBean(VulnerabilityMetadataRepository::class),
-    MockBean(LnkVulnerabilityMetadataTagRepository::class),
-    MockBean(LnkVulnerabilityMetadataUserRepository::class),
-    MockBean(VulnerabilityMetadataProjectRepository::class),
-    MockBean(RawCosvFileRepository::class),
-    MockBean(CosvFileRepository::class),
     MockBean(BlockingBridge::class),
-    MockBean(CosvGeneratedIdRepository::class),
 )
 class JpaSpecificationTest {
     @Autowired
@@ -43,7 +33,7 @@ class JpaSpecificationTest {
         val agentStatusToList = agentStatusRepository.findOne { root, _, cb ->
             cb.and(
                 cb.equal(root.get<Long>("id"), 4),
-                cb.equal(root.get<AgentState>("state"), AgentState.FINISHED)
+                cb.equal(root.get<AgentState>("state"), com.saveourtool.common.agent.AgentState.FINISHED)
             )
         }.get()
 

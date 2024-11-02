@@ -12,7 +12,7 @@ application {
 
 dependencies {
     implementation(projects.saveApi)
-    implementation(projects.saveCloudCommon)
+    implementation(projects.common)
     implementation(libs.save.common.jvm)
     implementation(libs.kotlinx.cli)
     implementation(libs.log4j)

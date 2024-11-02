@@ -1,8 +1,8 @@
 package com.saveourtool.save.backend.controllers.internal
 
+import com.saveourtool.common.service.UserService
+import com.saveourtool.common.utils.blockingToMono
 import com.saveourtool.save.authservice.utils.SaveUserDetails
-import com.saveourtool.save.backend.service.UserDetailsService
-import com.saveourtool.save.utils.blockingToMono
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -20,7 +20,7 @@ typealias SaveUserDetailsResponse = ResponseEntity<SaveUserDetails>
 @RestController
 @RequestMapping("/internal/users")
 class UsersController(
-    private val userService: UserDetailsService,
+    private val userService: UserService,
 ) {
     /**
      * Stores user in the DB with provided [name] with default role.

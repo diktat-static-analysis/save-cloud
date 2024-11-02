@@ -2,14 +2,14 @@
 
 package com.saveourtool.save.frontend.components.basic.projects
 
-import com.saveourtool.save.entities.ProjectProblemCritical
-import com.saveourtool.save.entities.ProjectProblemDto
-import com.saveourtool.save.entities.vulnerability.VulnerabilityStatus
-import com.saveourtool.save.frontend.common.components.inputform.InputTypes
-import com.saveourtool.save.frontend.common.components.inputform.inputTextFormOptional
-import com.saveourtool.save.frontend.common.components.inputform.inputTextFormRequired
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.utils.isNotNull
+import com.saveourtool.common.entities.ProjectProblemCritical
+import com.saveourtool.common.entities.ProjectProblemDto
+import com.saveourtool.common.entities.vulnerability.VulnerabilityStatus
+import com.saveourtool.common.utils.isNotNull
+import com.saveourtool.frontend.common.components.inputform.InputTypes
+import com.saveourtool.frontend.common.components.inputform.inputTextFormOptional
+import com.saveourtool.frontend.common.components.inputform.inputTextFormRequired
+import com.saveourtool.frontend.common.utils.*
 
 import js.core.jso
 import react.FC

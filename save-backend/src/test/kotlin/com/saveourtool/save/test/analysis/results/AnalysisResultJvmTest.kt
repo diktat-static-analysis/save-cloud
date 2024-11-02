@@ -1,5 +1,6 @@
 package com.saveourtool.save.test.analysis.results
 
+import com.saveourtool.common.test.analysis.results.*
 import com.saveourtool.save.test.analysis.TestAnalysisApplication
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper

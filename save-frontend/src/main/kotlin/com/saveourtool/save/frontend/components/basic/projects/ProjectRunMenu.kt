@@ -2,22 +2,22 @@
 
 package com.saveourtool.save.frontend.components.basic.projects
 
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.domain.Sdk
-import com.saveourtool.save.entities.FileDto
-import com.saveourtool.save.entities.ProjectDto
-import com.saveourtool.save.entities.contest.ContestDto
-import com.saveourtool.save.execution.TestingType
-import com.saveourtool.save.frontend.common.components.basic.cardComponent
-import com.saveourtool.save.frontend.common.externals.fontawesome.faCalendarAlt
-import com.saveourtool.save.frontend.common.externals.fontawesome.faHistory
-import com.saveourtool.save.frontend.common.externals.fontawesome.fontAwesomeIcon
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.apiUrl
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.domain.Sdk
+import com.saveourtool.common.entities.FileDto
+import com.saveourtool.common.entities.ProjectDto
+import com.saveourtool.common.entities.contest.ContestDto
+import com.saveourtool.common.execution.TestingType
+import com.saveourtool.common.request.CreateExecutionRequest
+import com.saveourtool.common.testsuite.TestSuiteVersioned
+import com.saveourtool.frontend.common.components.basic.cardComponent
+import com.saveourtool.frontend.common.externals.fontawesome.faCalendarAlt
+import com.saveourtool.frontend.common.externals.fontawesome.faHistory
+import com.saveourtool.frontend.common.externals.fontawesome.fontAwesomeIcon
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.apiUrl
 import com.saveourtool.save.frontend.components.basic.*
 import com.saveourtool.save.frontend.components.basic.fileuploader.simpleFileUploader
-import com.saveourtool.save.request.CreateExecutionRequest
-import com.saveourtool.save.testsuite.TestSuiteVersioned
 
 import react.*
 import react.dom.html.ReactHTML.div

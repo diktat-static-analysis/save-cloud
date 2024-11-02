@@ -1,8 +1,8 @@
 package com.saveourtool.save.backend.repository
 
-import com.saveourtool.save.entities.Contest
-import com.saveourtool.save.entities.LnkContestTestSuite
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.Contest
+import com.saveourtool.common.entities.LnkContestTestSuite
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import org.springframework.stereotype.Repository
 
 /**

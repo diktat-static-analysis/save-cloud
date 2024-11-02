@@ -6,13 +6,13 @@
 
 package com.saveourtool.save.frontend.components.basic.demo.management
 
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.frontend.common.components.modal.*
-import com.saveourtool.save.frontend.common.externals.fontawesome.faArrowLeft
-import com.saveourtool.save.frontend.common.externals.fontawesome.faArrowRight
-import com.saveourtool.save.frontend.common.externals.fontawesome.faHistory
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.utils.*
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.utils.*
+import com.saveourtool.frontend.common.components.modal.*
+import com.saveourtool.frontend.common.externals.fontawesome.faArrowLeft
+import com.saveourtool.frontend.common.externals.fontawesome.faArrowRight
+import com.saveourtool.frontend.common.externals.fontawesome.faHistory
+import com.saveourtool.frontend.common.utils.*
 
 import js.core.jso
 import react.FC

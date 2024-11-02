@@ -9,8 +9,8 @@ import com.saveourtool.save.orchestrator.runner.ContainerRunnerException
 import com.saveourtool.save.orchestrator.service.OrchestratorAgentService
 import com.saveourtool.save.orchestrator.utils.DockerClientTestConfiguration
 import com.saveourtool.save.orchestrator.utils.silentlyCleanupContainer
-import com.saveourtool.save.utils.error
-import com.saveourtool.save.utils.getLogger
+import com.saveourtool.common.utils.error
+import com.saveourtool.common.utils.getLogger
 import org.junit.jupiter.api.*
 import org.slf4j.Logger
 import org.springframework.beans.factory.annotation.Autowired

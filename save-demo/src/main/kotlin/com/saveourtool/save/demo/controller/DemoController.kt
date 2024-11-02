@@ -1,13 +1,14 @@
 package com.saveourtool.save.demo.controller
 
-import com.saveourtool.save.configs.ApiSwaggerSupport
-import com.saveourtool.save.demo.DemoDto
-import com.saveourtool.save.demo.DemoResult
-import com.saveourtool.save.demo.DemoRunRequest
+import com.saveourtool.common.configs.ApiSwaggerSupport
+import com.saveourtool.common.demo.DemoDto
+import com.saveourtool.common.demo.DemoResult
+import com.saveourtool.common.demo.DemoRunRequest
+import com.saveourtool.common.filters.DemoFilter
+import com.saveourtool.common.utils.blockingToFlux
 import com.saveourtool.save.demo.runners.RunnerFactory
 import com.saveourtool.save.demo.service.DemoService
-import com.saveourtool.save.filters.DemoFilter
-import com.saveourtool.save.utils.blockingToFlux
+
 import io.swagger.v3.oas.annotations.tags.Tag
 import io.swagger.v3.oas.annotations.tags.Tags
 import org.springframework.web.bind.annotation.GetMapping
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import reactor.kotlin.core.publisher.toMono
-
 import reactor.kotlin.core.util.function.component1
 import reactor.kotlin.core.util.function.component2
 

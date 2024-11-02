@@ -1,11 +1,12 @@
 package com.saveourtool.save.backend.configs
 
+import com.saveourtool.common.utils.getLogger
+import com.saveourtool.common.utils.info
 import com.saveourtool.save.test.analysis.api.TestIdGenerator
 import com.saveourtool.save.test.analysis.api.TestStatisticsStorage
 import com.saveourtool.save.test.analysis.internal.MemoryBacked
 import com.saveourtool.save.test.analysis.internal.MutableTestStatisticsStorage
-import com.saveourtool.save.utils.getLogger
-import com.saveourtool.save.utils.info
+
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

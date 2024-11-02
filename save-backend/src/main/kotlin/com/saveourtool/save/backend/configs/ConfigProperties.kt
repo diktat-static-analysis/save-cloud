@@ -1,7 +1,7 @@
 package com.saveourtool.save.backend.configs
 
-import com.saveourtool.save.s3.S3OperationsProperties
-import com.saveourtool.save.service.LokiConfig
+import com.saveourtool.common.s3.S3OperationsProperties
+import com.saveourtool.common.service.LokiConfig
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding
 import java.nio.file.Path

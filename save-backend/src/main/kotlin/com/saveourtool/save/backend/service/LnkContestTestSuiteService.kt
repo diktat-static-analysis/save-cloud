@@ -1,7 +1,8 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.entities.*
 import com.saveourtool.save.backend.repository.LnkContestTestSuiteRepository
-import com.saveourtool.save.entities.*
+
 import org.springframework.stereotype.Service
 
 /**

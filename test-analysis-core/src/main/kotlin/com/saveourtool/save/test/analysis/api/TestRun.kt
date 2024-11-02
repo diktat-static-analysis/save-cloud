@@ -1,6 +1,6 @@
 package com.saveourtool.save.test.analysis.api
 
-import com.saveourtool.save.domain.TestResultStatus
+import com.saveourtool.common.domain.TestResultStatus
 import kotlin.time.Duration
 
 /**

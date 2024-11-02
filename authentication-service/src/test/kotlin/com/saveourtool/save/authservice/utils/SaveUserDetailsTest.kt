@@ -1,10 +1,10 @@
 package com.saveourtool.save.authservice.utils
 
 import com.saveourtool.save.authservice.utils.SaveUserDetails.Companion.toSaveUserDetails
-import com.saveourtool.save.utils.AUTHORIZATION_ID
-import com.saveourtool.save.utils.AUTHORIZATION_NAME
-import com.saveourtool.save.utils.AUTHORIZATION_ROLES
-import com.saveourtool.save.utils.AUTHORIZATION_STATUS
+import com.saveourtool.common.utils.AUTHORIZATION_ID
+import com.saveourtool.common.utils.AUTHORIZATION_NAME
+import com.saveourtool.common.utils.AUTHORIZATION_ROLES
+import com.saveourtool.common.utils.AUTHORIZATION_STATUS
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows

@@ -1,0 +1,100 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  labels:
+    {{- include "common.labels" (merge (dict "service" .Values.gateway) .) | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: gateway
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        {{- include "pod.common.labels" (merge (dict "service" .Values.gateway ) .) | nindent 8 }}
+      annotations:
+        {{- include "pod.common.annotations" (dict "service" .Values.backend ) | nindent 8 }}
+    spec:
+      restartPolicy: Always
+      {{- include "cnb.securityContext" . | nindent 6 }}
+      containers:
+        - name: gateway
+          {{- include "spring-boot.common" (merge (dict "service" .Values.gateway) .) | nindent 10 }}
+          env:
+            {{- include "spring-boot.common.env" (merge (dict "service" .Values.gateway) .) | nindent 12 }}
+            - name: OAUTH_CONFIG_PATH
+              value: /home/cnb/secrets/oauth
+            - name: JAVA_TOOL_OPTIONS
+              value: -XX:ReservedCodeCacheSize=48M -Dreactor.netty.http.server.accessLogEnabled=true
+          {{- include "spring-boot.management" .Values.gateway | nindent 10 }}
+          resources:
+            limits:
+              memory: 400M
+            requests:
+              memory: 300M
+          volumeMounts:
+            - {{ include "spring-boot.config-volume-mount" . | indent 14 | trim }}
+            - mountPath: /layers/paketo-buildpacks_bellsoft-liberica/jre/lib/security
+              name: cacerts
+            - mountPath: /home/cnb/secrets/oauth
+              name: oauth-credentials
+      {{ if .Values.initCerts.enabled }}
+      initContainers:
+        - name: init-cacerts
+          image: ghcr.io/saveourtool/api-gateway:0.4.0-alpha.0.408-9b56d61
+          command:
+            - bash
+            - -c
+            - |
+              cp -R /layers/paketo-buildpacks_bellsoft-liberica/jre/lib/security/* /home/cnb/cacerts
+              chmod 661 /home/cnb/cacerts/cacerts
+              find /layers -type f -name keytool -exec {} -import -noprompt -trustcacerts -alias HuaweiITRootCA -file /security/HuaweiITRootCA.pem -keystore /home/cnb/cacerts/cacerts -storepass changeit \;
+              find /layers -type f -name keytool -exec {} -import -noprompt -trustcacerts -alias HWITEnterpriseCA1 -file /security/HWITEnterpriseCA1.pem -keystore /home/cnb/cacerts/cacerts -storepass changeit \;
+          volumeMounts:
+            - mountPath: /home/cnb/cacerts
+              name: cacerts
+            - mountPath: /security
+              name: his-certs
+      {{ end }}
+      volumes:
+        - {{ include "spring-boot.config-volume" (dict "service" .Values.gateway) | indent 10 | trim }}
+        - name: oauth-credentials
+          secret:
+            secretName: oauth-credentials
+        - name: his-certs
+          secret:
+            secretName: his-certs
+        - name: cacerts
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  {{- include "service.common.metadata" (dict "service" .Values.gateway) | nindent 2 }}
+  {{- if .Values.gateway.svc.annotations }}
+  annotations:
+    {{- range $key, $value := .Values.gateway.svc.annotations }}
+    {{ $key }}: {{ $value }}
+    {{- end }}
+  {{- end }}
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+  selector:
+    {{- include "service.common.selectors" (dict "service" .Values.gateway) | nindent 4 }}
+  {{- range $key, $value := .Values.gateway.svc.spec }}
+  {{ $key }}: {{ $value }}
+  {{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.gateway.name }}-config
+data:
+  application.properties: |
+    {{ if .Values.gateway.applicationProperties }}
+    {{- .Values.gateway.applicationProperties | nindent 4 }}
+    {{ end }}

@@ -1,19 +1,22 @@
 package com.saveourtool.save.demo.runners.cli
 
-import com.saveourtool.save.demo.DemoResult
-import com.saveourtool.save.demo.DemoRunRequest
+import com.saveourtool.common.demo.DemoResult
+import com.saveourtool.common.demo.DemoRunRequest
+import com.saveourtool.common.utils.blockingToMono
+import com.saveourtool.common.utils.collectToFile
 import com.saveourtool.save.demo.storage.DependencyStorage
 import com.saveourtool.save.demo.storage.ToolKey
 import com.saveourtool.save.demo.utils.prependPath
-import com.saveourtool.save.utils.blockingToMono
-import com.saveourtool.save.utils.collectToFile
+
 import org.slf4j.Logger
 import reactor.core.publisher.Mono
 import reactor.kotlin.core.publisher.switchIfEmpty
+
 import java.io.FileNotFoundException
 import java.io.IOException
 import java.io.UncheckedIOException
 import java.nio.file.Path
+
 import kotlin.io.path.*
 
 /**

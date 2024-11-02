@@ -1,6 +1,6 @@
 package com.saveourtool.save.preprocessor.service
 
-import com.saveourtool.save.test.TestSuiteValidationError
+import com.saveourtool.common.test.TestSuiteValidationError
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotHaveSize
 import io.kotest.matchers.shouldBe

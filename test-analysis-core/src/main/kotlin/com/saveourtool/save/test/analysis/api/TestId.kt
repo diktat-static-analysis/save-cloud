@@ -1,6 +1,6 @@
 package com.saveourtool.save.test.analysis.api
 
-import com.saveourtool.save.entities.Test
+import com.saveourtool.common.entities.Test
 
 /**
  * A test executed within a particular project (the same test executed in a

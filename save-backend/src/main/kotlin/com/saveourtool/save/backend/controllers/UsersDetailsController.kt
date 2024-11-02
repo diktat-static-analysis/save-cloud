@@ -1,18 +1,19 @@
 package com.saveourtool.save.backend.controllers
 
+import com.saveourtool.common.configs.RequiresAuthorizationSourceHeader
+import com.saveourtool.common.domain.UserSaveStatus
+import com.saveourtool.common.entities.User
+import com.saveourtool.common.info.UserInfo
+import com.saveourtool.common.info.UserStatus
+import com.saveourtool.common.repository.UserRepository
+import com.saveourtool.common.service.UserService
+import com.saveourtool.common.utils.*
+import com.saveourtool.common.v1
+import com.saveourtool.common.validation.isValidLengthName
 import com.saveourtool.save.authservice.utils.SaveUserDetails
 import com.saveourtool.save.authservice.utils.userId
 import com.saveourtool.save.backend.configs.ConfigProperties
-import com.saveourtool.save.backend.repository.UserRepository
-import com.saveourtool.save.backend.service.UserDetailsService
-import com.saveourtool.save.configs.RequiresAuthorizationSourceHeader
-import com.saveourtool.save.domain.UserSaveStatus
-import com.saveourtool.save.entities.User
-import com.saveourtool.save.info.UserInfo
-import com.saveourtool.save.info.UserStatus
-import com.saveourtool.save.utils.*
-import com.saveourtool.save.v1
-import com.saveourtool.save.validation.isValidLengthName
+
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.Parameters
@@ -21,7 +22,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import org.springframework.boot.web.reactive.function.client.WebClientCustomizer
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
-
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.access.prepost.PreAuthorize
@@ -40,7 +40,7 @@ import reactor.kotlin.core.publisher.toMono
 @RequestMapping(path = ["/api/$v1/users"])
 class UsersDetailsController(
     private val userRepository: UserRepository,
-    private val userDetailsService: UserDetailsService,
+    private val userDetailsService: UserService,
     configProperties: ConfigProperties,
     jackson2WebClientCustomizer: WebClientCustomizer,
 ) {

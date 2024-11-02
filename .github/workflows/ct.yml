@@ -9,7 +9,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # https://github.com/helm/chart-testing#local-repo
       - uses: pozetroninc/github-action-get-latest-release@master
         id: ct-version

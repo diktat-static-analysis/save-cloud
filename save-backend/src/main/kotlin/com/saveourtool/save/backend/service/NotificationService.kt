@@ -1,7 +1,7 @@
 package com.saveourtool.save.backend.service
 
-import com.saveourtool.save.backend.repository.NotificationRepository
-import com.saveourtool.save.entities.Notification
+import com.saveourtool.common.entities.Notification
+import com.saveourtool.common.repository.NotificationRepository
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

@@ -2,18 +2,18 @@
 
 package com.saveourtool.save.api
 
-import com.saveourtool.save.agent.TestExecutionExtDto
+import com.saveourtool.common.agent.TestExecutionExtDto
+import com.saveourtool.common.entities.FileDto
+import com.saveourtool.common.entities.OrganizationDto
+import com.saveourtool.common.entities.ProjectDto
+import com.saveourtool.common.entities.ProjectStatus.CREATED
+import com.saveourtool.common.entities.contest.ContestDto
+import com.saveourtool.common.execution.ExecutionDto
+import com.saveourtool.common.permission.Permission.READ
+import com.saveourtool.common.request.CreateExecutionRequest
+import com.saveourtool.common.testsuite.TestSuiteVersioned
 import com.saveourtool.save.api.errors.SaveCloudError
 import com.saveourtool.save.api.impl.DefaultSaveCloudClient
-import com.saveourtool.save.entities.FileDto
-import com.saveourtool.save.entities.OrganizationDto
-import com.saveourtool.save.entities.ProjectDto
-import com.saveourtool.save.entities.ProjectStatus.CREATED
-import com.saveourtool.save.entities.contest.ContestDto
-import com.saveourtool.save.execution.ExecutionDto
-import com.saveourtool.save.permission.Permission.READ
-import com.saveourtool.save.request.CreateExecutionRequest
-import com.saveourtool.save.testsuite.TestSuiteVersioned
 
 import arrow.core.Either
 import io.ktor.client.plugins.auth.Auth

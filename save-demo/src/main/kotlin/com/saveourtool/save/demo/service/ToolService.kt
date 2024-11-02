@@ -1,10 +1,11 @@
 package com.saveourtool.save.demo.service
 
+import com.saveourtool.common.domain.ProjectCoordinates
 import com.saveourtool.save.demo.entity.GithubRepo
 import com.saveourtool.save.demo.entity.Snapshot
 import com.saveourtool.save.demo.entity.Tool
 import com.saveourtool.save.demo.repository.ToolRepository
-import com.saveourtool.save.domain.ProjectCoordinates
+
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

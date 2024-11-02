@@ -1,13 +1,13 @@
 package com.saveourtool.save.gateway.service
 
+import com.saveourtool.common.entities.User
+import com.saveourtool.common.utils.SAVE_USER_ID_ATTRIBUTE
+import com.saveourtool.common.utils.orNotFound
+import com.saveourtool.common.utils.switchIfEmptyToResponseException
 import com.saveourtool.save.authservice.utils.SaveUserDetails
-import com.saveourtool.save.entities.User
 import com.saveourtool.save.gateway.config.ConfigurationProperties
-import com.saveourtool.save.utils.SAVE_USER_ID_ATTRIBUTE
-import com.saveourtool.save.utils.orNotFound
-import com.saveourtool.save.utils.switchIfEmptyToResponseException
-import org.springframework.http.HttpStatus
 
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -21,6 +21,7 @@ import org.springframework.web.server.WebSession
 import reactor.core.publisher.Mono
 import reactor.kotlin.core.publisher.switchIfEmpty
 import reactor.kotlin.core.publisher.toMono
+
 import java.security.Principal
 
 /**

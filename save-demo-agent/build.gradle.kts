@@ -35,7 +35,7 @@ kotlin {
             linuxX64Main.dependsOn(this)
 
             dependencies {
-                implementation(projects.saveCloudCommon)
+                implementation(projects.common)
                 implementation(libs.save.common)
                 implementation(libs.kotlinx.coroutines.core)
 

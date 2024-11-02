@@ -1,10 +1,10 @@
 package com.saveourtool.save.demo.controller
 
-import com.saveourtool.save.demo.DemoDto
-import com.saveourtool.save.demo.DemoStatus
+import com.saveourtool.common.demo.DemoDto
+import com.saveourtool.common.demo.DemoStatus
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.demo.entity.*
 import com.saveourtool.save.demo.service.*
-import com.saveourtool.save.utils.*
 
 import io.swagger.v3.oas.annotations.tags.Tag
 import io.swagger.v3.oas.annotations.tags.Tags

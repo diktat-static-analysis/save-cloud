@@ -1,9 +1,10 @@
 package com.saveourtool.save.demo.repository
 
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import com.saveourtool.save.demo.entity.GithubRepo
 import com.saveourtool.save.demo.entity.Snapshot
 import com.saveourtool.save.demo.entity.Tool
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+
 import org.springframework.stereotype.Repository
 
 /**

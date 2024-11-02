@@ -6,15 +6,15 @@
 
 package com.saveourtool.save.frontend.components.views.demo
 
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.frontend.common.components.basic.cardComponent
-import com.saveourtool.save.frontend.common.utils.Style
-import com.saveourtool.save.frontend.common.utils.selectorBuilder
-import com.saveourtool.save.frontend.common.utils.useBackground
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.utils.Languages
+import com.saveourtool.frontend.common.components.basic.cardComponent
+import com.saveourtool.frontend.common.utils.Style
+import com.saveourtool.frontend.common.utils.selectorBuilder
+import com.saveourtool.frontend.common.utils.useBackground
 import com.saveourtool.save.frontend.components.basic.demo.run.demoRunComponent
 import com.saveourtool.save.frontend.externals.reactace.AceThemes
 import com.saveourtool.save.frontend.utils.*
-import com.saveourtool.save.utils.Languages
 
 import react.*
 import react.dom.html.ReactHTML.div

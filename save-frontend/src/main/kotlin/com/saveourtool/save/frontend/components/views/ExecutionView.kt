@@ -4,32 +4,33 @@
 
 package com.saveourtool.save.frontend.components.views
 
-import com.saveourtool.save.agent.TestExecutionDto
-import com.saveourtool.save.agent.TestExecutionExtDto
+import com.saveourtool.common.agent.TestExecutionDto
+import com.saveourtool.common.agent.TestExecutionExtDto
+import com.saveourtool.common.domain.TestResultDebugInfo
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.execution.ExecutionDto
+import com.saveourtool.common.execution.ExecutionUpdateDto
+import com.saveourtool.common.filters.TestExecutionFilter
+import com.saveourtool.common.utils.ELLIPSIS
+import com.saveourtool.frontend.common.components.RequestStatusContext
+import com.saveourtool.frontend.common.components.basic.*
+import com.saveourtool.frontend.common.components.requestStatusContext
+import com.saveourtool.frontend.common.components.tables.TableProps
+import com.saveourtool.frontend.common.components.tables.columns
+import com.saveourtool.frontend.common.components.tables.enableExpanding
+import com.saveourtool.frontend.common.components.tables.isExpanded
+import com.saveourtool.frontend.common.components.tables.pageIndex
+import com.saveourtool.frontend.common.components.tables.pageSize
+import com.saveourtool.frontend.common.components.tables.tableComponent
+import com.saveourtool.frontend.common.components.tables.value
+import com.saveourtool.frontend.common.components.tables.visibleColumnsCount
+import com.saveourtool.frontend.common.components.views.AbstractView
+import com.saveourtool.frontend.common.http.getDebugInfoFor
+import com.saveourtool.frontend.common.http.getExecutionInfoFor
+import com.saveourtool.frontend.common.themes.Colors
+import com.saveourtool.frontend.common.utils.*
 import com.saveourtool.save.core.logging.describe
 import com.saveourtool.save.core.result.CountWarnings
-import com.saveourtool.save.domain.TestResultDebugInfo
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.execution.ExecutionDto
-import com.saveourtool.save.execution.ExecutionUpdateDto
-import com.saveourtool.save.filters.TestExecutionFilter
-import com.saveourtool.save.frontend.common.components.RequestStatusContext
-import com.saveourtool.save.frontend.common.components.basic.*
-import com.saveourtool.save.frontend.common.components.requestStatusContext
-import com.saveourtool.save.frontend.common.components.tables.TableProps
-import com.saveourtool.save.frontend.common.components.tables.columns
-import com.saveourtool.save.frontend.common.components.tables.enableExpanding
-import com.saveourtool.save.frontend.common.components.tables.isExpanded
-import com.saveourtool.save.frontend.common.components.tables.pageIndex
-import com.saveourtool.save.frontend.common.components.tables.pageSize
-import com.saveourtool.save.frontend.common.components.tables.tableComponent
-import com.saveourtool.save.frontend.common.components.tables.value
-import com.saveourtool.save.frontend.common.components.tables.visibleColumnsCount
-import com.saveourtool.save.frontend.common.components.views.AbstractView
-import com.saveourtool.save.frontend.common.http.getDebugInfoFor
-import com.saveourtool.save.frontend.common.http.getExecutionInfoFor
-import com.saveourtool.save.frontend.common.themes.Colors
-import com.saveourtool.save.frontend.common.utils.*
 import com.saveourtool.save.frontend.components.basic.displayExecutionInfoHeader
 import com.saveourtool.save.frontend.components.basic.displayTestNotFound
 import com.saveourtool.save.frontend.components.basic.executionStatusComponent
@@ -37,7 +38,6 @@ import com.saveourtool.save.frontend.components.basic.table.filters.testExecutio
 import com.saveourtool.save.frontend.components.basic.testStatusComponent
 import com.saveourtool.save.frontend.components.views.test.analysis.analysisResultsView
 import com.saveourtool.save.frontend.components.views.test.analysis.testMetricsView
-import com.saveourtool.save.utils.ELLIPSIS
 
 import js.core.jso
 import org.w3c.fetch.Headers
@@ -130,7 +130,7 @@ external interface StatusProps<D : Any> : TableProps<D> {
 class ExecutionView : AbstractView<ExecutionProps, ExecutionState>(Style.SAVE_LIGHT) {
     @Suppress("TYPE_ALIAS")
     private val additionalInfo: MutableMap<String, AdditionalRowInfo> = mutableMapOf()
-    private val testExecutionsTable: FC<StatusProps<TestExecutionExtDto>> = tableComponent(
+    private val testExecutionsTable: FC<StatusProps<com.saveourtool.common.agent.TestExecutionExtDto>> = tableComponent(
         columns = {
             columns {
                 column(id = "index", header = "#") {
@@ -313,7 +313,7 @@ class ExecutionView : AbstractView<ExecutionProps, ExecutionState>(Style.SAVE_LI
         }
     } ?: ""
 
-    private suspend fun getAdditionalInfoFor(testExecution: TestExecutionDto, id: String) {
+    private suspend fun getAdditionalInfoFor(testExecution: com.saveourtool.common.agent.TestExecutionDto, id: String) {
         val trDebugInfoResponse = getDebugInfoFor(testExecution.requiredId())
         // FixMe: invalid setup of execution because of the invalid propagated ID
         val trExecutionInfoResponse = getExecutionInfoFor(testExecution)
@@ -429,10 +429,10 @@ class ExecutionView : AbstractView<ExecutionProps, ExecutionState>(Style.SAVE_LI
                     body = Json.encodeToString(filters),
                     loadingHandler = ::classLoadingHandler,
                 ).unsafeMap {
-                    Json.decodeFromString<Array<TestExecutionExtDto>>(
+                    Json.decodeFromString<Array<com.saveourtool.common.agent.TestExecutionExtDto>>(
                         it.text().await()
                     )
-                }.onEach { (testExecution: TestExecutionDto) ->
+                }.onEach { (testExecution: com.saveourtool.common.agent.TestExecutionDto) ->
                     /*
                      * Add empty debug info to each test execution.
                      */

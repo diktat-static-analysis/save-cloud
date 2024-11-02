@@ -23,7 +23,7 @@ data class DatabaseCredentials(
 }
 
 /**
- * @param projectName save-backend, save-sandbox or save-demo
+ * @param projectName save-backend or save-demo
  * @param profile a profile to get credentials for
  * @return an instance of [DatabaseCredentials] for [profile] in [projectName]
  */

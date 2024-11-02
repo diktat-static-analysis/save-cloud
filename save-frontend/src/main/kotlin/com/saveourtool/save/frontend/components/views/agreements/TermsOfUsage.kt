@@ -4,9 +4,9 @@
 
 package com.saveourtool.save.frontend.components.views.agreements
 
-import com.saveourtool.save.frontend.common.components.basic.markdown
-import com.saveourtool.save.frontend.common.utils.Style
-import com.saveourtool.save.frontend.common.utils.useBackground
+import com.saveourtool.frontend.common.components.basic.markdown
+import com.saveourtool.frontend.common.utils.Style
+import com.saveourtool.frontend.common.utils.useBackground
 import react.FC
 import react.Props
 import react.dom.html.ReactHTML.div

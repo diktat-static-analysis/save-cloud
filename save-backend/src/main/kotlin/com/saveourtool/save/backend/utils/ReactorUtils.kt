@@ -4,8 +4,8 @@
 
 package com.saveourtool.save.backend.utils
 
-import com.saveourtool.save.utils.collectToInputStream
-import com.saveourtool.save.utils.switchIfEmptyToNotFound
+import com.saveourtool.common.utils.collectToInputStream
+import com.saveourtool.common.utils.switchIfEmptyToNotFound
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.http.HttpStatus

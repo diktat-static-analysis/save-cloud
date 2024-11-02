@@ -1,12 +1,12 @@
 package com.saveourtool.save.backend.storage
 
+import com.saveourtool.common.s3.S3Operations
+import com.saveourtool.common.storage.DefaultStorageCoroutines
+import com.saveourtool.common.storage.impl.AbstractInternalFileStorage
+import com.saveourtool.common.storage.impl.InternalFileKey
 import com.saveourtool.save.backend.configs.ConfigProperties
-import com.saveourtool.save.s3.S3Operations
-import com.saveourtool.save.storage.DefaultStorageCoroutines
-import com.saveourtool.save.storage.impl.AbstractInternalFileStorage
-import com.saveourtool.save.storage.impl.InternalFileKey
-import generated.SAVE_CLI_VERSION
 
+import generated.SAVE_CLI_VERSION
 import org.springframework.stereotype.Component
 
 /**

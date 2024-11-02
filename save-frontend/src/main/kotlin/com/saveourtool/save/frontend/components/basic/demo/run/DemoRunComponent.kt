@@ -6,20 +6,20 @@
 
 package com.saveourtool.save.frontend.components.basic.demo.run
 
-import com.saveourtool.save.demo.DemoDto
-import com.saveourtool.save.demo.DemoResult
-import com.saveourtool.save.demo.DemoRunRequest
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.frontend.common.externals.fontawesome.*
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.buttonBuilder
-import com.saveourtool.save.frontend.common.utils.post
-import com.saveourtool.save.frontend.common.utils.selectorBuilder
-import com.saveourtool.save.frontend.common.utils.useDeferredRequest
-import com.saveourtool.save.frontend.common.utils.useRequest
+import com.saveourtool.common.demo.DemoDto
+import com.saveourtool.common.demo.DemoResult
+import com.saveourtool.common.demo.DemoRunRequest
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.utils.Languages
+import com.saveourtool.frontend.common.externals.fontawesome.*
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.buttonBuilder
+import com.saveourtool.frontend.common.utils.post
+import com.saveourtool.frontend.common.utils.selectorBuilder
+import com.saveourtool.frontend.common.utils.useDeferredRequest
+import com.saveourtool.frontend.common.utils.useRequest
 import com.saveourtool.save.frontend.components.basic.codeeditor.codeEditorComponent
 import com.saveourtool.save.frontend.externals.reactace.AceThemes
-import com.saveourtool.save.utils.Languages
 
 import js.core.asList
 import react.*

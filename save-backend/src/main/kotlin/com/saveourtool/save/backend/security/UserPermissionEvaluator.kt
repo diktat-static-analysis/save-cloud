@@ -1,10 +1,11 @@
 package com.saveourtool.save.backend.security
 
+import com.saveourtool.common.entities.OrganizationStatus
+import com.saveourtool.common.info.UserPermissions
+import com.saveourtool.common.info.UserPermissionsInOrganization
+import com.saveourtool.common.repository.LnkUserOrganizationRepository
 import com.saveourtool.save.authservice.utils.username
-import com.saveourtool.save.backend.repository.LnkUserOrganizationRepository
-import com.saveourtool.save.entities.OrganizationStatus
-import com.saveourtool.save.info.UserPermissions
-import com.saveourtool.save.info.UserPermissionsInOrganization
+
 import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Component
 

@@ -13,7 +13,7 @@ tasks.withType<KotlinCompile> {
 }
 
 dependencies {
-    api(projects.saveCloudCommon)
+    api(projects.common)
     implementation(libs.dockerJava.core)
     implementation(libs.dockerJava.transport.httpclient5)
     implementation(libs.kotlinx.serialization.json.jvm)

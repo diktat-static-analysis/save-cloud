@@ -2,7 +2,7 @@
 
 package com.saveourtool.save.preprocessor.controllers
 
-import com.saveourtool.save.entities.GitDto
+import com.saveourtool.common.entities.GitDto
 import com.saveourtool.save.preprocessor.utils.RepositoryVolume
 
 import org.junit.jupiter.api.*

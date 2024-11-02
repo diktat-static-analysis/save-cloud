@@ -3,13 +3,13 @@ package com.saveourtool.save.backend.controller
 import com.saveourtool.save.backend.SaveApplication
 import com.saveourtool.save.backend.utils.InfraExtension
 import com.saveourtool.save.backend.utils.mutateMockedUser
-import com.saveourtool.save.info.UserInfo
+import com.saveourtool.common.info.UserInfo
 import com.saveourtool.save.testutils.checkQueues
 import com.saveourtool.save.testutils.cleanup
 import com.saveourtool.save.testutils.createMockWebServer
 import com.saveourtool.save.testutils.enqueue
-import com.saveourtool.save.utils.getLogger
-import com.saveourtool.save.v1
+import com.saveourtool.common.utils.getLogger
+import com.saveourtool.common.v1
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import okhttp3.mockwebserver.RecordedRequest
@@ -48,7 +48,7 @@ class UsersDetailsControllerTest {
         )
 
         webClient.post()
-            .uri("/api/$v1/users/save")
+            .uri("/api/${v1}/users/save")
             .bodyValue(newUserInfo)
             .exchange()
             .expectStatus()
@@ -68,7 +68,7 @@ class UsersDetailsControllerTest {
 
         val assertions = mockGatewayUserUpdate()
         webClient.post()
-            .uri("/api/$v1/users/save")
+            .uri("/api/${v1}/users/save")
             .bodyValue(newUserInfo)
             .exchange()
             .expectStatus()
@@ -90,7 +90,7 @@ class UsersDetailsControllerTest {
 
         val assertions = mockGatewayUserUpdate()
         webClient.post()
-            .uri("/api/$v1/users/save")
+            .uri("/api/${v1}/users/save")
             .bodyValue(newUserInfo)
             .exchange()
             .expectStatus()
@@ -111,7 +111,7 @@ class UsersDetailsControllerTest {
 
         val assertions = mockGatewayUserUpdate()
         webClient.post()
-            .uri("/api/$v1/users/save")
+            .uri("/api/${v1}/users/save")
             .bodyValue(newUserInfo)
             .exchange()
             .expectStatus()
@@ -131,7 +131,7 @@ class UsersDetailsControllerTest {
         )
 
         webClient.post()
-            .uri("/api/$v1/users/save")
+            .uri("/api/${v1}/users/save")
             .bodyValue(newUserInfo)
             .exchange()
             .expectStatus()

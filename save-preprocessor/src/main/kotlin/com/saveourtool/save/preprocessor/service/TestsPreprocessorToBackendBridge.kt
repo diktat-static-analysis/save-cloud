@@ -1,14 +1,14 @@
 package com.saveourtool.save.preprocessor.service
 
-import com.saveourtool.save.entities.*
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.spring.utils.applyAll
+import com.saveourtool.common.storage.request.UploadRequest
+import com.saveourtool.common.test.TestDto
+import com.saveourtool.common.test.TestsSourceSnapshotDto
+import com.saveourtool.common.test.TestsSourceVersionDto
+import com.saveourtool.common.testsuite.*
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.preprocessor.config.ConfigProperties
-import com.saveourtool.save.spring.utils.applyAll
-import com.saveourtool.save.storage.request.UploadRequest
-import com.saveourtool.save.test.TestDto
-import com.saveourtool.save.test.TestsSourceSnapshotDto
-import com.saveourtool.save.test.TestsSourceVersionDto
-import com.saveourtool.save.testsuite.*
-import com.saveourtool.save.utils.*
 
 import org.jetbrains.annotations.NonBlocking
 import org.slf4j.LoggerFactory

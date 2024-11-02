@@ -2,7 +2,7 @@
 
 package com.saveourtool.save.frontend.components.basic.graph
 
-import com.saveourtool.save.demo.cpg.CpgGraph
+import com.saveourtool.common.demo.cpg.CpgGraph
 import com.saveourtool.save.frontend.components.basic.cpg.SigmaLayout
 import com.saveourtool.save.frontend.components.basic.cpg.graphEvents
 import com.saveourtool.save.frontend.components.basic.cpg.graphLoader

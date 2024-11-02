@@ -1,7 +1,7 @@
 package com.saveourtool.save.demo.runners.cli
 
-import com.saveourtool.save.demo.DemoResult
-import com.saveourtool.save.demo.DemoRunRequest
+import com.saveourtool.common.demo.DemoResult
+import com.saveourtool.common.demo.DemoRunRequest
 import com.saveourtool.save.demo.runners.Runner
 import com.saveourtool.save.demo.storage.ToolKey
 import com.saveourtool.save.demo.utils.isWindows

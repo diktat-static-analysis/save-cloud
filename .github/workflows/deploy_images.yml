@@ -28,20 +28,10 @@ on:
         default: true
         description: Build new image of save-frontend
         required: false
-      cosv-frontend:
-        type: boolean
-        default: true
-        description: Build new image of save-cosv-frontend
-        required: false
       orchestrator:
         type: boolean
         default: true
         description: Build new image of save-orchestrator
-        required: false
-      sandbox:
-        type: boolean
-        default: true
-        description: Build new image of save-sandbox
         required: false
       preprocessor:
         type: boolean
@@ -69,7 +59,7 @@ jobs:
     uses: ./.github/workflows/build_save-agent_reusable.yml
     with:
       branch: ${{ inputs.branch }}
-      build-save-agent: ${{ github.event_name != 'workflow_dispatch' || inputs.backend || inputs.sandbox }}
+      build-save-agent: ${{ github.event_name != 'workflow_dispatch' || inputs.backend }}
       build-save-demo-agent: ${{ github.event_name != 'workflow_dispatch' || inputs.demo }}
 
   deploy_backend:
@@ -82,18 +72,6 @@ jobs:
       do-build: ${{ github.event_name != 'workflow_dispatch' || inputs.backend }}
       override-docker-tag: ${{ github.event_name == 'workflow_dispatch' }}
       save-cli-version: ${{ needs.build_cli.outputs.version }}
-
-  deploy_sandbox:
-    name: save-sandbox
-    uses: ./.github/workflows/deploy_images_reusable.yml
-    needs: [ build_cli, build_agents ]
-    with:
-      module: save-sandbox
-      branch: ${{ inputs.branch }}
-      do-build: ${{ github.event_name != 'workflow_dispatch' || inputs.sandbox }}
-      override-docker-tag: ${{ github.event_name == 'workflow_dispatch' }}
-      save-cli-version: ${{ needs.build_cli.outputs.version }}
-
   deploy_demo:
     name: save-demo
     uses: ./.github/workflows/deploy_images_reusable.yml
@@ -106,25 +84,28 @@ jobs:
       save-cli-version: stub
 
   deploy_all:
-    name: all excluding save-backend, save-sandbox and save-demo
+    name: all excluding save-backend and save-demo
     strategy:
       fail-fast: false
       matrix:
         module: [
+          'cosv-backend',
           'api-gateway',
           'save-frontend',
-          'save-cosv-frontend',
+          'cosv-frontend',
           'save-orchestrator',
           'save-preprocessor',
           'save-demo-cpg',
         ]
         include:
+          - module: cosv-backend
+            do-build: ${{ inputs.backend }}
           - module: api-gateway
             do-build: ${{ inputs.gateway }}
           - module: save-frontend
             do-build: ${{ inputs.frontend }}
-          - module: save-cosv-frontend
-            do-build: ${{ inputs.cosv-frontend }}
+          - module: cosv-frontend
+            do-build: ${{ inputs.frontend }}
           - module: save-orchestrator
             do-build: ${{ inputs.orchestrator }}
           - module: save-preprocessor

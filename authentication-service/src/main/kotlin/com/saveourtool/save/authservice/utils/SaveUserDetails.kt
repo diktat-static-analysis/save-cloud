@@ -1,7 +1,7 @@
 package com.saveourtool.save.authservice.utils
 
-import com.saveourtool.save.entities.User
-import com.saveourtool.save.utils.*
+import com.saveourtool.common.entities.User
+import com.saveourtool.common.utils.*
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.springframework.http.HttpHeaders

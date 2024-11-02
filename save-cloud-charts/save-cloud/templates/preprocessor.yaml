@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: preprocessor
+  labels:
+    {{- include "common.labels" (merge (dict "service" .Values.preprocessor) .) | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: preprocessor
+  template:
+    metadata:
+      labels:
+        {{- include "pod.common.labels" (merge (dict "service" .Values.preprocessor ) .) | nindent 8 }}
+      annotations:
+        {{- include "pod.common.annotations" (dict "service" .Values.backend ) | nindent 8 }}
+    spec:
+      restartPolicy: Always
+      {{- if .Values.preprocessor.nodeName }}
+      nodeName: {{ .Values.preprocessor.nodeName }}
+      {{- end }}
+      {{- include "cnb.securityContext" . | nindent 6 }}
+      containers:
+        - name: preprocessor
+          {{- include "spring-boot.common" (merge (dict "service" .Values.preprocessor) .) | nindent 10 }}
+          env:
+            {{- include "spring-boot.common.env" (merge (dict "service" .Values.orchestrator) .) | nindent 12 }}
+            - name: JAVA_TOOL_OPTIONS
+              value: -XX:ReservedCodeCacheSize=48M
+          volumeMounts:
+            - {{ include "spring-boot.config-volume-mount" . | indent 14 | trim }}
+            - name: repos-storage
+              mountPath: /home/cnb
+          {{- include "spring-boot.management" .Values.preprocessor | nindent 10 }}
+          resources:
+            limits:
+              memory: 400M
+            requests:
+              memory: 300M
+      volumes:
+        - {{ include "spring-boot.config-volume" (dict "service" .Values.preprocessor) | indent 10 | trim }}
+        - name: repos-storage
+          # This mount is not intended to be shared among nodes, because this is temporary data,
+          # and each pod of preprocessor can `git clone` on its own.
+          emptyDir:
+            sizeLimit: 100Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+{{- include "service.common.metadata" (dict "service" .Values.preprocessor) | nindent 2 }}
+spec:
+  {{ if .Values.preprocessor.clusterIP }}
+  clusterIP: {{ .Values.preprocessor.clusterIP }}
+  {{ end }}
+  ports:
+    {{- include "service.common.ports" (dict "service" .Values.preprocessor) | nindent 4 }}
+  selector:
+    {{- include "service.common.selectors" (dict "service" .Values.preprocessor) | nindent 4 }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.preprocessor.name }}-config
+data:
+  application.properties: |
+    {{ if .Values.preprocessor.applicationProperties }}
+    {{- .Values.preprocessor.applicationProperties | nindent 4 }}
+    {{ end }}

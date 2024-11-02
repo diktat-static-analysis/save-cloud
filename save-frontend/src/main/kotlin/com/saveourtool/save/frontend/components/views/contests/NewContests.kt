@@ -4,8 +4,8 @@
 
 package com.saveourtool.save.frontend.components.views.contests
 
-import com.saveourtool.save.entities.contest.ContestDto
-import com.saveourtool.save.frontend.common.utils.*
+import com.saveourtool.common.entities.contest.ContestDto
+import com.saveourtool.frontend.common.utils.*
 
 import js.core.jso
 import react.FC

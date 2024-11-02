@@ -5,11 +5,13 @@ plugins {
 }
 
 dependencies {
-    api(projects.saveCloudCommon)
+    api(projects.common)
     implementation(libs.spring.cloud.starter.gateway)
     implementation(libs.spring.boot.starter.security)
     implementation(libs.spring.boot.starter.oauth2.client)
-    implementation(libs.spring.cloud.starter.kubernetes.client.config)
+    implementation(libs.spring.cloud.starter.kubernetes.client.config) {
+        because("needed for kubernetes configs and secrets to be added as additional configurations")
+    }
     implementation(libs.spring.security.core)
     implementation(projects.authenticationService)
 

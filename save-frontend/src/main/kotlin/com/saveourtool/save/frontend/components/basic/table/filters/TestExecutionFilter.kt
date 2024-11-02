@@ -2,12 +2,13 @@
 
 package com.saveourtool.save.frontend.components.basic.table.filters
 
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.filters.TestExecutionFilter
-import com.saveourtool.save.frontend.common.externals.fontawesome.faFilter
-import com.saveourtool.save.frontend.common.externals.fontawesome.faSearch
-import com.saveourtool.save.frontend.common.externals.fontawesome.faTrashAlt
-import com.saveourtool.save.frontend.common.externals.fontawesome.fontAwesomeIcon
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.filters.TestExecutionFilter
+import com.saveourtool.frontend.common.externals.fontawesome.faFilter
+import com.saveourtool.frontend.common.externals.fontawesome.faSearch
+import com.saveourtool.frontend.common.externals.fontawesome.faTrashAlt
+import com.saveourtool.frontend.common.externals.fontawesome.fontAwesomeIcon
+
 import react.FC
 import react.Props
 import react.dom.html.ReactHTML.button

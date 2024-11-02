@@ -1,9 +1,9 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.utils.orNotFound
 import com.saveourtool.save.backend.repository.LnkContestExecutionRepository
 import com.saveourtool.save.backend.repository.contest.ContestRepository
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.utils.orNotFound
 
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service

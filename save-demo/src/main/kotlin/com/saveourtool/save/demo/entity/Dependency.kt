@@ -1,6 +1,6 @@
 package com.saveourtool.save.demo.entity
 
-import com.saveourtool.save.spring.entity.BaseEntity
+import com.saveourtool.common.spring.entity.BaseEntity
 import javax.persistence.*
 
 /**

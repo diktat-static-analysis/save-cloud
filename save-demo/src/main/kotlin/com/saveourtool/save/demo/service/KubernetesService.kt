@@ -1,13 +1,13 @@
 package com.saveourtool.save.demo.service
 
-import com.saveourtool.save.demo.DemoAgentConfig
-import com.saveourtool.save.demo.DemoRunRequest
-import com.saveourtool.save.demo.DemoStatus
+import com.saveourtool.common.demo.DemoAgentConfig
+import com.saveourtool.common.demo.DemoRunRequest
+import com.saveourtool.common.demo.DemoStatus
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.demo.config.ConfigProperties
 import com.saveourtool.save.demo.entity.Demo
 import com.saveourtool.save.demo.storage.DemoInternalFileStorage
 import com.saveourtool.save.demo.utils.*
-import com.saveourtool.save.utils.*
 
 import io.fabric8.kubernetes.api.model.*
 import io.fabric8.kubernetes.client.KubernetesClient

@@ -1,15 +1,13 @@
 package com.saveourtool.save.backend
 
-import com.saveourtool.save.agent.AgentState
+import com.saveourtool.common.agent.AgentState
 import com.saveourtool.save.backend.configs.ApplicationConfiguration
 import com.saveourtool.save.backend.repository.AgentStatusRepository
-import com.saveourtool.save.backend.repository.ProjectRepository
 import com.saveourtool.save.backend.repository.TestExecutionRepository
-import com.saveourtool.save.backend.service.IBackendService
 import com.saveourtool.save.backend.utils.InfraExtension
-import com.saveourtool.save.cosv.repository.*
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.utils.BlockingBridge
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.repository.ProjectRepository
+import com.saveourtool.common.utils.BlockingBridge
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -25,15 +23,7 @@ import org.springframework.context.annotation.Import
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ExtendWith(InfraExtension::class)
 @MockBeans(
-    MockBean(IBackendService::class),
-    MockBean(VulnerabilityMetadataRepository::class),
-    MockBean(LnkVulnerabilityMetadataTagRepository::class),
-    MockBean(LnkVulnerabilityMetadataUserRepository::class),
-    MockBean(VulnerabilityMetadataProjectRepository::class),
-    MockBean(RawCosvFileRepository::class),
-    MockBean(CosvFileRepository::class),
     MockBean(BlockingBridge::class),
-    MockBean(CosvGeneratedIdRepository::class),
 )
 class DatabaseTest {
     @Autowired

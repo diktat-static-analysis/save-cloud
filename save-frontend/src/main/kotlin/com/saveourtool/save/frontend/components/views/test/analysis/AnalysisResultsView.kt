@@ -2,7 +2,7 @@
 
 package com.saveourtool.save.frontend.components.views.test.analysis
 
-import com.saveourtool.save.test.analysis.results.AnalysisResult
+import com.saveourtool.common.test.analysis.results.AnalysisResult
 
 import react.FC
 import react.Props

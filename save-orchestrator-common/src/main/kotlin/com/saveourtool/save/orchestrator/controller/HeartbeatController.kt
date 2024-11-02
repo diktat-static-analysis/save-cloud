@@ -4,15 +4,15 @@
 
 package com.saveourtool.save.orchestrator.controller
 
-import com.saveourtool.save.agent.*
-import com.saveourtool.save.agent.AgentState.*
-import com.saveourtool.save.entities.AgentDto
-import com.saveourtool.save.entities.AgentStatusDto
+import com.saveourtool.common.agent.*
+import com.saveourtool.common.agent.AgentState.*
+import com.saveourtool.common.entities.AgentDto
+import com.saveourtool.common.entities.AgentStatusDto
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.orchestrator.config.ConfigProperties
 import com.saveourtool.save.orchestrator.service.AgentService
 import com.saveourtool.save.orchestrator.service.ContainerService
 import com.saveourtool.save.orchestrator.service.HeartBeatInspector
-import com.saveourtool.save.utils.*
 
 import org.slf4j.Logger
 import org.springframework.web.bind.annotation.PostMapping
@@ -50,7 +50,7 @@ class HeartbeatController(
      * @return Answer for agent
      */
     @PostMapping("/heartbeat")
-    fun acceptHeartbeat(@RequestBody heartbeat: Heartbeat): Mono<String> {
+    fun acceptHeartbeat(@RequestBody heartbeat: com.saveourtool.common.agent.Heartbeat): Mono<String> {
         val executionId = heartbeat.executionProgress.executionId
         val containerId = heartbeat.agentInfo.containerId
         log.info("Got heartbeat state: ${heartbeat.state.name} from $containerId under execution id=$executionId")
@@ -127,7 +127,9 @@ class HeartbeatController(
                                 .thenReturn<HeartbeatResponse>(TerminateResponse)
                                 .defaultIfEmpty(ContinueResponse)
                                 .doOnSuccess {
-                                    log.info("Agent id=$containerId will receive ${TerminateResponse::class.simpleName} and should shutdown gracefully")
+                                    log.info(
+                                        "Agent id=$containerId will receive ${TerminateResponse::class.simpleName} and should shutdown gracefully"
+                                    )
                                     ensureGracefulShutdown(executionId, containerId)
                                 }
                         }

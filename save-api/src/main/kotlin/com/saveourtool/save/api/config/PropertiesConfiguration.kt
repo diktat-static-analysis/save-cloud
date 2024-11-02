@@ -4,10 +4,10 @@
 
 package com.saveourtool.save.api.config
 
-import com.saveourtool.save.domain.Jdk
-import com.saveourtool.save.domain.Python
-import com.saveourtool.save.domain.Sdk
-import com.saveourtool.save.utils.getLogger
+import com.saveourtool.common.domain.Jdk
+import com.saveourtool.common.domain.Python
+import com.saveourtool.common.domain.Sdk
+import com.saveourtool.common.utils.getLogger
 
 import kotlinx.serialization.Serializable
 

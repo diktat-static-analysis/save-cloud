@@ -1,6 +1,6 @@
 package com.saveourtool.save.orchestrator.kafka
 
-import com.saveourtool.save.kafka.KafkaMsg
+import com.saveourtool.common.kafka.KafkaMsg
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.header.internals.RecordHeader
 import org.slf4j.LoggerFactory

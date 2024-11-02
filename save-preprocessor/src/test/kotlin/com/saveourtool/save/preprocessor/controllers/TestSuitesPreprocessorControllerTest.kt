@@ -1,18 +1,18 @@
 package com.saveourtool.save.preprocessor.controllers
 
-import com.saveourtool.save.entities.GitDto
-import com.saveourtool.save.entities.TestSuite
+import com.saveourtool.common.entities.GitDto
+import com.saveourtool.common.entities.TestSuite
 import com.saveourtool.save.preprocessor.common.CloneResult
 import com.saveourtool.save.preprocessor.common.GitRepositoryProcessor
 import com.saveourtool.save.preprocessor.service.*
 import com.saveourtool.save.preprocessor.utils.GitCommitInfo
-import com.saveourtool.save.request.TestsSourceFetchRequest
-import com.saveourtool.save.test.TestSuiteValidationResult
-import com.saveourtool.save.test.TestsSourceSnapshotDto
-import com.saveourtool.save.test.TestsSourceVersionDto
-import com.saveourtool.save.testsuite.TestSuitesSourceDto
-import com.saveourtool.save.testsuite.TestSuitesSourceFetchMode
-import com.saveourtool.save.utils.getCurrentLocalDateTime
+import com.saveourtool.common.request.TestsSourceFetchRequest
+import com.saveourtool.common.test.TestSuiteValidationResult
+import com.saveourtool.common.test.TestsSourceSnapshotDto
+import com.saveourtool.common.test.TestsSourceVersionDto
+import com.saveourtool.common.testsuite.TestSuitesSourceDto
+import com.saveourtool.common.testsuite.TestSuitesSourceFetchMode
+import com.saveourtool.common.utils.getCurrentLocalDateTime
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.invocation.InvocationOnMock

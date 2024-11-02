@@ -4,10 +4,10 @@
 
 package com.saveourtool.save.frontend.components.basic.demo.management
 
-import com.saveourtool.save.demo.DemoStatus
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.domain.Role
-import com.saveourtool.save.frontend.common.utils.buttonBuilder
+import com.saveourtool.common.demo.DemoStatus
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.domain.Role
+import com.saveourtool.frontend.common.utils.buttonBuilder
 
 import react.ChildrenBuilder
 import react.dom.html.ReactHTML.div

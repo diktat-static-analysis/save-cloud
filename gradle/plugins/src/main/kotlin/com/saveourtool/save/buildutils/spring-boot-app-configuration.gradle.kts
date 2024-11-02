@@ -33,7 +33,7 @@ tasks.withType<BootRun>().configureEach {
             os.isWindows -> append(",win")
             os.isMacOsX -> append(",mac")
         }
-        if (listOf("save-sandbox", "save-backend").any { project.path.contains(it) }) {
+        if (listOf("save-backend", "cosv-backend").any { project.path.contains(it) }) {
             append(",secure")
         }
     }

@@ -1,8 +1,8 @@
 package com.saveourtool.save.backend.repository
 
-import com.saveourtool.save.entities.Execution
-import com.saveourtool.save.entities.Organization
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.Execution
+import com.saveourtool.common.entities.Organization
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import org.springframework.data.jpa.repository.Lock
 import org.springframework.data.jpa.repository.QueryHints
 import org.springframework.stereotype.Repository

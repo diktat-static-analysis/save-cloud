@@ -2,11 +2,11 @@
 
 package com.saveourtool.save.frontend.components.basic.projects
 
-import com.saveourtool.save.domain.ProjectCoordinates
-import com.saveourtool.save.domain.Role
-import com.saveourtool.save.entities.ProjectDto
+import com.saveourtool.common.domain.ProjectCoordinates
+import com.saveourtool.common.domain.Role
+import com.saveourtool.common.entities.ProjectDto
+import com.saveourtool.common.info.UserInfo
 import com.saveourtool.save.frontend.components.basic.fileuploader.fileManagerComponent
-import com.saveourtool.save.info.UserInfo
 
 import org.w3c.fetch.Response
 import react.*

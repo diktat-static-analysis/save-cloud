@@ -1,14 +1,14 @@
 package com.saveourtool.save.backend.controllers
 
+import com.saveourtool.common.configs.ApiSwaggerSupport
+import com.saveourtool.common.service.OrganizationService
+import com.saveourtool.common.service.UserService
+import com.saveourtool.common.storage.AvatarKey
+import com.saveourtool.common.storage.AvatarStorage
+import com.saveourtool.common.utils.*
+import com.saveourtool.common.utils.ByteBufferFluxResponse
+import com.saveourtool.common.v1
 import com.saveourtool.save.authservice.utils.username
-import com.saveourtool.save.backend.service.OrganizationService
-import com.saveourtool.save.backend.service.UserDetailsService
-import com.saveourtool.save.backend.storage.AvatarKey
-import com.saveourtool.save.backend.storage.AvatarStorage
-import com.saveourtool.save.configs.ApiSwaggerSupport
-import com.saveourtool.save.utils.*
-import com.saveourtool.save.utils.ByteBufferFluxResponse
-import com.saveourtool.save.v1
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
@@ -43,7 +43,7 @@ import kotlin.time.toJavaDuration
 internal class AvatarController(
     private val avatarStorage: AvatarStorage,
     private val organizationService: OrganizationService,
-    private val userDetailsService: UserDetailsService,
+    private val userDetailsService: UserService,
 ) {
     @Operation(
         method = "POST",

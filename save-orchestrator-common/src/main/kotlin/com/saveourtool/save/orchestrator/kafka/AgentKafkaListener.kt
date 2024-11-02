@@ -1,6 +1,6 @@
 package com.saveourtool.save.orchestrator.kafka
 
-import com.saveourtool.save.kafka.TestExecutionTaskDto
+import com.saveourtool.common.kafka.TestExecutionTaskDto
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.annotation.KafkaHandler
 import org.springframework.kafka.annotation.KafkaListener

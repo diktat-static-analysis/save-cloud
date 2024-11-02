@@ -6,14 +6,14 @@
 
 package com.saveourtool.save.frontend.components.basic
 
-import com.saveourtool.save.entities.contest.ContestDto
-import com.saveourtool.save.execution.TestingType
-import com.saveourtool.save.frontend.common.components.basic.testsuiteselector.showPrivateTestSuitesSelectorModal
-import com.saveourtool.save.frontend.common.components.basic.testsuiteselector.showPublicTestSuitesSelectorModal
-import com.saveourtool.save.frontend.common.components.inputform.InputTypes
-import com.saveourtool.save.frontend.common.components.inputform.inputTextFormRequired
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.testsuite.TestSuiteVersioned
+import com.saveourtool.common.entities.contest.ContestDto
+import com.saveourtool.common.execution.TestingType
+import com.saveourtool.common.testsuite.TestSuiteVersioned
+import com.saveourtool.frontend.common.components.basic.testsuiteselector.showPrivateTestSuitesSelectorModal
+import com.saveourtool.frontend.common.components.basic.testsuiteselector.showPublicTestSuitesSelectorModal
+import com.saveourtool.frontend.common.components.inputform.InputTypes
+import com.saveourtool.frontend.common.components.inputform.inputTextFormRequired
+import com.saveourtool.frontend.common.utils.*
 
 import react.*
 import react.dom.html.ReactHTML.button

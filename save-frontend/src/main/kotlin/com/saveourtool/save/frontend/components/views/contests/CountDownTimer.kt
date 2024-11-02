@@ -7,7 +7,7 @@
 
 package com.saveourtool.save.frontend.components.views.contests
 
-import com.saveourtool.save.entities.contest.ContestDto
+import com.saveourtool.common.entities.contest.ContestDto
 import react.FC
 import react.Props
 import kotlin.js.Date

@@ -1,14 +1,14 @@
 package com.saveourtool.save.test.analysis.api
 
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.domain.TestResultStatus.FAILED
-import com.saveourtool.save.domain.TestResultStatus.IGNORED
-import com.saveourtool.save.domain.TestResultStatus.PASSED
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.domain.TestResultStatus.FAILED
+import com.saveourtool.common.domain.TestResultStatus.IGNORED
+import com.saveourtool.common.domain.TestResultStatus.PASSED
 import com.saveourtool.save.test.analysis.internal.ExtendedTestRun
 import com.saveourtool.save.test.analysis.internal.MemoryBacked
 import com.saveourtool.save.test.analysis.internal.MutableTestStatisticsStorage
-import com.saveourtool.save.test.analysis.metrics.NoDataAvailable
-import com.saveourtool.save.test.analysis.metrics.RegularTestMetrics
+import com.saveourtool.common.test.analysis.metrics.NoDataAvailable
+import com.saveourtool.common.test.analysis.metrics.RegularTestMetrics
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach

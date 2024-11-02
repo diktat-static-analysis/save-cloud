@@ -1,10 +1,10 @@
 package com.saveourtool.save.backend.controllers.internal
 
+import com.saveourtool.common.test.TestDto
+import com.saveourtool.common.utils.debug
+import com.saveourtool.common.utils.getLogger
+import com.saveourtool.common.utils.trace
 import com.saveourtool.save.backend.service.TestService
-import com.saveourtool.save.test.TestDto
-import com.saveourtool.save.utils.debug
-import com.saveourtool.save.utils.getLogger
-import com.saveourtool.save.utils.trace
 
 import io.micrometer.core.instrument.MeterRegistry
 import org.slf4j.Logger

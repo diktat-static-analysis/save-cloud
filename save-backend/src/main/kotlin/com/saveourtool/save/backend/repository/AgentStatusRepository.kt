@@ -1,8 +1,8 @@
 package com.saveourtool.save.backend.repository
 
-import com.saveourtool.save.entities.Agent
-import com.saveourtool.save.entities.AgentStatus
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.Agent
+import com.saveourtool.common.entities.AgentStatus
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import org.springframework.stereotype.Repository
 import javax.transaction.Transactional
 

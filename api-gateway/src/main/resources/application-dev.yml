@@ -1,15 +1,23 @@
 gateway:
   backend:
     url: http://localhost:5800
+  backend-cosv:
+    url: http://localhost:5700
   frontend:
     # In the "dev" environment, the front-end uses TCP port 8080 when run using `webpack-dev-server` (i.e. `browserDevelopmentRun` or `run` Gradle task).
     url: http://localhost:8080
-  sandbox:
-    url: http://localhost:5400
+  frontend-cosv:
+    # In the "dev" environment, the frontend-cosv uses TCP port 8081 when run using `webpack-dev-server` (i.e. `browserDevelopmentRun` or `run` Gradle task).
+    url: http://localhost:8081
   demo:
     url: http://localhost:5421
   demo-cpg:
     url: http://localhost:5500
+#  for local test add additional lines in hosts file in your OS
+#  then you can access application using <domain>:5300
+hosts:
+  save: save.local.test
+  cosv: cosv.local.test
 spring:
   security:
     oauth2:

@@ -4,8 +4,8 @@
 
 package com.saveourtool.save.frontend.components.views.contests
 
-import com.saveourtool.save.frontend.common.externals.fontawesome.FontAwesomeIconModule
-import com.saveourtool.save.frontend.common.externals.fontawesome.fontAwesomeIcon
+import com.saveourtool.frontend.common.externals.fontawesome.FontAwesomeIconModule
+import com.saveourtool.frontend.common.externals.fontawesome.fontAwesomeIcon
 
 import js.core.jso
 import react.ChildrenBuilder

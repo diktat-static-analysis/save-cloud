@@ -20,11 +20,11 @@ You can enable hot reload by passing `--continuous` flag.
 ## Spring Intellij Idea Ultimate plugin
 In order to make Spring Intellij Idea Ultimate plugin work properly, you need to set these active profiles in service's configuration:  
 
-|         | SaveApplication  | SaveGateway |   SaveOrchestrator   | SavePreprocessor |         SaveSandbox         |
-|:-------:|:----------------:|:-----------:|:--------------------:|:----------------:|:---------------------------:|
-|   Mac   | `mac,dev,secure` |  `mac,dev`  | `dev,mac,docker-tcp` |    `dev,mac`     | `dev,mac,docker-tcp,secure` | 
-| Windows |   `dev,secure`   |    `dev`    | `dev,win,docker-tcp` |      `dev`       | `dev,win,docker-tcp,secure` |
-|  Linux  |   `dev,secure`   |    `dev`    |   `dev,docker-tcp`   |      `dev`       |   `dev,docker-tcp,secure`   |
+|         | SaveApplication  | SaveGateway |   SaveOrchestrator   | SavePreprocessor |
+|:-------:|:----------------:|:-----------:|:--------------------:|:----------------:|
+|   Mac   | `mac,dev,secure` |  `mac,dev`  | `dev,mac,docker-tcp` |    `dev,mac`     |
+| Windows |   `dev,secure`   |    `dev`    | `dev,win,docker-tcp` |      `dev`       |
+|  Linux  |   `dev,secure`   |    `dev`    |   `dev,docker-tcp`   |      `dev`       |
 
 ### Mac M1 contributors
 In order to run `save-orchestrator` on Mac with M1 in order to make it run executions, in addition to `save-deploy/README.md` you need to 

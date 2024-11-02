@@ -1,6 +1,6 @@
 package com.saveourtool.save.gateway.controller
 
-import com.saveourtool.save.info.OauthProviderInfo
+import com.saveourtool.common.info.OauthProviderInfo
 import org.springframework.security.oauth2.client.registration.InMemoryReactiveClientRegistrationRepository
 import org.springframework.web.bind.annotation.*
 

@@ -1,7 +1,7 @@
 package com.saveourtool.save.test.analysis.entities
 
-import com.saveourtool.save.entities.Execution
-import com.saveourtool.save.entities.TestExecution
+import com.saveourtool.common.entities.Execution
+import com.saveourtool.common.entities.TestExecution
 
 /**
  * Metadata of an execution.

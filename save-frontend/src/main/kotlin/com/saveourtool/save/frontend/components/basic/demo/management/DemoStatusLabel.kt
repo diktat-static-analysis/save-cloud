@@ -4,7 +4,7 @@
 
 package com.saveourtool.save.frontend.components.basic.demo.management
 
-import com.saveourtool.save.demo.DemoStatus
+import com.saveourtool.common.demo.DemoStatus
 
 import react.*
 import react.dom.html.ReactHTML.div

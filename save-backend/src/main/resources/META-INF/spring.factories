@@ -1,1 +1,1 @@
-org.springframework.boot.env.EnvironmentPostProcessor=com.saveourtool.save.spring.postprocessor.DockerSecretsDatabaseProcessor
+org.springframework.boot.env.EnvironmentPostProcessor=com.saveourtool.common.spring.postprocessor.DockerSecretsDatabaseProcessor

@@ -1,16 +1,18 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.entities.Agent
+import com.saveourtool.common.entities.AgentStatus
+import com.saveourtool.common.entities.Execution
+import com.saveourtool.common.entities.LnkExecutionAgent
+import com.saveourtool.common.utils.orNotFound
 import com.saveourtool.save.backend.repository.AgentRepository
 import com.saveourtool.save.backend.repository.AgentStatusRepository
 import com.saveourtool.save.backend.repository.LnkExecutionAgentRepository
-import com.saveourtool.save.entities.Agent
-import com.saveourtool.save.entities.AgentStatus
-import com.saveourtool.save.entities.Execution
-import com.saveourtool.save.entities.LnkExecutionAgent
-import com.saveourtool.save.utils.orNotFound
+
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+
 import java.time.LocalDateTime
 
 /**

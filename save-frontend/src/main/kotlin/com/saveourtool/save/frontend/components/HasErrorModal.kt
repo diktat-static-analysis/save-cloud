@@ -2,12 +2,12 @@
 
 package com.saveourtool.save.frontend.components
 
-import com.saveourtool.save.frontend.common.components.footer
-import com.saveourtool.save.frontend.common.components.modal.loaderModalStyle
-import com.saveourtool.save.frontend.common.components.modal.modal
-import com.saveourtool.save.frontend.common.components.views.FallbackView
-import com.saveourtool.save.frontend.common.externals.animations.ringLoader
-import com.saveourtool.save.frontend.common.utils.UserInfoAwarePropsWithChildren
+import com.saveourtool.frontend.common.components.footer
+import com.saveourtool.frontend.common.components.modal.loaderModalStyle
+import com.saveourtool.frontend.common.components.modal.modal
+import com.saveourtool.frontend.common.components.views.FallbackView
+import com.saveourtool.frontend.common.externals.animations.ringLoader
+import com.saveourtool.frontend.common.utils.UserInfoAwarePropsWithChildren
 import com.saveourtool.save.frontend.components.topbar.topBarComponent
 
 import js.core.jso

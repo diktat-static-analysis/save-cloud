@@ -18,7 +18,7 @@ dependencies {
      * and fail to find the undefined version.
      */
     implementation(project.dependencies.platform(libs.spring.boot.dependencies))
-    api(projects.saveCloudCommon)
+    api(projects.common)
 
     testApi(libs.assertj.core)
     testApi(libs.mockito.kotlin)

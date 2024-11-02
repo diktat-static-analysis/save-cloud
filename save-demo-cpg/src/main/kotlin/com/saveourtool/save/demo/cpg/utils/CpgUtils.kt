@@ -2,7 +2,7 @@
 
 package com.saveourtool.save.demo.cpg.utils
 
-import com.saveourtool.save.demo.cpg.*
+import com.saveourtool.common.demo.cpg.*
 import com.saveourtool.save.demo.cpg.entity.TreeSitterNode
 
 import de.fraunhofer.aisec.cpg.graph.Node

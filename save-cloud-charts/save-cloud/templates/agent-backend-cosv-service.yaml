@@ -1,0 +1,14 @@
+{{ if .Values.agentNamespace }}
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.backend_cosv.name }}
+  namespace: {{ .Values.agentNamespace }}
+spec:
+  type: ExternalName
+  externalName: {{ .Values.backend_cosv.name }}.{{ .Values.namespace }}.svc.cluster.local
+  ports:
+    - port: {{ .Values.backend_cosv.containerPort }}
+
+{{ end }}

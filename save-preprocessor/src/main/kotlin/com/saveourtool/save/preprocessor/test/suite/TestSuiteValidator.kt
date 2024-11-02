@@ -1,7 +1,7 @@
 package com.saveourtool.save.preprocessor.test.suite
 
-import com.saveourtool.save.test.TestSuiteValidationResult
-import com.saveourtool.save.testsuite.TestSuiteDto
+import com.saveourtool.common.test.TestSuiteValidationResult
+import com.saveourtool.common.testsuite.TestSuiteDto
 import reactor.core.publisher.Flux
 import reactor.core.scheduler.Scheduler
 import reactor.core.scheduler.Schedulers

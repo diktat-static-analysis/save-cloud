@@ -1,29 +1,29 @@
 package com.saveourtool.save.backend.controllers
 
-import com.saveourtool.save.agent.TestExecutionDto
-import com.saveourtool.save.agent.TestExecutionExtDto
-import com.saveourtool.save.agent.TestExecutionResult
-import com.saveourtool.save.agent.TestSuiteExecutionStatisticDto
-import com.saveourtool.save.backend.security.ProjectPermissionEvaluator
+import com.saveourtool.common.agent.TestExecutionDto
+import com.saveourtool.common.agent.TestExecutionExtDto
+import com.saveourtool.common.agent.TestExecutionResult
+import com.saveourtool.common.agent.TestSuiteExecutionStatisticDto
+import com.saveourtool.common.configs.ApiSwaggerSupport
+import com.saveourtool.common.configs.RequiresAuthorizationSourceHeader
+import com.saveourtool.common.domain.TestResultLocation
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.entities.TestExecution
+import com.saveourtool.common.filters.TestExecutionFilter
+import com.saveourtool.common.permission.Permission
+import com.saveourtool.common.security.ProjectPermissionEvaluator
+import com.saveourtool.common.test.analysis.metrics.TestMetrics
+import com.saveourtool.common.utils.*
+import com.saveourtool.common.v1
 import com.saveourtool.save.backend.service.ExecutionService
 import com.saveourtool.save.backend.service.TestAnalysisService
 import com.saveourtool.save.backend.service.TestExecutionService
 import com.saveourtool.save.backend.storage.DebugInfoStorage
 import com.saveourtool.save.backend.storage.ExecutionInfoStorage
 import com.saveourtool.save.backend.utils.toMonoOrNotFound
-import com.saveourtool.save.configs.ApiSwaggerSupport
-import com.saveourtool.save.configs.RequiresAuthorizationSourceHeader
-import com.saveourtool.save.domain.TestResultLocation
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.entities.TestExecution
-import com.saveourtool.save.filters.TestExecutionFilter
-import com.saveourtool.save.permission.Permission
 import com.saveourtool.save.test.analysis.api.TestIdGenerator
 import com.saveourtool.save.test.analysis.api.testId
 import com.saveourtool.save.test.analysis.entities.metadata
-import com.saveourtool.save.test.analysis.metrics.TestMetrics
-import com.saveourtool.save.utils.*
-import com.saveourtool.save.v1
 
 import arrow.core.plus
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -77,7 +77,7 @@ class TestExecutionController(
      * @param testAnalysis if `true`, also perform test analysis.
      * @return a list of [TestExecutionDto]s
      */
-    @PostMapping("/api/$v1/test-executions")
+    @PostMapping("/api/${com.saveourtool.common.v1}/test-executions")
     @RequiresAuthorizationSourceHeader
     @Suppress("LongParameterList", "TOO_MANY_PARAMETERS", "TYPE_ALIAS")
     fun getTestExecutions(
@@ -187,11 +187,21 @@ class TestExecutionController(
                 .mapNotNull {
                     if (page == null || size == null) {
                         testExecutionService.getAllTestExecutions(executionId).groupBy { it.test.testSuite.name }.map { (testSuiteName, testExecutions) ->
-                            TestSuiteExecutionStatisticDto(testSuiteName, testExecutions.count(), testExecutions.count { it.status == status }, status)
+                            TestSuiteExecutionStatisticDto(
+                                testSuiteName,
+                                testExecutions.count(),
+                                testExecutions.count { it.status == status },
+                                status
+                            )
                         }
                     } else {
                         testExecutionService.getByExecutionIdGroupByTestSuite(executionId, status, page, size)?.map {
-                            TestSuiteExecutionStatisticDto(it[0] as String, (it[1] as BigInteger).toInt(), (it[2] as BigInteger).toInt(), TestResultStatus.valueOf(it[3] as String))
+                            TestSuiteExecutionStatisticDto(
+                                it[0] as String,
+                                (it[1] as BigInteger).toInt(),
+                                (it[2] as BigInteger).toInt(),
+                                TestResultStatus.valueOf(it[3] as String)
+                            )
                         }
                     }
                 }
@@ -204,7 +214,7 @@ class TestExecutionController(
      * @param authentication
      * @return TestExecution
      */
-    @PostMapping(path = ["/api/$v1/test-execution"])
+    @PostMapping(path = ["/api/${com.saveourtool.common.v1}/test-execution"])
     @RequiresAuthorizationSourceHeader
     fun getTestExecutionByLocation(@RequestParam executionId: Long,
                                    @RequestBody testResultLocation: TestResultLocation,

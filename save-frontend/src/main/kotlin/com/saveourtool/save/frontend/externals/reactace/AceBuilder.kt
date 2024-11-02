@@ -2,9 +2,9 @@
 
 package com.saveourtool.save.frontend.externals.reactace
 
-import com.saveourtool.save.frontend.common.utils.parsePositionString
-import com.saveourtool.save.utils.DEBOUNCE_PERIOD_FOR_EDITORS
-import com.saveourtool.save.utils.Languages
+import com.saveourtool.common.utils.DEBOUNCE_PERIOD_FOR_EDITORS
+import com.saveourtool.common.utils.Languages
+import com.saveourtool.frontend.common.utils.parsePositionString
 
 import io.github.petertrr.diffutils.diff
 import js.core.jso

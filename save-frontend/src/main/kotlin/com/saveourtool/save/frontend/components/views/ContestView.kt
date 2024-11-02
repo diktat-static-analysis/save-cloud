@@ -2,19 +2,19 @@
 
 package com.saveourtool.save.frontend.components.views
 
-import com.saveourtool.save.entities.contest.ContestDto
-import com.saveourtool.save.frontend.common.components.RequestStatusContext
-import com.saveourtool.save.frontend.common.components.basic.contests.contestInfoMenu
-import com.saveourtool.save.frontend.common.components.basic.contests.contestSubmissionsMenu
-import com.saveourtool.save.frontend.common.components.basic.contests.contestSummaryMenu
-import com.saveourtool.save.frontend.common.components.requestStatusContext
-import com.saveourtool.save.frontend.common.components.views.AbstractView
-import com.saveourtool.save.frontend.common.http.getContest
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.apiUrl
-import com.saveourtool.save.frontend.common.utils.classLoadingHandler
-import com.saveourtool.save.frontend.common.utils.jsonHeaders
-import com.saveourtool.save.info.UserInfo
+import com.saveourtool.common.entities.contest.ContestDto
+import com.saveourtool.common.info.UserInfo
+import com.saveourtool.frontend.common.components.RequestStatusContext
+import com.saveourtool.frontend.common.components.basic.contests.contestInfoMenu
+import com.saveourtool.frontend.common.components.basic.contests.contestSubmissionsMenu
+import com.saveourtool.frontend.common.components.basic.contests.contestSummaryMenu
+import com.saveourtool.frontend.common.components.requestStatusContext
+import com.saveourtool.frontend.common.components.views.AbstractView
+import com.saveourtool.frontend.common.http.getContest
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.apiUrl
+import com.saveourtool.frontend.common.utils.classLoadingHandler
+import com.saveourtool.frontend.common.utils.jsonHeaders
 
 import react.*
 import react.dom.html.ReactHTML.div

@@ -4,8 +4,8 @@
 
 package com.saveourtool.save.authservice.utils
 
-import com.saveourtool.save.domain.Role
-import com.saveourtool.save.info.UserStatus
+import com.saveourtool.common.domain.Role
+import com.saveourtool.common.info.UserStatus
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyUtils

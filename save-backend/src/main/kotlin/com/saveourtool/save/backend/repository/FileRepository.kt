@@ -1,8 +1,8 @@
 package com.saveourtool.save.backend.repository
 
-import com.saveourtool.save.entities.File
-import com.saveourtool.save.entities.Project
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.File
+import com.saveourtool.common.entities.Project
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import org.springframework.stereotype.Repository
 import java.time.LocalDateTime
 

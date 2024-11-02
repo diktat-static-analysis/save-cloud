@@ -1,10 +1,11 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.domain.Role
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.permission.Rights
+import com.saveourtool.common.utils.orNotFound
 import com.saveourtool.save.backend.repository.LnkOrganizationTestSuiteRepository
-import com.saveourtool.save.domain.Role
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.permission.Rights
-import com.saveourtool.save.utils.orNotFound
+
 import org.springframework.stereotype.Service
 
 /**

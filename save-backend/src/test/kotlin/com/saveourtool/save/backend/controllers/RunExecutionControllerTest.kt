@@ -5,15 +5,16 @@ import com.saveourtool.save.backend.configs.ConfigProperties
 import com.saveourtool.save.backend.repository.*
 import com.saveourtool.save.backend.utils.InfraExtension
 import com.saveourtool.save.backend.utils.mutateMockedUser
-import com.saveourtool.save.domain.Jdk
-import com.saveourtool.save.request.CreateExecutionRequest
-import com.saveourtool.save.execution.TestingType
+import com.saveourtool.common.domain.Jdk
+import com.saveourtool.common.request.CreateExecutionRequest
+import com.saveourtool.common.execution.TestingType
+import com.saveourtool.common.repository.ProjectRepository
 import com.saveourtool.save.testutils.checkQueues
 import com.saveourtool.save.testutils.cleanup
 import com.saveourtool.save.testutils.createMockWebServer
 import com.saveourtool.save.testutils.enqueue
-import com.saveourtool.save.utils.getLogger
-import com.saveourtool.save.v1
+import com.saveourtool.common.utils.getLogger
+import com.saveourtool.common.v1
 import io.micrometer.core.instrument.composite.CompositeMeterRegistry
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -83,7 +84,7 @@ class RunExecutionControllerTest(
         }
 
         val executionId = webClient.post()
-            .uri("/api/$v1/run/trigger?testingType={testingType}", TestingType.PRIVATE_TESTS.name)
+            .uri("/api/${v1}/run/trigger?testingType={testingType}", TestingType.PRIVATE_TESTS.name)
             .bodyValue(request)
             .exchange()
             .expectStatus()
@@ -149,7 +150,7 @@ class RunExecutionControllerTest(
         val testSuiteId = 11L
         val originalExecution = executionRepository.findById(EXECUTION_ID).get()
         val executionId = webClient.post()
-            .uri("/api/$v1/run/re-trigger?executionId=$EXECUTION_ID")
+            .uri("/api/${v1}/run/re-trigger?executionId=$EXECUTION_ID")
             .exchange()
             .expectStatus()
             .isAccepted

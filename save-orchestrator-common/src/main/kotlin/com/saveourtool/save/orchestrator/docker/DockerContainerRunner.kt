@@ -1,6 +1,8 @@
 package com.saveourtool.save.orchestrator.docker
 
-import com.saveourtool.save.agent.AgentEnvName
+import com.saveourtool.common.agent.AgentEnvName
+import com.saveourtool.common.utils.debug
+import com.saveourtool.common.utils.getLogger
 import com.saveourtool.save.orchestrator.DOCKER_METRIC_PREFIX
 import com.saveourtool.save.orchestrator.config.ConfigProperties
 import com.saveourtool.save.orchestrator.config.ConfigProperties.DockerSettings
@@ -12,8 +14,6 @@ import com.saveourtool.save.orchestrator.runner.ContainerRunnerException
 import com.saveourtool.save.orchestrator.runner.EXECUTION_DIR
 import com.saveourtool.save.orchestrator.runner.SAVE_AGENT_USER_HOME
 import com.saveourtool.save.orchestrator.service.ContainerService
-import com.saveourtool.save.utils.debug
-import com.saveourtool.save.utils.getLogger
 
 import com.github.dockerjava.api.DockerClient
 import com.github.dockerjava.api.command.CopyArchiveToContainerCmd

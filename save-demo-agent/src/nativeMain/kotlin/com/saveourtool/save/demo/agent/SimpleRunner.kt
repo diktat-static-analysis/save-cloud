@@ -4,17 +4,17 @@
 
 package com.saveourtool.save.demo.agent
 
+import com.saveourtool.common.demo.DemoAgentConfig
+import com.saveourtool.common.demo.DemoResult
+import com.saveourtool.common.demo.DemoRunRequest
+import com.saveourtool.common.demo.RunConfiguration
+import com.saveourtool.common.utils.createAndWrite
+import com.saveourtool.common.utils.createAndWriteIfNeeded
+import com.saveourtool.common.utils.createTempDir
+import com.saveourtool.common.utils.fs
 import com.saveourtool.save.core.files.readLines
 import com.saveourtool.save.core.logging.logDebug
 import com.saveourtool.save.core.utils.ProcessBuilder
-import com.saveourtool.save.demo.DemoAgentConfig
-import com.saveourtool.save.demo.DemoResult
-import com.saveourtool.save.demo.DemoRunRequest
-import com.saveourtool.save.demo.RunConfiguration
-import com.saveourtool.save.utils.createAndWrite
-import com.saveourtool.save.utils.createAndWriteIfNeeded
-import com.saveourtool.save.utils.createTempDir
-import com.saveourtool.save.utils.fs
 
 import okio.Path
 import okio.Path.Companion.toPath

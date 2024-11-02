@@ -1,17 +1,17 @@
 package com.saveourtool.save.preprocessor.controllers
 
-import com.saveourtool.save.entities.GitDto
+import com.saveourtool.common.entities.GitDto
+import com.saveourtool.common.request.TestsSourceFetchRequest
+import com.saveourtool.common.test.TestSuiteValidationResult
+import com.saveourtool.common.test.TestsSourceSnapshotDto
+import com.saveourtool.common.testsuite.TestSuitesSourceFetchMode
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.preprocessor.common.CloneAndProcessDirectoryAction
 import com.saveourtool.save.preprocessor.common.GitRepositoryProcessor
 import com.saveourtool.save.preprocessor.service.GitPreprocessorService
 import com.saveourtool.save.preprocessor.service.TestDiscoveringService
 import com.saveourtool.save.preprocessor.service.TestsPreprocessorToBackendBridge
 import com.saveourtool.save.preprocessor.utils.GitCommitInfo
-import com.saveourtool.save.request.TestsSourceFetchRequest
-import com.saveourtool.save.test.TestSuiteValidationResult
-import com.saveourtool.save.test.TestsSourceSnapshotDto
-import com.saveourtool.save.testsuite.TestSuitesSourceFetchMode
-import com.saveourtool.save.utils.*
 
 import org.jetbrains.annotations.NonBlocking
 import org.slf4j.Logger

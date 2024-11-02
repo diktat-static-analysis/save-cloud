@@ -1,9 +1,9 @@
 package com.saveourtool.save.backend.repository
 
-import com.saveourtool.save.entities.Execution
-import com.saveourtool.save.entities.File
-import com.saveourtool.save.entities.LnkExecutionFile
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.Execution
+import com.saveourtool.common.entities.File
+import com.saveourtool.common.entities.LnkExecutionFile
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import org.springframework.stereotype.Repository
 
 /**

@@ -6,14 +6,14 @@
 
 package com.saveourtool.save.frontend.components.views.contests
 
-import com.saveourtool.save.entities.OrganizationWithRating
-import com.saveourtool.save.entities.ProjectDto
-import com.saveourtool.save.filters.OrganizationFilter
-import com.saveourtool.save.filters.ProjectFilter
-import com.saveourtool.save.frontend.TabMenuBar
-import com.saveourtool.save.frontend.common.externals.fontawesome.faTrophy
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.validation.FrontendRoutes
+import com.saveourtool.common.entities.OrganizationWithRating
+import com.saveourtool.common.entities.ProjectDto
+import com.saveourtool.common.filters.OrganizationFilter
+import com.saveourtool.common.filters.ProjectFilter
+import com.saveourtool.common.frontend.TabMenuBar
+import com.saveourtool.common.validation.FrontendRoutes
+import com.saveourtool.frontend.common.externals.fontawesome.faTrophy
+import com.saveourtool.frontend.common.utils.*
 
 import js.core.jso
 import react.*

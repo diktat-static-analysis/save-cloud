@@ -2,9 +2,9 @@
 
 package com.saveourtool.save.frontend.components.basic
 
-import com.saveourtool.save.entities.cosv.VulnerabilityExt
-import com.saveourtool.save.entities.vulnerability.VulnerabilityDateDto
-import com.saveourtool.save.frontend.common.utils.buttonBuilder
+import com.saveourtool.common.entities.cosv.VulnerabilityExt
+import com.saveourtool.common.entities.vulnerability.VulnerabilityDateDto
+import com.saveourtool.frontend.common.utils.buttonBuilder
 import com.saveourtool.save.frontend.externals.i18next.useTranslation
 
 import react.*

@@ -1,18 +1,21 @@
 package com.saveourtool.save.backend.controller
 
 import com.saveourtool.save.backend.SaveApplication
-import com.saveourtool.save.backend.repository.OrganizationRepository
-import com.saveourtool.save.backend.repository.ProjectRepository
-import com.saveourtool.save.backend.service.LnkUserProjectService
 import com.saveourtool.save.backend.utils.InfraExtension
 import com.saveourtool.save.backend.utils.mutateMockedUser
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.filters.ProjectFilter
-import com.saveourtool.save.v1
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.filters.ProjectFilter
+import com.saveourtool.common.repository.OrganizationRepository
+import com.saveourtool.common.repository.ProjectRepository
+import com.saveourtool.common.service.LnkUserProjectService
+import com.saveourtool.common.service.UserService
+import com.saveourtool.common.v1
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.kotlin.any
+import org.mockito.kotlin.given
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest
@@ -41,14 +44,16 @@ class ProjectControllerTest {
     @Autowired
     lateinit var webClient: WebTestClient
 
+    @MockBean private lateinit var userDetailsService: UserService
+
     @Test
     @WithMockUser
     fun `should return all public projects`() {
-        mutateMockedUser(id = 99)
+        given(userDetailsService.getUserByName(any())).willReturn(mockUser(99))
 
         webClient
             .post()
-            .uri("/api/$v1/projects/by-filters")
+            .uri("/api/${v1}/projects/by-filters")
             .accept(MediaType.APPLICATION_JSON)
             .bodyValue(ProjectFilter.created)
             .exchange()
@@ -81,8 +86,7 @@ class ProjectControllerTest {
     @Test
     @WithMockUser(username = "MrBruh", roles = ["VIEWER"])
     fun `should return 200 if project is public`() {
-        mutateMockedUser(id = 99)
-
+        given(userDetailsService.getUserByName(any())).willReturn(mockUser(99))
         getProjectAndAssert("huaweiName", "Huawei") {
             expectStatus().isOk
         }
@@ -91,7 +95,7 @@ class ProjectControllerTest {
     @Test
     @WithMockUser(username = "MrBruh", roles = ["VIEWER"])
     fun `should return 404 if user doesn't have access to a private project`() {
-        mutateMockedUser(id = 99)
+        given(userDetailsService.getUserByName(any())).willReturn(mockUser(99))
 
         getProjectAndAssert("TheProject", "Example.com") {
             expectStatus().isNotFound
@@ -114,7 +118,7 @@ class ProjectControllerTest {
         projectRepository.save(project)
 
         webClient.post()
-            .uri("/api/$v1/projects/${organization.name}/${project.name}/change-status?status=${ProjectStatus.DELETED}")
+            .uri("/api/${v1}/projects/${organization.name}/${project.name}/change-status?status=${ProjectStatus.DELETED}")
             .exchange()
             .expectStatus()
             .isOk
@@ -141,7 +145,7 @@ class ProjectControllerTest {
         projectRepository.save(project)
 
         webClient.post()
-            .uri("/api/$v1/projects/${organization.name}/${project.name}/change-status?status=${ProjectStatus.BANNED}")
+            .uri("/api/${v1}/projects/${organization.name}/${project.name}/change-status?status=${ProjectStatus.BANNED}")
             .exchange()
             .expectStatus()
             .isOk
@@ -155,7 +159,7 @@ class ProjectControllerTest {
     @Test
     @WithMockUser(value = "JohnDoe", roles = ["VIEWER"])
     fun `delete project without owner permission`() {
-        mutateMockedUser(id = 3)
+        given(userDetailsService.getUserByName(any())).willReturn(mockUser(3))
         val organization: Organization = organizationRepository.getOrganizationById(2)
         val project = Project(
             "ToDelete1",
@@ -168,7 +172,7 @@ class ProjectControllerTest {
         projectRepository.save(project)
 
         webClient.post()
-            .uri("/api/$v1/projects/${organization.name}/${project.name}/change-status?status=${ProjectStatus.DELETED}")
+            .uri("/api/${v1}/projects/${organization.name}/${project.name}/change-status?status=${ProjectStatus.DELETED}")
             .exchange()
             .expectStatus()
             .isForbidden
@@ -182,6 +186,7 @@ class ProjectControllerTest {
     @Test
     @WithMockUser(username = "JohnDoe", roles = ["VIEWER"])
     fun `check save new project`() {
+        given(userDetailsService.getUserByName(any())).willReturn(mockUser(2))
         mutateMockedUser(id = 2)
 
         // `project` references an existing user from test data
@@ -214,10 +219,10 @@ class ProjectControllerTest {
             organization = organizationRepository.findById(1).get()
         }
         projectRepository.save(project)
-        mutateMockedUser(id = 3)
+        given(userDetailsService.getUserByName(any())).willReturn(mockUser(3))
 
         webClient.post()
-            .uri("/api/$v1/projects/update")
+            .uri("/api/${v1}/projects/update")
             .bodyValue(project.toDto())
             .exchange()
             .expectStatus()
@@ -230,7 +235,7 @@ class ProjectControllerTest {
         assertion: WebTestClient.ResponseSpec.() -> Unit
     ) = webClient
         .get()
-        .uri("/api/$v1/projects/get/organization-name?name=$name&organizationName=$organizationName")
+        .uri("/api/${v1}/projects/get/organization-name?name=$name&organizationName=$organizationName")
         .accept(MediaType.APPLICATION_JSON)
         .exchange()
         .let { assertion(it) }
@@ -242,7 +247,7 @@ class ProjectControllerTest {
     ) {
         webClient
             .post()
-            .uri("/api/$v1/projects/save")
+            .uri("/api/${v1}/projects/save")
             .body(BodyInserters.fromValue(newProject.toDto()))
             .accept(MediaType.APPLICATION_JSON)
             .exchange()
@@ -250,9 +255,11 @@ class ProjectControllerTest {
 
         webClient
             .get()
-            .uri("/api/$v1/projects/get/organization-name?name=${newProject.name}&organizationName=${newProject.organization.name}")
+            .uri("/api/${v1}/projects/get/organization-name?name=${newProject.name}&organizationName=${newProject.organization.name}")
             .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .let { getAssertion(it) }
     }
+
+    private fun mockUser(id: Long) = User("mocked", null, null, "").apply { this.id = id }
 }

@@ -2,13 +2,13 @@
 
 package com.saveourtool.save.frontend.components.basic.projects
 
-import com.saveourtool.save.agent.TestSuiteExecutionStatisticDto
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.frontend.common.components.tables.TableProps
-import com.saveourtool.save.frontend.common.components.tables.columns
-import com.saveourtool.save.frontend.common.components.tables.tableComponent
-import com.saveourtool.save.frontend.common.components.tables.value
-import com.saveourtool.save.frontend.common.utils.*
+import com.saveourtool.common.agent.TestSuiteExecutionStatisticDto
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.frontend.common.components.tables.TableProps
+import com.saveourtool.frontend.common.components.tables.columns
+import com.saveourtool.frontend.common.components.tables.tableComponent
+import com.saveourtool.frontend.common.components.tables.value
+import com.saveourtool.frontend.common.utils.*
 import com.saveourtool.save.frontend.externals.chart.DataPieChart
 import com.saveourtool.save.frontend.externals.chart.pieChart
 import com.saveourtool.save.frontend.externals.chart.randomColor

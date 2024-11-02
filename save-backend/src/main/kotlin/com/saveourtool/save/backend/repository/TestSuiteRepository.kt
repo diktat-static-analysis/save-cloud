@@ -1,8 +1,8 @@
 package com.saveourtool.save.backend.repository
 
-import com.saveourtool.save.entities.TestSuite
-import com.saveourtool.save.entities.TestsSourceSnapshot
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.TestSuite
+import com.saveourtool.common.entities.TestsSourceSnapshot
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 import org.springframework.stereotype.Repository
 
 /**

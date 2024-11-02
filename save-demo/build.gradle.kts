@@ -27,10 +27,12 @@ tasks.withType<KotlinCompile> {
 val diktatVersion: String = libs.versions.diktat.get()
 
 dependencies {
-    api(projects.saveCloudCommon)
+    api(projects.common)
     implementation(libs.save.common.jvm)
 
-    implementation(libs.spring.cloud.starter.kubernetes.client.config)
+    implementation(libs.spring.cloud.starter.kubernetes.client.config) {
+        because("needed for kubernetes configs and secrets to be added as additional configurations")
+    }
 
     api(libs.ktor.client.auth)
     implementation(libs.ktor.client.core)

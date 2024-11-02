@@ -1,9 +1,9 @@
 package com.saveourtool.save.orchestrator.utils
 
-import com.saveourtool.save.entities.AgentStatusDto
+import com.saveourtool.common.entities.AgentStatusDto
+import com.saveourtool.common.utils.debug
+import com.saveourtool.common.utils.getCurrentLocalDateTime
 import com.saveourtool.save.orchestrator.config.ConfigProperties
-import com.saveourtool.save.utils.debug
-import com.saveourtool.save.utils.getCurrentLocalDateTime
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

@@ -2,6 +2,9 @@
 
 package com.saveourtool.save.agent
 
+import com.saveourtool.common.agent.*
+import com.saveourtool.common.domain.TestResultDebugInfo
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.agent.utils.*
 import com.saveourtool.save.agent.utils.processRequestToBackend
 import com.saveourtool.save.core.config.resolveSaveOverridesTomlConfig
@@ -13,10 +16,8 @@ import com.saveourtool.save.core.result.CountWarnings
 import com.saveourtool.save.core.utils.ExecutionResult
 import com.saveourtool.save.core.utils.ProcessBuilder
 import com.saveourtool.save.core.utils.runIf
-import com.saveourtool.save.domain.TestResultDebugInfo
 import com.saveourtool.save.plugins.fix.FixPlugin
 import com.saveourtool.save.reporter.Report
-import com.saveourtool.save.utils.*
 
 import io.ktor.client.*
 import io.ktor.client.call.body
@@ -51,12 +52,12 @@ class SaveAgent(
     /**
      * The current [AgentState] of this agent. Initial value corresponds to the period when agent needs to finish its configuration.
      */
-    val state = GenericAtomicReference(AgentState.BUSY)
+    val state = createGenericAtomicReference(AgentState.BUSY)
 
     // fixme (limitation of old MM): can't use atomic reference to Instant here, because when using `Clock.System.now()` as an assigned value
     // Kotlin throws `kotlin.native.concurrent.InvalidMutabilityException: mutation attempt of frozen kotlinx.datetime.Instant...`
-    private val executionStartSeconds = AtomicLong(0L)
-    private val saveProcessJob: GenericAtomicReference<Job?> = GenericAtomicReference(null)
+    private val executionStartSeconds = createAtomicLong(0L)
+    private val saveProcessJob: GenericAtomicReference<Job?> = createGenericAtomicReference(null)
     private val backgroundContext = newSingleThreadContext("background")
     private val saveProcessContext = newSingleThreadContext("save-process")
     private val reportFormat = Json {

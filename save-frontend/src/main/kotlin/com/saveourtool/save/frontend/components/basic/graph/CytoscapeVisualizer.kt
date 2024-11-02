@@ -2,8 +2,8 @@
 
 package com.saveourtool.save.frontend.components.basic.graph
 
-import com.saveourtool.save.demo.cpg.CpgGraph
-import com.saveourtool.save.demo.cpg.cytoscape.CytoscapeLayout
+import com.saveourtool.common.demo.cpg.CpgGraph
+import com.saveourtool.common.demo.cpg.cytoscape.CytoscapeLayout
 import com.saveourtool.save.frontend.externals.graph.asCytoscapeGraph
 import com.saveourtool.save.frontend.externals.graph.cytoscape.cytoscape
 import com.saveourtool.save.frontend.externals.reactace.AceMarkers

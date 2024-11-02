@@ -4,23 +4,23 @@
 
 package com.saveourtool.save.frontend.components.views.contests
 
-import com.saveourtool.save.entities.OrganizationWithRating
-import com.saveourtool.save.entities.ProjectDto
-import com.saveourtool.save.filters.OrganizationFilter
-import com.saveourtool.save.filters.ProjectFilter
-import com.saveourtool.save.frontend.common.components.basic.AVATAR_ORGANIZATION_PLACEHOLDER
-import com.saveourtool.save.frontend.common.components.basic.avatarRenderer
-import com.saveourtool.save.frontend.common.components.basic.table.filters.nameFiltersRow
-import com.saveourtool.save.frontend.common.components.tables.TableProps
-import com.saveourtool.save.frontend.common.components.tables.columns
-import com.saveourtool.save.frontend.common.components.tables.pageIndex
-import com.saveourtool.save.frontend.common.components.tables.pageSize
-import com.saveourtool.save.frontend.common.components.tables.tableComponent
-import com.saveourtool.save.frontend.common.components.tables.value
-import com.saveourtool.save.frontend.common.components.tables.visibleColumnsCount
-import com.saveourtool.save.frontend.common.components.views.AbstractView
-import com.saveourtool.save.frontend.common.externals.fontawesome.faTrophy
-import com.saveourtool.save.frontend.common.utils.*
+import com.saveourtool.common.entities.OrganizationWithRating
+import com.saveourtool.common.entities.ProjectDto
+import com.saveourtool.common.filters.OrganizationFilter
+import com.saveourtool.common.filters.ProjectFilter
+import com.saveourtool.frontend.common.components.basic.AVATAR_ORGANIZATION_PLACEHOLDER
+import com.saveourtool.frontend.common.components.basic.avatarRenderer
+import com.saveourtool.frontend.common.components.basic.table.filters.nameFiltersRow
+import com.saveourtool.frontend.common.components.tables.TableProps
+import com.saveourtool.frontend.common.components.tables.columns
+import com.saveourtool.frontend.common.components.tables.pageIndex
+import com.saveourtool.frontend.common.components.tables.pageSize
+import com.saveourtool.frontend.common.components.tables.tableComponent
+import com.saveourtool.frontend.common.components.tables.value
+import com.saveourtool.frontend.common.components.tables.visibleColumnsCount
+import com.saveourtool.frontend.common.components.views.AbstractView
+import com.saveourtool.frontend.common.externals.fontawesome.faTrophy
+import com.saveourtool.frontend.common.utils.*
 
 import js.core.jso
 import react.*

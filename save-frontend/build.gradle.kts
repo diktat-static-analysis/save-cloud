@@ -17,8 +17,8 @@ rootProject.plugins.withType<NodeJsRootPlugin> {
 }
 
 dependencies {
-    implementation(projects.saveCloudCommon)
-    implementation(projects.saveFrontendCommon)
+    implementation(projects.common)
+    implementation(projects.frontendCommon)
 
     implementation(enforcedPlatform(libs.kotlin.wrappers.bom))
     implementation("org.jetbrains.kotlin-wrappers:kotlin-react")

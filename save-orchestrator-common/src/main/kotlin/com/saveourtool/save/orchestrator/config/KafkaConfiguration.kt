@@ -1,6 +1,6 @@
 package com.saveourtool.save.orchestrator.config
 
-import com.saveourtool.save.kafka.TestExecutionTaskDto
+import com.saveourtool.common.kafka.TestExecutionTaskDto
 import com.saveourtool.save.orchestrator.kafka.AgentKafkaListener
 import com.saveourtool.save.orchestrator.kafka.KafkaSender
 import org.apache.kafka.clients.admin.NewTopic

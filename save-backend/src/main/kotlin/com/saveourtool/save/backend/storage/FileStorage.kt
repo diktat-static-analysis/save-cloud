@@ -1,9 +1,9 @@
 package com.saveourtool.save.backend.storage
 
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.s3.S3Operations
-import com.saveourtool.save.storage.ReactiveStorageWithDatabase
-import com.saveourtool.save.utils.*
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.s3.S3Operations
+import com.saveourtool.common.storage.ReactiveStorageWithDatabase
+import com.saveourtool.common.utils.*
 
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux

@@ -1,12 +1,12 @@
 package com.saveourtool.save.demo.cpg.repository
 
-import com.saveourtool.save.demo.cpg.CpgGraph
+import com.saveourtool.common.demo.cpg.CpgGraph
+import com.saveourtool.common.utils.getLogger
+import com.saveourtool.common.utils.info
 import com.saveourtool.save.demo.cpg.config.ConfigProperties
 import com.saveourtool.save.demo.cpg.entity.DemoQuery
 import com.saveourtool.save.demo.cpg.entity.TreeSitterNode
 import com.saveourtool.save.demo.cpg.utils.*
-import com.saveourtool.save.utils.getLogger
-import com.saveourtool.save.utils.info
 
 import de.fraunhofer.aisec.cpg.TranslationResult
 import de.fraunhofer.aisec.cpg.frontends.Language

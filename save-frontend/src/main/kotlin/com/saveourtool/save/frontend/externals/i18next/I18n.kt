@@ -1,6 +1,6 @@
 package com.saveourtool.save.frontend.externals.i18next
 
-import com.saveourtool.save.frontend.PlatformLanguages
+import com.saveourtool.common.frontend.PlatformLanguages
 
 /**
  * Class that represents i18n object

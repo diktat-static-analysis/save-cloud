@@ -4,7 +4,7 @@
 
 package com.saveourtool.save.demo.config
 
-import com.saveourtool.save.s3.S3OperationsProperties
+import com.saveourtool.common.s3.S3OperationsProperties
 import io.fabric8.kubernetes.api.model.Quantity
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding

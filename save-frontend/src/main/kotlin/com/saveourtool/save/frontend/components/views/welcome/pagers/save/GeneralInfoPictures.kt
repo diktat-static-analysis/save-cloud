@@ -4,7 +4,7 @@
 
 package com.saveourtool.save.frontend.components.views.welcome.pagers.save
 
-import com.saveourtool.save.frontend.common.externals.animations.*
+import com.saveourtool.frontend.common.externals.animations.*
 import com.saveourtool.save.frontend.components.views.welcome.pagers.WelcomePager
 
 import js.core.jso

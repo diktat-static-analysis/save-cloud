@@ -1,9 +1,9 @@
 package com.saveourtool.save.test.analysis.algorithms
 
+import com.saveourtool.common.test.analysis.metrics.RegularTestMetrics
+import com.saveourtool.common.test.analysis.results.FlakyTest
+import com.saveourtool.common.test.analysis.results.IrregularTest
 import com.saveourtool.save.test.analysis.api.TestRuns
-import com.saveourtool.save.test.analysis.metrics.RegularTestMetrics
-import com.saveourtool.save.test.analysis.results.FlakyTest
-import com.saveourtool.save.test.analysis.results.IrregularTest
 
 /**
  * _Flip-rate_ based flaky test detection algorithm.

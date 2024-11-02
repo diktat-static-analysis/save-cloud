@@ -1,5 +1,6 @@
 package com.saveourtool.save.test.analysis.metrics
 
+import com.saveourtool.common.test.analysis.metrics.*
 import com.saveourtool.save.test.analysis.TestAnalysisApplication
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.assertj.core.api.Assertions.assertThat

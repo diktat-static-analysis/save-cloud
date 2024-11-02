@@ -4,7 +4,7 @@
 
 package com.saveourtool.save.orchestrator
 
-import com.saveourtool.save.agent.AgentEnvName
+import com.saveourtool.common.agent.AgentEnvName
 import com.saveourtool.save.orchestrator.config.ConfigProperties.AgentSettings
 
 import com.github.dockerjava.api.DockerClient

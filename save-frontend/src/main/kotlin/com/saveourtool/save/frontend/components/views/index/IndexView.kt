@@ -6,10 +6,10 @@
 
 package com.saveourtool.save.frontend.components.views.index
 
-import com.saveourtool.save.frontend.common.utils.Style
-import com.saveourtool.save.frontend.common.utils.UserInfoAwareProps
-import com.saveourtool.save.frontend.common.utils.particles
-import com.saveourtool.save.frontend.common.utils.useBackground
+import com.saveourtool.frontend.common.utils.Style
+import com.saveourtool.frontend.common.utils.UserInfoAwareProps
+import com.saveourtool.frontend.common.utils.particles
+import com.saveourtool.frontend.common.utils.useBackground
 import com.saveourtool.save.frontend.utils.*
 import js.core.jso
 import react.FC

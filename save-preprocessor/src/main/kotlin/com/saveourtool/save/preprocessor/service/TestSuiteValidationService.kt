@@ -1,17 +1,20 @@
 package com.saveourtool.save.preprocessor.service
 
+import com.saveourtool.common.test.TestSuiteValidationError
+import com.saveourtool.common.test.TestSuiteValidationResult
+import com.saveourtool.common.testsuite.TestSuiteDto
+import com.saveourtool.common.utils.getLogger
 import com.saveourtool.save.preprocessor.test.suite.TestSuiteValidator
-import com.saveourtool.save.test.TestSuiteValidationError
-import com.saveourtool.save.test.TestSuiteValidationResult
-import com.saveourtool.save.testsuite.TestSuiteDto
-import com.saveourtool.save.utils.getLogger
+
 import org.springframework.jmx.export.annotation.ManagedAttribute
 import org.springframework.jmx.export.annotation.ManagedResource
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.ParallelFlux
 import reactor.core.scheduler.Schedulers
+
 import java.lang.Runtime.getRuntime
+
 import kotlin.math.min
 
 /**

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+  <changeSet id="migration-from-save-to-cosv" author="frolov" context="prod">
+    <sql>
+      insert into cosv.cosv_file select * from save_cloud.cosv_file;
+      insert into cosv.raw_cosv_file select * from save_cloud.raw_cosv_file;
+      insert into cosv.cosv_generated_id select * from save_cloud.cosv_generated_id;
+      insert into cosv.vulnerability_metadata select * from save_cloud.vulnerability_metadata;
+      insert into cosv.vulnerability_metadata_project select * from save_cloud.vulnerability_metadata_project;
+      insert into cosv.lnk_vulnerability_metadata_tag select * from save_cloud.lnk_vulnerability_metadata_tag;
+      insert into cosv.lnk_vulnerability_metadata_user select * from save_cloud.lnk_vulnerability_metadata_user;
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

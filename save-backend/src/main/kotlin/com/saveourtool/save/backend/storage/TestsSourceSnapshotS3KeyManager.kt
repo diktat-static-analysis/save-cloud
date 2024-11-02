@@ -1,18 +1,18 @@
 package com.saveourtool.save.backend.storage
 
+import com.saveourtool.common.entities.TestSuitesSource
+import com.saveourtool.common.entities.TestsSourceSnapshot
+import com.saveourtool.common.entities.TestsSourceSnapshot.Companion.toEntity
+import com.saveourtool.common.storage.concatS3Key
+import com.saveourtool.common.storage.key.AbstractS3KeyDtoManager
+import com.saveourtool.common.test.TestsSourceSnapshotDto
+import com.saveourtool.common.utils.BlockingBridge
+import com.saveourtool.common.utils.getByIdOrNotFound
 import com.saveourtool.save.backend.configs.ConfigProperties
 import com.saveourtool.save.backend.repository.TestSuitesSourceRepository
 import com.saveourtool.save.backend.repository.TestsSourceSnapshotRepository
 import com.saveourtool.save.backend.service.ExecutionService
 import com.saveourtool.save.backend.service.TestSuitesService
-import com.saveourtool.save.entities.TestSuitesSource
-import com.saveourtool.save.entities.TestsSourceSnapshot
-import com.saveourtool.save.entities.TestsSourceSnapshot.Companion.toEntity
-import com.saveourtool.save.storage.concatS3Key
-import com.saveourtool.save.storage.key.AbstractS3KeyDtoManager
-import com.saveourtool.save.test.TestsSourceSnapshotDto
-import com.saveourtool.save.utils.BlockingBridge
-import com.saveourtool.save.utils.getByIdOrNotFound
 
 import org.springframework.stereotype.Component
 

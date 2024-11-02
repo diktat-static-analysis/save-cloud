@@ -6,8 +6,8 @@
 
 package com.saveourtool.save.frontend.components.basic.demo.management
 
-import com.saveourtool.save.demo.RunCommandPair
-import com.saveourtool.save.frontend.common.utils.buttonBuilder
+import com.saveourtool.common.demo.RunCommandPair
+import com.saveourtool.frontend.common.utils.buttonBuilder
 
 import react.FC
 import react.Props

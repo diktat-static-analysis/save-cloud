@@ -5,7 +5,7 @@ import com.saveourtool.save.agent.utils.updateFromEnv
 import com.saveourtool.save.core.config.LogType
 import com.saveourtool.save.core.logging.logType
 import com.saveourtool.save.reporter.Report
-import com.saveourtool.save.utils.fs
+import com.saveourtool.common.utils.fs
 import io.ktor.client.*
 import io.ktor.client.engine.mock.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -27,11 +27,11 @@ import kotlin.test.assertEquals
 @Suppress("WRONG_ORDER_IN_CLASS_LIKE_STRUCTURES")
 open class SaveAgentTest {
     init {
-        setenv(AgentEnvName.CONTAINER_ID.name, "agent-for-test")
-        setenv(AgentEnvName.CONTAINER_NAME.name, "save-agent-for-test")
-        setenv(AgentEnvName.HEARTBEAT_URL.name, HEARTBEAT_ENDPOINT.toLocalhostUrl())
-        setenv(AgentEnvName.CLI_COMMAND.name, "echo Doing nothing it test mode")
-        setenv(AgentEnvName.EXECUTION_ID.name, "1")
+        setenv(com.saveourtool.common.agent.AgentEnvName.CONTAINER_ID.name, "agent-for-test")
+        setenv(com.saveourtool.common.agent.AgentEnvName.CONTAINER_NAME.name, "save-agent-for-test")
+        setenv(com.saveourtool.common.agent.AgentEnvName.HEARTBEAT_URL.name, HEARTBEAT_ENDPOINT.toLocalhostUrl())
+        setenv(com.saveourtool.common.agent.AgentEnvName.CLI_COMMAND.name, "echo Doing nothing it test mode")
+        setenv(com.saveourtool.common.agent.AgentEnvName.EXECUTION_ID.name, "1")
     }
 
     @Suppress("MAGIC_NUMBER", "MagicNumber")
@@ -62,7 +62,9 @@ open class SaveAgentTest {
                 addHandler { request ->
                     when (request.url.encodedPath) {
                         HEARTBEAT_ENDPOINT -> respond(
-                            json.encodeToString(PolymorphicSerializer(HeartbeatResponse::class), ContinueResponse),
+                            json.encodeToString(PolymorphicSerializer(com.saveourtool.common.agent.HeartbeatResponse::class),
+                                com.saveourtool.common.agent.ContinueResponse
+                            ),
                             HttpStatusCode.OK,
                             headersOf(HttpHeaders.ContentType, ContentType.Application.Json.toString()),
                         )
@@ -102,23 +104,25 @@ open class SaveAgentTest {
     @Test
     fun `agent should send heartbeats`() {
         runBlocking {
-            saveAgentForTest.sendHeartbeat(ExecutionProgress(0, -1L))
+            saveAgentForTest.sendHeartbeat(com.saveourtool.common.agent.ExecutionProgress(0, -1L))
         }
     }
 
     @Test
     fun `should change state to FINISHED after SAVE CLI returns`() = runBlocking {
-        assertEquals(AgentState.BUSY, saveAgentForTest.state.get())
+        assertEquals(com.saveourtool.common.agent.AgentState.BUSY, saveAgentForTest.state.get())
         runBlocking {
             saveAgentForTest.run {
-                startSaveProcess(AgentRunConfig(
-                    cliArgs = "",
-                    executionDataUploadUrl = EXECUTION_DATA_ENDPOINT.toLocalhostUrl(),
-                    debugInfoUploadUrl = DEBUG_INFO_ENDPOINT.toLocalhostUrl()
-                ))
+                startSaveProcess(
+                    com.saveourtool.common.agent.AgentRunConfig(
+                        cliArgs = "",
+                        executionDataUploadUrl = EXECUTION_DATA_ENDPOINT.toLocalhostUrl(),
+                        debugInfoUploadUrl = DEBUG_INFO_ENDPOINT.toLocalhostUrl()
+                    )
+                )
             }
         }
-        assertEquals(AgentState.FINISHED, saveAgentForTest.state.get())
+        assertEquals(com.saveourtool.common.agent.AgentState.FINISHED, saveAgentForTest.state.get())
     }
 
     private fun String.toLocalhostUrl() = "http://localhost$this"

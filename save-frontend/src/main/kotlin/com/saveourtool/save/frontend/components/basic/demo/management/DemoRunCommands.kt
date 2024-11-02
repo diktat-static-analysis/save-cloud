@@ -6,12 +6,12 @@
 
 package com.saveourtool.save.frontend.components.basic.demo.management
 
-import com.saveourtool.save.demo.DemoDto
-import com.saveourtool.save.demo.RunCommandPair
-import com.saveourtool.save.frontend.common.externals.fontawesome.faEdit
-import com.saveourtool.save.frontend.common.externals.fontawesome.faPlus
-import com.saveourtool.save.frontend.common.utils.buttonBuilder
-import com.saveourtool.save.frontend.common.utils.useTooltip
+import com.saveourtool.common.demo.DemoDto
+import com.saveourtool.common.demo.RunCommandPair
+import com.saveourtool.frontend.common.externals.fontawesome.faEdit
+import com.saveourtool.frontend.common.externals.fontawesome.faPlus
+import com.saveourtool.frontend.common.utils.buttonBuilder
+import com.saveourtool.frontend.common.utils.useTooltip
 
 import react.*
 import react.dom.html.AutoComplete

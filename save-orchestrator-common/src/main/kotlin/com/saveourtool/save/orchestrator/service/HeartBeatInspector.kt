@@ -1,7 +1,7 @@
 package com.saveourtool.save.orchestrator.service
 
-import com.saveourtool.save.agent.Heartbeat
-import com.saveourtool.save.entities.AgentStatusDto
+import com.saveourtool.common.agent.Heartbeat
+import com.saveourtool.common.entities.AgentStatusDto
 import com.saveourtool.save.orchestrator.utils.AgentStatusInMemoryRepository
 
 import org.slf4j.LoggerFactory

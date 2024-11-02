@@ -4,18 +4,18 @@ import com.saveourtool.save.backend.SaveApplication
 import com.saveourtool.save.backend.repository.AgentRepository
 import com.saveourtool.save.backend.repository.AgentStatusRepository
 import com.saveourtool.save.backend.repository.ExecutionRepository
-import com.saveourtool.save.backend.repository.OrganizationRepository
-import com.saveourtool.save.backend.repository.ProjectRepository
 import com.saveourtool.save.backend.repository.TestExecutionRepository
-import com.saveourtool.save.backend.security.ProjectPermissionEvaluator
 import com.saveourtool.save.backend.utils.InfraExtension
 import com.saveourtool.save.backend.utils.postJsonAndAssert
-import com.saveourtool.save.entities.Execution
-import com.saveourtool.save.entities.Organization
-import com.saveourtool.save.entities.OrganizationStatus
-import com.saveourtool.save.entities.Project
-import com.saveourtool.save.utils.DATABASE_DELIMITER
-import com.saveourtool.save.v1
+import com.saveourtool.common.entities.Execution
+import com.saveourtool.common.entities.Organization
+import com.saveourtool.common.entities.OrganizationStatus
+import com.saveourtool.common.entities.Project
+import com.saveourtool.common.repository.OrganizationRepository
+import com.saveourtool.common.repository.ProjectRepository
+import com.saveourtool.common.security.ProjectPermissionEvaluator
+import com.saveourtool.common.utils.DATABASE_DELIMITER
+import com.saveourtool.common.v1
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -142,14 +142,14 @@ class DeleteEntitiesTest {
 
     private fun deleteExecutionsAndAssert(executionIds: List<Long>, assert: ResponseSpec.() -> Unit) {
         webClient.postJsonAndAssert(
-            uri = "/api/$v1/execution/delete?executionIds=${executionIds.joinToString(DATABASE_DELIMITER)}",
+            uri = "/api/${v1}/execution/delete?executionIds=${executionIds.joinToString(DATABASE_DELIMITER)}",
             assert = assert
         )
     }
 
     private fun deleteAllExecutionsAndAssert(name: String, organizationName: String, assert: ResponseSpec.() -> Unit) {
         webClient.postJsonAndAssert(
-            uri = "/api/$v1/execution/delete-all-except-contest?name=$name&organizationName=$organizationName",
+            uri = "/api/${v1}/execution/delete-all-except-contest?name=$name&organizationName=$organizationName",
             assert = assert
         )
     }

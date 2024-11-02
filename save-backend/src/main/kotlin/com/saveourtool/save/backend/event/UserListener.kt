@@ -1,12 +1,13 @@
 package com.saveourtool.save.backend.event
 
+import com.saveourtool.common.domain.Role
+import com.saveourtool.common.entities.Notification
+import com.saveourtool.common.entities.User
+import com.saveourtool.common.evententities.UserEvent
+import com.saveourtool.common.info.UserStatus
+import com.saveourtool.common.service.UserService
 import com.saveourtool.save.backend.service.NotificationService
-import com.saveourtool.save.backend.service.UserDetailsService
-import com.saveourtool.save.domain.Role
-import com.saveourtool.save.entities.Notification
-import com.saveourtool.save.entities.User
-import com.saveourtool.save.evententities.UserEvent
-import com.saveourtool.save.info.UserStatus
+
 import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Component
 
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Component
  */
 @Component
 class UserListener(
-    private val userDetailsService: UserDetailsService,
+    private val userDetailsService: UserService,
     private val notificationService: NotificationService,
 ) {
     /**

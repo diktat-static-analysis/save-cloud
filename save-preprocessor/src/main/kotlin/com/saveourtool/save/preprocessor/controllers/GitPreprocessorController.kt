@@ -1,12 +1,13 @@
 package com.saveourtool.save.preprocessor.controllers
 
-import com.saveourtool.save.entities.GitDto
+import com.saveourtool.common.entities.GitDto
+import com.saveourtool.common.utils.blockingToMono
+import com.saveourtool.common.utils.getLogger
+import com.saveourtool.common.utils.info
 import com.saveourtool.save.preprocessor.utils.detectBranchList
 import com.saveourtool.save.preprocessor.utils.detectDefaultBranchName
 import com.saveourtool.save.preprocessor.utils.detectTagList
-import com.saveourtool.save.utils.blockingToMono
-import com.saveourtool.save.utils.getLogger
-import com.saveourtool.save.utils.info
+
 import org.slf4j.Logger
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Mono

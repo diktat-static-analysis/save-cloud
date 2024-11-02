@@ -4,7 +4,7 @@
 
 package com.saveourtool.save.frontend.components.basic.demo.welcome
 
-import com.saveourtool.save.frontend.common.components.basic.markdown
+import com.saveourtool.frontend.common.components.basic.markdown
 
 import js.core.jso
 import react.FC

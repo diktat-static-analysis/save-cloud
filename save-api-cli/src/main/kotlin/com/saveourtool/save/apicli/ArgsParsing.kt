@@ -6,8 +6,8 @@
 
 package com.saveourtool.save.apicli
 
+import com.saveourtool.common.execution.TestingType
 import com.saveourtool.save.api.authorization.Authorization
-import com.saveourtool.save.execution.TestingType
 
 import org.slf4j.LoggerFactory
 

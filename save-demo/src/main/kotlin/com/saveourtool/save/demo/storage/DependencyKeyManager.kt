@@ -1,11 +1,12 @@
 package com.saveourtool.save.demo.storage
 
+import com.saveourtool.common.storage.concatS3Key
+import com.saveourtool.common.storage.key.AbstractS3KeyEntityManager
+import com.saveourtool.common.utils.BlockingBridge
 import com.saveourtool.save.demo.config.ConfigProperties
 import com.saveourtool.save.demo.entity.Dependency
 import com.saveourtool.save.demo.repository.DependencyRepository
-import com.saveourtool.save.storage.concatS3Key
-import com.saveourtool.save.storage.key.AbstractS3KeyEntityManager
-import com.saveourtool.save.utils.BlockingBridge
+
 import org.springframework.stereotype.Component
 
 /**

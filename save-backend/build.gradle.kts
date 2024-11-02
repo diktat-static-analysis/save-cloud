@@ -45,16 +45,17 @@ tasks.register<Copy>("copyLiquibase") {
 }
 
 dependencies {
-    implementation(projects.saveCloudCommon)
+    implementation(projects.common)
     implementation(projects.authenticationService)
     implementation(projects.testAnalysisCore)
-    implementation(projects.saveCosv)
     implementation(libs.save.common.jvm)
     implementation(libs.spring.boot.starter.quartz)
     implementation(libs.spring.boot.starter.security)
     implementation(libs.spring.security.core)
     implementation(libs.hibernate.micrometer)
-    implementation(libs.spring.cloud.starter.kubernetes.client.config)
+    implementation(libs.spring.cloud.starter.kubernetes.client.config) {
+        because("needed for kubernetes configs and secrets to be added as additional configurations")
+    }
     implementation(libs.reactor.extra)
     implementation(libs.arrow.kt.core)
     implementation(project.dependencies.platform(libs.aws.sdk.bom))

@@ -1,6 +1,7 @@
 package com.saveourtool.save.preprocessor.service
 
-import com.saveourtool.save.entities.GitDto
+import com.saveourtool.common.entities.GitDto
+import com.saveourtool.common.utils.*
 import com.saveourtool.save.preprocessor.common.CloneResult
 import com.saveourtool.save.preprocessor.common.GitRepositoryProcessor
 import com.saveourtool.save.preprocessor.config.ConfigProperties
@@ -8,17 +9,19 @@ import com.saveourtool.save.preprocessor.utils.GitCommitInfo
 import com.saveourtool.save.preprocessor.utils.cloneBranchToDirectory
 import com.saveourtool.save.preprocessor.utils.cloneCommitToDirectory
 import com.saveourtool.save.preprocessor.utils.cloneTagToDirectory
-import com.saveourtool.save.utils.*
+
 import org.eclipse.jgit.util.FileUtils
 import org.jetbrains.annotations.NonBlocking
 import org.slf4j.Logger
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
+
 import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+
 import kotlin.io.path.absolutePathString
 import kotlin.io.path.createDirectories
 

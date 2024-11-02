@@ -3,8 +3,8 @@ package com.saveourtool.save.orchestrator.docker
 import com.saveourtool.save.orchestrator.config.ConfigProperties
 import com.saveourtool.save.orchestrator.kubernetes.KubernetesManager
 import com.saveourtool.save.orchestrator.service.OrchestratorAgentService
-import com.saveourtool.save.utils.debug
-import com.saveourtool.save.utils.getLogger
+import com.saveourtool.common.utils.debug
+import com.saveourtool.common.utils.getLogger
 
 import io.fabric8.kubernetes.api.model.batch.v1.JobBuilder
 import io.fabric8.kubernetes.client.KubernetesClient

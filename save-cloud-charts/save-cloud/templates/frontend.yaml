@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    {{- include "common.labels" (merge (dict "service" .Values.frontend) .) | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: frontend
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        {{- include "pod.common.labels" (merge (dict "service" .Values.frontend ) .) | nindent 8 }}
+    spec:
+      restartPolicy: Always
+      {{- include "cnb.securityContext" . | nindent 6 }}
+      containers:
+        - name: frontend
+          {{- include "spring-boot.common" (merge (dict "service" .Values.frontend) .) | nindent 10 }}
+          env:
+            - name: PORT
+              value: '{{ .Values.frontend.containerPort | toString }}'
+          resources:
+            limits:
+              memory: 200M
+            requests:
+              memory: 100M
+---
+apiVersion: v1
+kind: Service
+metadata:
+{{- include "service.common.metadata" (dict "service" .Values.frontend) | nindent 2 }}
+spec:
+  ports:
+    {{- include "service.common.ports" (dict "service" .Values.frontend) | nindent 4 }}
+  selector:
+    {{- include "service.common.selectors" (dict "service" .Values.frontend) | nindent 4 }}

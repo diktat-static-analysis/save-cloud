@@ -4,15 +4,15 @@
 
 package com.saveourtool.save.demo.agent
 
+import com.saveourtool.common.demo.DemoAgentConfig
+import com.saveourtool.common.demo.DemoResult
+import com.saveourtool.common.demo.DemoRunRequest
+import com.saveourtool.common.demo.ServerConfiguration
+import com.saveourtool.common.utils.retry
 import com.saveourtool.save.core.config.LogType
 import com.saveourtool.save.core.logging.*
-import com.saveourtool.save.demo.DemoAgentConfig
-import com.saveourtool.save.demo.DemoResult
-import com.saveourtool.save.demo.DemoRunRequest
-import com.saveourtool.save.demo.ServerConfiguration
 import com.saveourtool.save.demo.agent.utils.getConfiguration
 import com.saveourtool.save.demo.agent.utils.setupEnvironment
-import com.saveourtool.save.utils.retry
 
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*

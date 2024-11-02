@@ -4,11 +4,11 @@
 
 package com.saveourtool.save.frontend.components.views.index
 
-import com.saveourtool.save.frontend.common.externals.fontawesome.faGithub
-import com.saveourtool.save.frontend.common.externals.fontawesome.fontAwesomeIcon
-import com.saveourtool.save.frontend.common.utils.buttonBuilder
+import com.saveourtool.common.validation.FrontendRoutes
+import com.saveourtool.frontend.common.externals.fontawesome.faGithub
+import com.saveourtool.frontend.common.externals.fontawesome.fontAwesomeIcon
+import com.saveourtool.frontend.common.utils.buttonBuilder
 import com.saveourtool.save.frontend.externals.i18next.useTranslation
-import com.saveourtool.save.validation.FrontendRoutes
 
 import js.core.jso
 import react.FC

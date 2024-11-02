@@ -2,12 +2,13 @@
 
 package com.saveourtool.save.frontend.components.views.contests
 
-import com.saveourtool.save.entities.contest.ContestSampleDto
-import com.saveourtool.save.entities.contest.ContestSampleFieldDto
-import com.saveourtool.save.entities.contest.ContestSampleFieldType
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.noopLoadingHandler
-import com.saveourtool.save.info.UserInfo
+import com.saveourtool.common.entities.contest.ContestSampleDto
+import com.saveourtool.common.entities.contest.ContestSampleFieldDto
+import com.saveourtool.common.entities.contest.ContestSampleFieldType
+import com.saveourtool.common.info.UserInfo
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.noopLoadingHandler
+
 import js.core.jso
 import react.FC
 import react.Props

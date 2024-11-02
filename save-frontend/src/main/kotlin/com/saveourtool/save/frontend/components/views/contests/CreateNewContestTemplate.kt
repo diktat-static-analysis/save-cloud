@@ -2,7 +2,7 @@
 
 package com.saveourtool.save.frontend.components.views.contests
 
-import com.saveourtool.save.validation.FrontendRoutes
+import com.saveourtool.common.validation.FrontendRoutes
 import js.core.jso
 import react.FC
 import react.Props

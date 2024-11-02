@@ -2,18 +2,18 @@
 
 package com.saveourtool.save.frontend.components.views.projectcollection
 
-import com.saveourtool.save.entities.ProjectDto
-import com.saveourtool.save.filters.ProjectFilter
-import com.saveourtool.save.frontend.common.components.RequestStatusContext
-import com.saveourtool.save.frontend.common.components.requestStatusContext
-import com.saveourtool.save.frontend.common.components.tables.TableProps
-import com.saveourtool.save.frontend.common.components.tables.columns
-import com.saveourtool.save.frontend.common.components.tables.tableComponent
-import com.saveourtool.save.frontend.common.components.tables.value
-import com.saveourtool.save.frontend.common.components.views.AbstractView
-import com.saveourtool.save.frontend.common.utils.*
-import com.saveourtool.save.frontend.common.utils.classLoadingHandler
-import com.saveourtool.save.info.UserInfo
+import com.saveourtool.common.entities.ProjectDto
+import com.saveourtool.common.filters.ProjectFilter
+import com.saveourtool.common.info.UserInfo
+import com.saveourtool.frontend.common.components.RequestStatusContext
+import com.saveourtool.frontend.common.components.requestStatusContext
+import com.saveourtool.frontend.common.components.tables.TableProps
+import com.saveourtool.frontend.common.components.tables.columns
+import com.saveourtool.frontend.common.components.tables.tableComponent
+import com.saveourtool.frontend.common.components.tables.value
+import com.saveourtool.frontend.common.components.views.AbstractView
+import com.saveourtool.frontend.common.utils.*
+import com.saveourtool.frontend.common.utils.classLoadingHandler
 
 import react.*
 import react.dom.html.ReactHTML.div

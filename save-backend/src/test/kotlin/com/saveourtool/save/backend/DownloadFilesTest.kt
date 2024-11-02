@@ -2,24 +2,26 @@ package com.saveourtool.save.backend
 
 import com.saveourtool.save.backend.configs.ConfigProperties
 import com.saveourtool.save.authservice.config.NoopWebSecurityConfig
-import com.saveourtool.save.backend.configs.WebConfig
 import com.saveourtool.save.backend.controllers.DownloadFilesController
 import com.saveourtool.save.backend.controllers.FileController
 import com.saveourtool.save.backend.controllers.internal.FileInternalController
-import com.saveourtool.save.backend.security.ProjectPermissionEvaluator
 import com.saveourtool.save.backend.service.*
 import com.saveourtool.save.backend.storage.*
 import com.saveourtool.save.backend.utils.mutateMockedUser
+import com.saveourtool.common.configs.WebConfig
 import com.saveourtool.save.core.result.DebugInfo
 import com.saveourtool.save.core.result.Pass
-import com.saveourtool.save.cosv.repository.*
-import com.saveourtool.save.domain.*
-import com.saveourtool.save.entities.*
-import com.saveourtool.save.permission.Permission
-import com.saveourtool.save.utils.BlockingBridge
-import com.saveourtool.save.utils.CONTENT_LENGTH_CUSTOM
-import com.saveourtool.save.utils.collectToInputStream
-import com.saveourtool.save.v1
+import com.saveourtool.common.domain.*
+import com.saveourtool.common.entities.*
+import com.saveourtool.common.permission.Permission
+import com.saveourtool.common.security.ProjectPermissionEvaluator
+import com.saveourtool.common.service.OrganizationService
+import com.saveourtool.common.service.ProjectService
+import com.saveourtool.common.service.UserService
+import com.saveourtool.common.utils.BlockingBridge
+import com.saveourtool.common.utils.CONTENT_LENGTH_CUSTOM
+import com.saveourtool.common.utils.collectToInputStream
+import com.saveourtool.common.v1
 import org.jetbrains.annotations.Blocking
 
 import org.junit.jupiter.api.Assertions
@@ -64,21 +66,13 @@ import kotlin.io.path.*
 @EnableConfigurationProperties(ConfigProperties::class)
 @MockBeans(
     MockBean(OrganizationService::class),
-    MockBean(UserDetailsService::class),
+    MockBean(UserService::class),
     MockBean(ExecutionService::class),
     MockBean(AgentService::class),
     MockBean(ProjectPermissionEvaluator::class),
     MockBean(DebugInfoStorage::class),
     MockBean(ExecutionInfoStorage::class),
-    MockBean(IBackendService::class),
-    MockBean(VulnerabilityMetadataRepository::class),
-    MockBean(LnkVulnerabilityMetadataTagRepository::class),
-    MockBean(LnkVulnerabilityMetadataUserRepository::class),
-    MockBean(VulnerabilityMetadataProjectRepository::class),
-    MockBean(RawCosvFileRepository::class),
-    MockBean(CosvFileRepository::class),
     MockBean(BlockingBridge::class),
-    MockBean(CosvGeneratedIdRepository::class),
 )
 class DownloadFilesTest {
     private val organization = Organization.stub(2).apply {
@@ -147,7 +141,7 @@ class DownloadFilesTest {
             .thenAnswer { Mono.just(testProject) }
 
         webTestClient.get()
-            .uri("/api/$v1/files/download?fileId={fileId}", file1.requiredId())
+            .uri("/api/${v1}/files/download?fileId={fileId}", file1.requiredId())
             .accept(MediaType.APPLICATION_OCTET_STREAM)
             .exchange()
             .expectStatus()
@@ -158,7 +152,7 @@ class DownloadFilesTest {
             }
 
         webTestClient.get()
-            .uri("/api/$v1/files/{organizationName}/{projectName}/list", testProject.organization.name, testProject.name)
+            .uri("/api/${v1}/files/{organizationName}/{projectName}/list", testProject.organization.name, testProject.name)
             .exchange()
             .expectStatus()
             .isOk
@@ -174,7 +168,7 @@ class DownloadFilesTest {
     @Test
     fun `should return 404 for non-existent files`() {
         webTestClient.get()
-            .uri("/api/$v1/files/download/invalid-name")
+            .uri("/api/${v1}/files/download/invalid-name")
             .exchange()
             .expectStatus()
             .isNotFound
@@ -206,7 +200,7 @@ class DownloadFilesTest {
             .build()
 
         webTestClient.post()
-            .uri("/api/$v1/files/Huawei/huaweiName/upload")
+            .uri("/api/${v1}/files/Huawei/huaweiName/upload")
             .contentType(MediaType.MULTIPART_FORM_DATA)
             .body(BodyInserters.fromMultipartData(body))
             .header(CONTENT_LENGTH_CUSTOM, file.fileSize().toString())

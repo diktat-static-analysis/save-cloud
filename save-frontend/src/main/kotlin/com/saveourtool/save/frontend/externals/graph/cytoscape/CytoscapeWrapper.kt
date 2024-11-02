@@ -2,8 +2,8 @@
 
 package com.saveourtool.save.frontend.externals.graph.cytoscape
 
-import com.saveourtool.save.demo.cpg.cytoscape.CytoscapeGraph
-import com.saveourtool.save.demo.cpg.cytoscape.CytoscapeLayout
+import com.saveourtool.common.demo.cpg.cytoscape.CytoscapeGraph
+import com.saveourtool.common.demo.cpg.cytoscape.CytoscapeLayout
 
 import react.*
 import web.cssom.*

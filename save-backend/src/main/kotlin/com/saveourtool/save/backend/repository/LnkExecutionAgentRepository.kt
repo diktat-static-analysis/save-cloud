@@ -1,7 +1,7 @@
 package com.saveourtool.save.backend.repository
 
-import com.saveourtool.save.entities.LnkExecutionAgent
-import com.saveourtool.save.spring.repository.BaseEntityRepository
+import com.saveourtool.common.entities.LnkExecutionAgent
+import com.saveourtool.common.spring.repository.BaseEntityRepository
 
 /**
  * Repository of [LnkExecutionAgent]

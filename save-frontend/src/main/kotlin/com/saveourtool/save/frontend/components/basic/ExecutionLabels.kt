@@ -7,14 +7,14 @@
 
 package com.saveourtool.save.frontend.components.basic
 
-import com.saveourtool.save.execution.ExecutionDto
-import com.saveourtool.save.execution.ExecutionStatus
-import com.saveourtool.save.frontend.common.externals.fontawesome.faRedo
-import com.saveourtool.save.frontend.common.externals.fontawesome.fontAwesomeIcon
-import com.saveourtool.save.utils.calculateRate
-import com.saveourtool.save.utils.getPrecisionRate
-import com.saveourtool.save.utils.getRecallRate
-import com.saveourtool.save.utils.isValidScore
+import com.saveourtool.common.execution.ExecutionDto
+import com.saveourtool.common.execution.ExecutionStatus
+import com.saveourtool.common.utils.calculateRate
+import com.saveourtool.common.utils.getPrecisionRate
+import com.saveourtool.common.utils.getRecallRate
+import com.saveourtool.common.utils.isValidScore
+import com.saveourtool.frontend.common.externals.fontawesome.faRedo
+import com.saveourtool.frontend.common.externals.fontawesome.fontAwesomeIcon
 
 import js.core.jso
 import react.ChildrenBuilder

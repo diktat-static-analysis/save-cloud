@@ -1,16 +1,15 @@
 package com.saveourtool.save.backend.service
 
+import com.saveourtool.common.entities.TestSuite
+import com.saveourtool.common.entities.TestSuite.Companion.toEntity
+import com.saveourtool.common.entities.TestsSourceSnapshot
+import com.saveourtool.common.filters.TestSuiteFilter
+import com.saveourtool.common.permission.Rights
+import com.saveourtool.common.testsuite.TestSuiteDto
+import com.saveourtool.common.utils.orNotFound
 import com.saveourtool.save.backend.repository.TestSuiteRepository
-import com.saveourtool.save.entities.TestSuite
-import com.saveourtool.save.entities.TestSuite.Companion.toEntity
-import com.saveourtool.save.entities.TestsSourceSnapshot
-import com.saveourtool.save.filters.TestSuiteFilter
-import com.saveourtool.save.permission.Rights
-import com.saveourtool.save.testsuite.TestSuiteDto
 
-import com.saveourtool.save.utils.orNotFound
 import org.springframework.context.annotation.Lazy
-
 import org.springframework.data.domain.Example
 import org.springframework.data.domain.ExampleMatcher
 import org.springframework.data.repository.findByIdOrNull

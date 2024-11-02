@@ -4,27 +4,27 @@
 
 package com.saveourtool.save.frontend.components.views
 
-import com.saveourtool.save.domain.TestResultStatus
-import com.saveourtool.save.execution.ExecutionDto
-import com.saveourtool.save.execution.ExecutionStatus
-import com.saveourtool.save.filters.ExecutionFilter
-import com.saveourtool.save.frontend.common.components.RequestStatusContext
-import com.saveourtool.save.frontend.common.components.modal.displayModal
-import com.saveourtool.save.frontend.common.components.modal.mediumTransparentModalStyle
-import com.saveourtool.save.frontend.common.components.requestStatusContext
-import com.saveourtool.save.frontend.common.components.tables.TableProps
-import com.saveourtool.save.frontend.common.components.tables.columns
-import com.saveourtool.save.frontend.common.components.tables.tableComponent
-import com.saveourtool.save.frontend.common.components.tables.value
-import com.saveourtool.save.frontend.common.components.views.AbstractView
-import com.saveourtool.save.frontend.common.externals.fontawesome.faCheck
-import com.saveourtool.save.frontend.common.externals.fontawesome.faExclamationTriangle
-import com.saveourtool.save.frontend.common.externals.fontawesome.faSpinner
-import com.saveourtool.save.frontend.common.externals.fontawesome.fontAwesomeIcon
-import com.saveourtool.save.frontend.common.themes.Colors
-import com.saveourtool.save.frontend.common.utils.*
+import com.saveourtool.common.domain.TestResultStatus
+import com.saveourtool.common.execution.ExecutionDto
+import com.saveourtool.common.execution.ExecutionStatus
+import com.saveourtool.common.filters.ExecutionFilter
+import com.saveourtool.common.utils.DATABASE_DELIMITER
+import com.saveourtool.frontend.common.components.RequestStatusContext
+import com.saveourtool.frontend.common.components.modal.displayModal
+import com.saveourtool.frontend.common.components.modal.mediumTransparentModalStyle
+import com.saveourtool.frontend.common.components.requestStatusContext
+import com.saveourtool.frontend.common.components.tables.TableProps
+import com.saveourtool.frontend.common.components.tables.columns
+import com.saveourtool.frontend.common.components.tables.tableComponent
+import com.saveourtool.frontend.common.components.tables.value
+import com.saveourtool.frontend.common.components.views.AbstractView
+import com.saveourtool.frontend.common.externals.fontawesome.faCheck
+import com.saveourtool.frontend.common.externals.fontawesome.faExclamationTriangle
+import com.saveourtool.frontend.common.externals.fontawesome.faSpinner
+import com.saveourtool.frontend.common.externals.fontawesome.fontAwesomeIcon
+import com.saveourtool.frontend.common.themes.Colors
+import com.saveourtool.frontend.common.utils.*
 import com.saveourtool.save.frontend.externals.calendar.calendar
-import com.saveourtool.save.utils.DATABASE_DELIMITER
 
 import js.core.jso
 import react.*

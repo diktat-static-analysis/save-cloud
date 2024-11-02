@@ -1,7 +1,8 @@
 package com.saveourtool.save.demo
 
+import com.saveourtool.common.s3.DefaultS3Configuration
 import com.saveourtool.save.demo.config.ConfigProperties
-import com.saveourtool.save.s3.DefaultS3Configuration
+
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.EnableConfigurationProperties
