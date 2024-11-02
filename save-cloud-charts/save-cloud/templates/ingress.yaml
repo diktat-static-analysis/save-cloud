@@ -39,5 +39,14 @@ spec:
                   name: {{ .Values.grafana.service.portName }}
             pathType: Prefix
             path: '/grafana'
+    - http:
+        paths:
+          - backend:
+              service:
+                name: {{ .Values.neo4j.browser.serviceName }}
+                port:
+                  number: {{ .Values.neo4j.browser.port }}
+            pathType: Prefix
+            path: '/neo4j/browser'
 
 {{- end }}

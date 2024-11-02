@@ -187,6 +187,9 @@ loki:
 
 neo4j:
   enabled: true
+  browser:
+    serviceName: http://save-cloud
+    port: 7474
   ingress:
     enabled: false
   svc:

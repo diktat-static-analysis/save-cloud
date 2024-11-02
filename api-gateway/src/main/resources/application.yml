@@ -13,8 +13,6 @@ gateway:
     url: http://demo:5421
   demo-cpg:
     url: http://demo-cpg:5500
-  neo4j-browser:
-    url: http://save-cloud:7474
 
 management:
   endpoints:
@@ -58,12 +56,6 @@ spring:
             # If SESSION cookie is passed to downstream, it is then removed, because downstream discards it
             - RemoveRequestHeader=Cookie
             - AuthorizationHeaders=
-        - id: neo4j_route
-          uri: ${gateway.neo4j-browser.url}
-          predicates:
-            - Path=/neo4j/browser/**
-          filters:
-            - StripPrefix=1
         - id: resource_route
           uri: ${gateway.frontend.url}
           predicates:
