@@ -2,7 +2,7 @@
 kotlin = "1.9.25"
 jetbrains-annotations = "26.0.1"
 save-cli = "0.3.10"
-ktor = "2.3.6"
+ktor = "3.0.1"
 okio = "3.3.0"
 serialization = "1.6.3"
 kotlinx-datetime = "0.5.0"
