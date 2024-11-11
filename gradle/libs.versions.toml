@@ -37,7 +37,7 @@ spotless = "6.22.0"
 fabric8 = "6.9.2"
 arrow-kt = "1.2.1"
 publish = "2.0.0"
-cpg = "7.1.2"
+cpg = "8.3.0"
 # should be taken from cpg
 cpg-neo4j-ogm = { strictly = "4.0.6" }
 cpg-neo4j-java-driver = { strictly = "5.7.0" }
